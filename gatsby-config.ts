@@ -1,5 +1,9 @@
 import type { GatsbyConfig } from "gatsby";
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `roots-demo`,
@@ -12,8 +16,8 @@ const config: GatsbyConfig = {
   plugins: [{
     resolve: 'gatsby-source-contentful',
     options: {
-      "accessToken": "aWtVDJdcgv7-Q2ddH3wPha1sVnAtE9QGCgPG4d8E3Pc",
-      "spaceId": ""
+      "accessToken": process.env.CONTENTFUL_ACCESS_TOKEN,      
+      "spaceId": "5cz37cqc4ngx"
     }
   }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sass"]
 };
