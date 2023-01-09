@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql, HeadFC, PageProps } from "gatsby"
 
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import Layout from "../components/layout";
 
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
@@ -22,9 +23,11 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
 
   return (
-    <main>
-      {data?.allContentfulPost?.nodes?.map(post => (<PostItem key={post.id} post={post} />))}
-    </main>
+    <Layout>
+      <>
+        {data?.allContentfulPost?.nodes?.map(post => (<PostItem key={post.id} post={post} />))}
+      </>
+    </Layout>
   )
 }
 
