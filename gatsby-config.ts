@@ -19,7 +19,20 @@ const config: GatsbyConfig = {
       "accessToken": process.env.CONTENTFUL_ACCESS_TOKEN,      
       "spaceId": "5cz37cqc4ngx"
     }
-  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sass", "gatsby-plugin-netlify"]
+  }, 
+  {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: `Roots in the Woods demo`,
+      short_name: `Sydney`,
+      start_url: `/`,
+      background_color: `#000000`,
+      theme_color: `#ffffff`,
+      display: `standalone`,
+      icon: 'src/images/icon.png',
+    },
+  },
+  "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sass", "gatsby-plugin-netlify"]
 };
 
 export default config;
