@@ -25,7 +25,7 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   return (
     <Layout>
       <>
-        {data?.allContentfulPost?.nodes?.map(post => (<PostItem key={post.id} post={post} />))}
+        {data?.posts?.nodes?.map(post => (<PostItem key={post.id} post={post} />))}
       </>
     </Layout>
   )
@@ -37,23 +37,27 @@ export const Head: HeadFC = () => <title>Roots in the Woods</title>
 
 
 export const query = graphql`
-  query IndexPage {
-    allContentfulPost {
-      nodes {
+ query IndexPage {
+  posts: allContentfulPost(filter: {node_locale: {eq: "sl"}}) {
+    edges {
+      node {
         id
         title
-        text {
-          raw
+        node_locale
+        gallery {
+          id
+          url
+          title
         }
         thumbnail {
           id
           url
           title
         }
-        gallery {
-          id
-          url
+        text {
+          raw
         }
       }
     }
+  }
 }`
