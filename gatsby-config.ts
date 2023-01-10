@@ -16,10 +16,10 @@ const config: GatsbyConfig = {
   plugins: [{
     resolve: 'gatsby-source-contentful',
     options: {
-      "accessToken": process.env.CONTENTFUL_ACCESS_TOKEN,      
+      "accessToken": process.env.CONTENTFUL_ACCESS_TOKEN,
       "spaceId": "5cz37cqc4ngx"
     }
-  }, 
+  },
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
@@ -31,8 +31,8 @@ const config: GatsbyConfig = {
       display: `standalone`,
       icon: 'src/images/icon.png',
     },
-  },
-  "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-sass", "gatsby-plugin-netlify"]
+  }, "gatsby-plugin-netlify",
+    `gatsby-plugin-image`, 'gatsby-plugin-sharp']
 };
 
 export default config;
