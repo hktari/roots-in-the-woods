@@ -4,7 +4,7 @@ import Header from '../header/header'
 import '../../css/main.scss'
 
 type Props = {
-    children: React.ReactElement
+    children: React.ReactNode
 }
 
 const Layout = ({ children }: Props) => {
