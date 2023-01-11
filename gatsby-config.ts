@@ -32,7 +32,7 @@ const config: GatsbyConfig = {
       icon: 'src/images/icon.png',
     },
   }, "gatsby-plugin-netlify",
-    `gatsby-plugin-image`, 'gatsby-plugin-sharp']
+    `gatsby-plugin-image`, 'gatsby-plugin-sharp', 'gatsby-plugin-sass']
 };
 
 export default config;
