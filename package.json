@@ -18,6 +18,8 @@
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.0.2",
     "@netlify/plugin-gatsby": "^3.5.0",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.3",
     "contentful": "^9.2.15",
     "gatsby": "^4.5.4",
     "gatsby-plugin-image": "^2.25.0",

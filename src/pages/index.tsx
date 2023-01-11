@@ -1,8 +1,9 @@
 import * as React from "react"
 import { graphql, HeadFC, PageProps } from "gatsby"
-
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Layout from "../components/layout/layout";
+
+import './index.scss'
 
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
@@ -25,6 +26,9 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   return (
     <Layout>
       <>
+        <button className="btn btn-primary btn-lg">hello</button>
+      
+        <i className="bi-alarm"></i>
         {data?.allContentfulPost?.nodes?.map(post => (<PostItem key={post.id} post={post} />))}
       </>
     </Layout>
