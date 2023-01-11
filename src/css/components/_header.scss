@@ -1,4 +1,18 @@
 
+.c-header{
+    height: 450px;
+    position: relative;
+}
+
 .c-header__img{
-    @extend .img-fluid;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.c-header__navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 }

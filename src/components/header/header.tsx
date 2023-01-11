@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from '../navbar/navbar'
-import headerImage from '../../images/roots-banner.jpeg'
+import headerImage from '../../images/roots-banner-2023.jpg'
 
 type Props = {}
 
