@@ -1,0 +1,22 @@
+.c-reggae-seperator {
+    height: 150px;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    filter: sepia(60%);
+}
+
+.c-reggae-seperator__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0% 40%;
+}
+
+@include media-breakpoint-up(md) {
+    .c-reggae-seperator {
+        height: 300px;
+    }
+
+}

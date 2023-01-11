@@ -4,6 +4,7 @@ import Layout from "../components/layout/layout";
 import PostItem from "../components/post-item";
 import AboutSection from "../components/index/about-section";
 import LocationSection from "../components/index/location-section";
+import ReggaeSeperator from "../components/reggae-seperator";
 
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
@@ -11,6 +12,8 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
     <Layout>
 
       <AboutSection />
+
+      <ReggaeSeperator />
 
       <LocationSection />
       <br />

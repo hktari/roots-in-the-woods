@@ -7,7 +7,7 @@ type Props = {}
 
 const AboutSection = (props: Props) => {
     return (
-        <section className="container-md mt-5">
+        <section>
             <h2 className="h1">Reggae and Dub Festival</h2>
 
             <div className="row">

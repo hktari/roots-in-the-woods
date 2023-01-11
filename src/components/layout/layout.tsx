@@ -11,7 +11,9 @@ const Layout = ({ children }: Props) => {
     return (
         <main className='c-page'>
             <Header />
-            {children}
+            <div className="container-md">
+                {children}
+            </div>
         </main>
     )
 }
