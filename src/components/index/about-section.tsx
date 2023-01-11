@@ -7,22 +7,23 @@ type Props = {}
 
 const AboutSection = (props: Props) => {
     return (
-
-        <section className="o-section c-about">
-            <h2 className="o-section__title">Reggae and Dub Festival</h2>
+        <section className="container-md mt-5">
+            <h2 className="h1">Reggae and Dub Festival</h2>
 
             <div className="row">
-                <div className="o-section__col">
-                    <p className="o-section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum magni possimus nobis odio, voluptate vel enim dolorem dolores non vitae rem quos provident quas itaque nesciunt quibusdam mollitia, quisquam eveniet.</p>
+                <div className="col-12 col-md-6 mt-3 mt-md-0">
+                    <p className="fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum magni possimus nobis odio, voluptate vel enim dolorem dolores non vitae rem quos provident quas itaque nesciunt quibusdam mollitia, quisquam eveniet.</p>
                 </div>
-                <div className="o-section__col o-section_col--full-width-mobile">
-                    <img src={aboutImg} alt="" className="o-section__img" />
+                <div className="col-12 col-md-6 mt-3 mt-md-0 px-0">
+                    <img src={aboutImg} alt="" className="img-fluid" />
                 </div>
-                <div className="o-section__col">
-                    <p className="o-section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum magni possimus nobis odio, voluptate vel enim dolorem dolores non vitae rem quos provident quas itaque nesciunt quibusdam mollitia, quisquam eveniet.</p>
+            </div>
+            <div className="row mt-md-5">
+                <div className="col-12 col-md-6 mt-3 mt-md-0 px-4 order-md-2">
+                    <p className="fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum magni possimus nobis odio, voluptate vel enim dolorem dolores non vitae rem quos provident quas itaque nesciunt quibusdam mollitia, quisquam eveniet.</p>
                 </div>
-                <div className="o-section__col o-section_col--full-width-mobile">
-                    <img src={aboutImgTwo} alt="" className="o-section__img" />
+                <div className="col-12 col-md-6 mt-3 mt-md-0 px-0 order-md-1">
+                    <img src={aboutImgTwo} alt="" className="img-fluid" />
                 </div>
             </div>
 
