@@ -1,0 +1,20 @@
+.o-section{
+    @extend .container-md;
+}
+
+.o-section__col{
+    @extend .col-12, .col-md-6;
+}
+
+.o-section_col--full-width-mobile{
+    @extend .px-0;
+}
+
+.o-section__text{
+    @extend .mt-3, .mt-md-0, .fs-4;
+}
+
+.o-section__img{
+    @extend .img-fluid;
+}
+
