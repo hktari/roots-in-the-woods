@@ -1,15 +1,13 @@
 import React from 'react'
-import NavBar from '../navbar'
-import './header.scss'
+import NavBar from '../navbar/navbar'
+import headerImage from '../../images/roots-banner.jpeg'
 
 type Props = {}
 
 const Header = (props: Props) => {
     return (
         <header className='c-header'>
-            <h1>
-                Roots in the Woods
-            </h1>
+            <img className='c-header__img' src={headerImage} alt="" />
             <NavBar />
         </header>
     )

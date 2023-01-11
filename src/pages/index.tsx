@@ -3,8 +3,6 @@ import { graphql, HeadFC, PageProps } from "gatsby"
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Layout from "../components/layout/layout";
 
-import './index.scss'
-
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
   const PostItem = ({ post }: ContentfulPost) => {
