@@ -41,29 +41,73 @@ const ActivitiesSection = (props: Props) => {
         ]
     }
 
+    const RenderCarouselInner = () => (
+        <>
+
+        </>
+    );
+
     return (
         <section>
             <h2 className="h1">
                 Activities
             </h2>
 
-            <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
+            {/* desktop */}
+            <div id="carouselDesktop" className="carousel slide d-none d-md-block" data-bs-ride="carousel">
                 <div className="carousel-inner">
-                    {data.activities.map((activity, idx) => (
-                        <div className="carousel-item active" data-bs-interval="3000">
-                            <ActivityItem activity={activity} />
-                        </div>
-                    ))}
+                    {
+                        data.activities
+                            .reduce((group: any[], activity, idx) => {
+                                const groupIdx = idx % 2;
+                                group[`${groupIdx}`] = group[`${groupIdx}`] ?? [];
+                                group[`${groupIdx}`].push(activity);
+                                return group;
+                            }, [])
+                            .map((group: any, groupIdx) => (
+                                <div className={`carousel-item ${groupIdx === 0 ? 'active' : ''}`}>
+                                    <div className="row">
+                                        {group.map((activity: any) => (
+                                            <div className="col-6">
+                                                <ActivityItem activity={activity} />
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))
+                    }
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselDesktop" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselDesktop" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
             </div>
+
+            {/* mobile */}
+            <div id="carouselMobile" className="carousel slide d-md-none" data-bs-ride="carousel">
+                <div className="carousel-inner ">
+                    {
+                        data.activities.map((activity, idx) => (
+                            <div className={`carousel-item ${idx === 0 ? 'active' : ''}`} data-bs-interval="2000">
+                                <ActivityItem activity={activity} />
+                            </div>
+                        ))
+                    }
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselMobile" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselMobile" data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
+                </button>
+            </div>
+
         </section>
     )
 }
