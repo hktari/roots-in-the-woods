@@ -57,6 +57,7 @@ const ActivitiesSection = (props: Props) => {
             <div id="carouselDesktop" className="carousel slide d-none d-md-block" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     {
+                        // make groups of two
                         data.activities
                             .reduce((group: any[], activity, idx) => {
                                 const groupIdx = idx % 2;
