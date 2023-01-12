@@ -5,18 +5,28 @@ import PostItem from "../components/post-item";
 import AboutSection from "../components/index/about-section";
 import LocationSection from "../components/index/location-section";
 import ReggaeSeperator from "../components/reggae-seperator";
+import ActivitiesSection from "../components/index/activities-section";
 
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
   return (
     <Layout>
 
+      <br />
+
       <AboutSection />
 
       <ReggaeSeperator />
 
       <LocationSection />
+
       <br />
+      <br />
+
+      <ActivitiesSection />
+
+      <br />
+
       <br />
       <br />
 
