@@ -18,6 +18,7 @@
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.0.2",
     "@netlify/plugin-gatsby": "^3.5.0",
+    "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
     "contentful": "^9.2.15",

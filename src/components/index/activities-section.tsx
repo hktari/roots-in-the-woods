@@ -6,6 +6,7 @@ import activity3Image from '../../images/activity-3.jpg'
 import activity4Image from '../../images/activity-4.jpg'
 import activity5Image from '../../images/activity-5.jpg'
 import activity6Image from '../../images/activity-6.jpg'
+import ActivityItem from '../activity-item'
 import InfoItem from '../info-item'
 
 
@@ -46,18 +47,13 @@ const ActivitiesSection = (props: Props) => {
                 Activities
             </h2>
 
-
             <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
-                    <div className="carousel-item active" data-bs-interval="10000">
-                        <img src="..." className="d-block w-100" alt="...">
-                    </div>
-                    <div className="carousel-item" data-bs-interval="2000">
-                        <img src="..." className="d-block w-100" alt="...">
-                    </div>
-                    <div className="carousel-item">
-                        <img src="..." className="d-block w-100" alt="...">
-                    </div>
+                    {data.activities.map((activity, idx) => (
+                        <div className="carousel-item active" data-bs-interval="3000">
+                            <ActivityItem activity={activity} />
+                        </div>
+                    ))}
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -67,10 +63,6 @@ const ActivitiesSection = (props: Props) => {
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
-            </div>
-
-            <div className="row">
-                {data.activities.map(activity => ())}
             </div>
         </section>
     )
