@@ -6,11 +6,10 @@ type Props = {}
 
 const LocationSection = (props: Props) => {
     return (
-        <section className='mt-4'>
-
+        <section className='c-section mt-4'>
             <div className="row">
                 <div className="col-12 col-md-6 px-md-4">
-                    <h2 className="h1">
+                    <h2 className="c-section__title">
                         <i className="bi bi-geo-alt-fill fs-3 me-2"></i>
                         Where ?
                     </h2>
