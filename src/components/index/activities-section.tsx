@@ -54,7 +54,7 @@ const ActivitiesSection = (props: Props) => {
             </h2>
 
             {/* desktop */}
-            <div id="carouselDesktop" className="carousel slide d-none d-md-block" data-bs-ride="carousel">
+            <div id="carouselDesktop" className="carousel slide d-none d-md-block" data-bs-ride="true">
                 <div className="carousel-inner">
                     {
                         // make groups of two
@@ -66,10 +66,10 @@ const ActivitiesSection = (props: Props) => {
                                 return group;
                             }, [])
                             .map((group: any, groupIdx) => (
-                                <div className={`carousel-item ${groupIdx === 0 ? 'active' : ''}`}>
+                                <div key={groupIdx} className={`carousel-item ${groupIdx === 0 ? 'active' : ''}`} data-bs-interval="6000">
                                     <div className="row">
                                         {group.map((activity: any) => (
-                                            <div className="col-6">
+                                            <div key={activity.title} className="col-6">
                                                 <ActivityItem activity={activity} />
                                             </div>
                                         ))}
@@ -93,7 +93,7 @@ const ActivitiesSection = (props: Props) => {
                 <div className="carousel-inner ">
                     {
                         data.activities.map((activity, idx) => (
-                            <div className={`carousel-item ${idx === 0 ? 'active' : ''}`} data-bs-interval="2000">
+                            <div key={activity.title} className={`carousel-item ${idx === 0 ? 'active' : ''}`} data-bs-interval="2000">
                                 <ActivityItem activity={activity} />
                             </div>
                         ))

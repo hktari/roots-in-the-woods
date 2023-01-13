@@ -34,7 +34,7 @@ const InfoSection = (props: InfoSectionProps) => {
 
       <div className="c-floating-layout">
         {data.info.map(info => (
-          <div className="c-floating-layout__item">
+          <div key={info.title} className="c-floating-layout__item">
             <InfoItem info={info} />
           </div>
         ))}
