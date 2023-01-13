@@ -22,7 +22,10 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
       <LocationSection />
 
-      <ReggaeSeperator />
+      <div className="d-md-none">
+        <ReggaeSeperator />
+      </div>
+
       <ActivitiesSection />
 
       <br />

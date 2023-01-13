@@ -49,9 +49,9 @@ const ActivitiesSection = (props: Props) => {
 
     return (
         <section>
-            {/* <h2 className="h1">
+            <h2 className="h1 d-none d-md-block">
                 Activities
-            </h2> */}
+            </h2>
 
             {/* desktop */}
             <div id="carouselDesktop" className="carousel slide d-none d-md-block" data-bs-ride="true">

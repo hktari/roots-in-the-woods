@@ -22,5 +22,6 @@
 @include media-breakpoint-up(md) {
     .c-reggae-seperator {
         height: 300px;
+        position: static;
     }
 }
