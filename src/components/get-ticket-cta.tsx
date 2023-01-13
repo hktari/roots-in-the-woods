@@ -10,7 +10,11 @@ const GetTicketCta = (props: Props) => {
             <div className="col px-0">
                 <div className='c-get-ticket-cta'>
                     <img className='c-get-ticket-cta__image' src={soundSystemImage} alt="sound system" />
-                    <button className="c-get-ticket-cta__btn c-button-link">GET TICKET</button>
+                    <button className="c-get-ticket-cta__btn c-button-link">
+                        <a href="https://fienta.com/roots-in-the-woods-2023">
+                            GET TICKET
+                        </a>
+                    </button>
                 </div>
             </div>
         </div>

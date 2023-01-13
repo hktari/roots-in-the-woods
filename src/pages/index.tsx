@@ -34,6 +34,9 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
       <GetTicketCta />
 
 
+      <br />
+      <br />
+
     </Layout>
   )
 }

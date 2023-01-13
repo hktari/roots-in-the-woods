@@ -33,7 +33,7 @@ const InfoSection = (props: InfoSectionProps) => {
         Amenities
       </h2>
 
-      <div className="c-floating-layout">
+      <div className="c-floating-layout clearfix">
         {data.info.map(info => (
           <div key={info.title} className="c-floating-layout__item">
             <InfoItem info={info} />
