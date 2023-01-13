@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../header/header'
 
 import '../../css/main.scss'
+import Footer from '../footer'
 
 type Props = {
     children: React.ReactNode
@@ -14,6 +15,8 @@ const Layout = ({ children }: Props) => {
             <div className="container-md">
                 {children}
             </div>
+
+            <Footer />
         </main>
     )
 }
