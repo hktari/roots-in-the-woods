@@ -14,7 +14,11 @@ const LocationSection = (props: Props) => {
                         Where ?
                     </h2>
                     <p className='fs-4'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, fuga facere cupiditate rem blanditiis distinctio?</p>
-                    <button className='btn btn-primary w-100 btn-lg'><a className='text-white text-decoration-none' href="https://goo.gl/maps/TjAbVy584FnfvFth8">Show on map</a></button>
+                    <button className='btn btn-primary w-100 btn-lg c-button-link'>
+                        <a href="https://goo.gl/maps/TjAbVy584FnfvFth8">
+                            SHOW ON MAP
+                        </a>
+                    </button>
                 </div>
 
                 <div className="col-12 col-md-6 px-0 mt-3 mt-md-0">

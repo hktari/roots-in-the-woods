@@ -1,0 +1,11 @@
+.c-button-link {
+    @extend .btn, .btn-primary, .btn-lg, .px-4, .py-3;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    color: #fff;
+    
+    &>a {
+        color: #fff;
+        text-decoration: none;
+    }
+}

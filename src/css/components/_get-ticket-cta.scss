@@ -29,13 +29,9 @@
 }
 
 .c-get-ticket-cta__btn {
-    @extend .btn, .btn-primary, .btn-lg, .px-4, .py-3;
     position: absolute;
     z-index: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
-    font-weight: bold;
-    letter-spacing: 0.1em;
 }
