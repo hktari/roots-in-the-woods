@@ -1,7 +1,7 @@
 # TODO
 
-- facebook events
-- get ticket section
-- follow us section
 - activities section    OK
+- get ticket section    OK
 - when and how section
+- facebook events
+- follow us section

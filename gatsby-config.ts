@@ -6,8 +6,8 @@ require("dotenv").config({
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `roots-demo`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Roots in the Woods`,
+    siteUrl: `https://rootsinthewoods.netlify.app`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -23,13 +23,13 @@ const config: GatsbyConfig = {
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `Roots in the Woods demo`,
-      short_name: `Sydney`,
+      name: `Roots in the Woods`,
+      short_name: `Roots in the Woods`,
       start_url: `/`,
       background_color: `#000000`,
       theme_color: `#ffffff`,
       display: `standalone`,
-      icon: 'src/images/icon.png',
+      icon: 'src/images/logo.jpg',
     },
   }, "gatsby-plugin-netlify",
     `gatsby-plugin-image`, 'gatsby-plugin-sharp', 'gatsby-plugin-sass']
