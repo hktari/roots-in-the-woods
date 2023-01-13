@@ -30,6 +30,7 @@ const InfoSection = (props: InfoSectionProps) => {
   return (
     <section className='c-section'>
       <h2 className="c-section__title">
+        Amenities
       </h2>
 
       <div className="c-floating-layout">

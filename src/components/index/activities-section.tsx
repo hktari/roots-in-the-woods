@@ -49,9 +49,9 @@ const ActivitiesSection = (props: Props) => {
 
     return (
         <section>
-            <h2 className="h1">
+            {/* <h2 className="h1">
                 Activities
-            </h2>
+            </h2> */}
 
             {/* desktop */}
             <div id="carouselDesktop" className="carousel slide d-none d-md-block" data-bs-ride="true">
@@ -89,24 +89,28 @@ const ActivitiesSection = (props: Props) => {
             </div>
 
             {/* mobile */}
-            <div id="carouselMobile" className="carousel slide d-md-none" data-bs-ride="carousel">
-                <div className="carousel-inner ">
-                    {
-                        data.activities.map((activity, idx) => (
-                            <div key={activity.title} className={`carousel-item ${idx === 0 ? 'active' : ''}`} data-bs-interval="2000">
-                                <ActivityItem activity={activity} />
-                            </div>
-                        ))
-                    }
+            <div className="row">
+                <div className="col px-0">
+                    <div id="carouselMobile" className="carousel slide d-md-none" data-bs-ride="carousel">
+                        <div className="carousel-inner ">
+                            {
+                                data.activities.map((activity, idx) => (
+                                    <div key={activity.title} className={`carousel-item ${idx === 0 ? 'active' : ''}`} data-bs-interval="2000">
+                                        <ActivityItem activity={activity} />
+                                    </div>
+                                ))
+                            }
+                        </div>
+                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselMobile" data-bs-slide="prev">
+                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Previous</span>
+                        </button>
+                        <button className="carousel-control-next" type="button" data-bs-target="#carouselMobile" data-bs-slide="next">
+                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span className="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
-                <button className="carousel-control-prev" type="button" data-bs-target="#carouselMobile" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#carouselMobile" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
             </div>
 
         </section>

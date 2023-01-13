@@ -22,8 +22,6 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
       <LocationSection />
 
       <ReggaeSeperator />
-      <br />
-
       <ActivitiesSection />
 
       <br />

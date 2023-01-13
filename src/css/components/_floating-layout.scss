@@ -3,13 +3,22 @@
 }
 
 .c-floating-layout__item {
-    float: left;
-    width: 50%;
+    @extend .my-2;
 
+    float: left;
+    width: 100%;
 }
-.c-floating-layout__item:nth-child(odd) {
-    padding-right: 8px;
-}
-.c-floating-layout__item:nth-child(even) {
-    padding-left: 8px;
+
+@include media-breakpoint-up(md) {
+    .c-floating-layout__item {
+        width: 50%;
+    }
+
+    .c-floating-layout__item:nth-child(odd) {
+        padding-right: 8px;
+    }
+
+    .c-floating-layout__item:nth-child(even) {
+        padding-left: 8px;
+    }
 }
