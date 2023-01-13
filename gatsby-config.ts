@@ -31,8 +31,28 @@ const config: GatsbyConfig = {
       display: `standalone`,
       icon: 'src/images/logo.jpg',
     },
-  }, "gatsby-plugin-netlify",
-    `gatsby-plugin-image`, 'gatsby-plugin-sharp', 'gatsby-plugin-sass']
+  },
+  {
+    resolve: `gatsby-source-facebook-graphql`,
+    options: {
+      // Facebook account or page ID
+      pageId: 843258186748994,
+      params: {
+        fields: [
+          'name',
+          'description',
+          'cover',
+          'attending_count'
+        ],
+      },
+      // Access Token from facebook
+      accessToken: process.env.GATSBY_FACEBOOK_GRAPH_TOKEN,
+    },
+  },
+    'gatsby-plugin-netlify',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-plugin-sass']
 };
 
 export default config;
