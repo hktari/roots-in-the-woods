@@ -7,6 +7,7 @@ import LocationSection from "../components/index/location-section";
 import ReggaeSeperator from "../components/reggae-seperator";
 import ActivitiesSection from "../components/index/activities-section";
 import InfoSection from "../components/index/info-section";
+import GetTicketCta from "../components/get-ticket-cta";
 
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
@@ -29,7 +30,8 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
       <InfoSection />
 
       <br />
-      <br />
+
+      <GetTicketCta />
 
 
     </Layout>
