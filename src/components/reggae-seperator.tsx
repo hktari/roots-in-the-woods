@@ -5,7 +5,7 @@ type Props = {}
 
 const ReggaeSeperator = (props: Props) => {
     return (
-        <div className="c-reggae-seperator">
+        <div className="c-reggae-seperator c-reggae-seperator--show">
             <img className='c-reggae-seperator__img' src={reggaeTexture} alt="reggae texture" />
             <div className="d-none">
                 Image by <a href="https://www.freepik.com/free-vector/reggae-style-background_3290857.htm#query=reggae%20background&position=48&from_view=search&track=sph">Freepik</a>
