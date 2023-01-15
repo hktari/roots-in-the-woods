@@ -4,7 +4,7 @@
     background-size: cover;
     position: relative;
 
-    &::before{
+    &::before {
         content: '';
         position: absolute;
         z-index: 1;
@@ -34,4 +34,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+@include media-breakpoint-up(md) {
+    .c-get-ticket-cta__image {
+        object-position: 0% 60%;
+    }
 }

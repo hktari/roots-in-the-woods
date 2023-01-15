@@ -9,9 +9,9 @@ const LocationSection = (props: Props) => {
         <section className='c-section'>
             <div className="row">
                 <div className="col-12 col-md-6 px-md-4">
-                    <h2 className="c-section__title">
+                    <h2 className="c-section__title d-flex align-items-center justify-content-start">
                         <i className="bi bi-geo-alt-fill fs-3 me-2"></i>
-                        Where ?
+                        <span>Where ?</span>
                     </h2>
                     <p className='c-section__text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, fuga facere cupiditate rem blanditiis distinctio?</p>
                     <button className='btn btn-primary w-100 btn-lg c-button-link mt-4'>
