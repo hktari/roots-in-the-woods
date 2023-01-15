@@ -1,4 +1,5 @@
 import React from 'react'
+import { formatDatetimeStr } from '../util/format'
 
 type EventItemProps = {
     event: Queries.EventsPageQuery.allFacebook.nodes.data
@@ -6,10 +7,6 @@ type EventItemProps = {
 
 const EventItem = ({ event }: EventItemProps) => {
 
-    const formatEventDatetime = (datetimeStr: string) => {
-        const datetime = new Date(datetimeStr)
-        return `${datetime.toLocaleDateString('sl')} @ ${datetime.toLocaleTimeString('sl')}`
-    }
 
     return (
         <div className="card">
@@ -22,7 +19,7 @@ const EventItem = ({ event }: EventItemProps) => {
                         <i className="bi bi-people-fill ms-1"></i>
                     </span>
                 </div>
-                <p className='text-muted'>{event?.start_time ? formatEventDatetime(event.start_time) : ''}</p>
+                <p className='text-muted'>{event?.start_time ? formatDatetimeStr(event.start_time) : ''}</p>
                 <p>{event?.description}</p>
                 <a className='stretched-link' href={`https://www.facebook.com/events/${event?.id}`}/>
             </div>

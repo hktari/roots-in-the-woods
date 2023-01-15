@@ -11,7 +11,10 @@ const NewsPage = ({ data }: PageProps<Queries.NewsPageQuery>) => {
     <Layout>
       <h1 className='c-page__title'>News</h1>
       {data?.allContentfulPost?.nodes?.map(post => (
-        <NewsItem key={post.id} post={post} />))}
+        <div className="mt-5">
+          <NewsItem key={post.id} post={post} />
+        </div>
+      ))}
     </Layout>)
 }
 
@@ -25,6 +28,7 @@ export const query = graphql`
         id
         title
         node_locale
+        updatedAt
         text {
           raw
         }
