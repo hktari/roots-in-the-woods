@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '../components/layout/layout'
 
 import { graphql, HeadFC, PageProps } from "gatsby"
+import EventItem from '../components/event-item'
 
 type Props = {}
 
@@ -9,23 +10,7 @@ const EventsPage = ({ data }: PageProps<Queries.EventsPageQuery>) => {
     return (
         <Layout>
             {data?.allFacebook?.nodes.map(node => node.data?.map(event => (
-                <>
-                    <a href={`https://www.facebook.com/events/${event?.id}`}>
-                        <div className="card">
-                            <img className="card-image-top" src={event?.cover?.source ?? ''} />
-                            <div className="card-body">
-                                <div className="d-flex justify-content-between">
-                                    <h2>{event?.name}</h2>
-                                    <span className='fs-4 fw-bold'>
-                                        {event?.attending_count}
-                                        <i className="bi bi-people-fill"></i>
-                                    </span>
-                                </div>
-                                <p>{event?.description}</p>
-                            </div>
-                        </div>
-                    </a>
-                </>
+                <EventItem event={event} />
             )))}
         </Layout>
     )
@@ -42,6 +27,7 @@ query EventsPage {
                 name
                 description
                 attending_count
+                start_time
                 cover {
                     id
                     source

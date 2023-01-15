@@ -43,7 +43,8 @@ const config: GatsbyConfig = {
           'name',
           'description',
           'cover',
-          'attending_count'
+          'attending_count',
+          'start_time'
         ],
       },
       // Access Token from facebook
