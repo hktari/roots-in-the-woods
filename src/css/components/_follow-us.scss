@@ -1,4 +1,7 @@
-.c-follow-us {}
+.c-follow-us {
+    position: relative;
+    animation: follow-us-anim 1.25s cubic-bezier(0.875, 0.185, 0.32, 1.275) 0s infinite normal none;
+}
 
 .c-follow-us__title {
     font-size: 3em;
@@ -29,4 +32,20 @@
     }
 }
 
+@keyframes follow-us-anim {
+    0% {
+        transform: translateY(0px);
+    }
 
+    50% {
+        transform: translateY(25px);
+    }
+
+    75% {
+        transform: translateY(-12.5px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
