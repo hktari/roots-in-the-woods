@@ -14,11 +14,7 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   return (
     <Layout>
 
-      <br />
-
       <AboutSection />
-
-      <br />
 
       <LocationSection />
 
@@ -28,17 +24,9 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
       <ActivitiesSection />
 
-      <br />
-
       <InfoSection />
 
-      <br />
-
       <GetTicketCta />
-
-
-      <br />
-      <br />
 
     </Layout>
   )

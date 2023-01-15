@@ -48,8 +48,8 @@ const ActivitiesSection = (props: Props) => {
     );
 
     return (
-        <section>
-            <h2 className="h1 d-none d-md-block">
+        <section className='c-section'>
+            <h2 className="c-section__title d-none d-md-block">
                 Activities
             </h2>
 
