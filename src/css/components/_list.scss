@@ -1,0 +1,19 @@
+.c-list {}
+
+.c-list__item {
+    margin-top: 24px;
+
+    &:first-child {
+        margin-top: 16px;
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .c-list__item {
+        margin-top: 56px;
+
+        &:first-child {
+            margin-top: 56px;
+        }
+    }
+}

@@ -10,11 +10,13 @@ const NewsPage = ({ data }: PageProps<Queries.NewsPageQuery>) => {
   return (
     <Layout>
       <h1 className='c-page__title'>News</h1>
-      {data?.allContentfulPost?.edges?.map(edge => (
-        <div className="mt-5">
-          <NewsItem key={edge?.node?.id} post={edge?.node} />
-        </div>
-      ))}
+      <div className="c-list">
+        {data?.allContentfulPost?.edges?.map(edge => (
+          <div className="c-list__item">
+            <NewsItem key={edge?.node?.id} post={edge?.node} />
+          </div>
+        ))}
+      </div>
     </Layout>)
 }
 
