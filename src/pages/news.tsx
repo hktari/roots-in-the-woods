@@ -10,9 +10,9 @@ const NewsPage = ({ data }: PageProps<Queries.NewsPageQuery>) => {
   return (
     <Layout>
       <h1 className='c-page__title'>News</h1>
-      {data?.allContentfulPost?.nodes?.map(post => (
+      {data?.allContentfulPost?.edges?.map(edge => (
         <div className="mt-5">
-          <NewsItem key={post.id} post={post} />
+          <NewsItem key={edge?.node?.id} post={edge?.node} />
         </div>
       ))}
     </Layout>)
@@ -23,23 +23,26 @@ export default NewsPage
 
 export const query = graphql`
   query NewsPage {
-    allContentfulPost {
-      nodes {
-        id
-        title
-        node_locale
-        updatedAt
-        text {
-          raw
-        }
-        thumbnail {
+    allContentfulPost{
+      edges {
+        node {
           id
-          url
           title
-        }
-        gallery {
-          id
-          url
+          node_locale
+          gallery {
+            id
+            url
+            title
+          }
+          thumbnail {
+            id
+            url
+            title
+          }
+          text {
+            raw
+          }
+          updatedAt
         }
       }
     }
