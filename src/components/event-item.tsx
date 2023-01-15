@@ -24,6 +24,7 @@ const EventItem = ({ event }: EventItemProps) => {
                 </div>
                 <p className='text-muted'>{event?.start_time ? formatEventDatetime(event.start_time) : ''}</p>
                 <p>{event?.description}</p>
+                <a className='stretched-link' href={`https://www.facebook.com/events/${event?.id}`}/>
             </div>
         </div>
     )

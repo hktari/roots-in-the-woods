@@ -1,0 +1,16 @@
+.c-events-list {}
+
+.c-events-list__item {}
+
+@include media-breakpoint-up(md) {
+    .c-events-list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    
+    .c-events-list__item {
+        max-width: 500px;
+    }
+
+}
