@@ -7,7 +7,9 @@ const FollowUsSection = (props: Props) => {
     return (
         <div className="c-section c-follow-us">
             <h2 className="c-follow-us__title">
-                FOLLOW<br />US
+                <span>FOLLOW</span> 
+                <br className='d-md-none'/> 
+                <span className='ms-md-2'>US</span> 
             </h2>
 
             <ul className="c-follow-us__social-list">
