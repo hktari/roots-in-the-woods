@@ -7,11 +7,11 @@ import PostItem from '../components/post-item'
 type Props = {}
 
 const NewsPage = ({ data }: PageProps<Queries.NewsPageQuery>) => {
-    return (
-        <Layout>
-            {data?.allContentfulPost?.nodes?.map(post => (<PostItem key={post.id} post={post} />))}
-
-        </Layout>)
+  return (
+    <Layout>
+      <h1 className='c-page__title'>News</h1>
+      {data?.allContentfulPost?.nodes?.map(post => (<PostItem key={post.id} post={post} />))}
+    </Layout>)
 }
 
 export default NewsPage
