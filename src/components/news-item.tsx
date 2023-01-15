@@ -10,10 +10,7 @@ const NewsItem = ({ post }: ContentfulPost) => {
     const formatDatetimeStr = (datetimeStr: string) => {
         const datetime = new Date(datetimeStr)
         return datetime.toLocaleString('sl')
-        return `${datetime.toLocaleDateString('sl')} @ ${datetime.toLocaleTimeString('sl')}`
     }
-
-
     return (
 
         <a className="c-news-item" href={`/news/${post?.id}`}>

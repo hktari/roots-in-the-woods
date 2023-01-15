@@ -7,10 +7,11 @@
     transition: all 0.35s ease-in-out;
     max-height: 200px;
     text-decoration: none;
+    overflow: hidden;
     color: black;
 
     &:hover {
-        border-left: 4px solid rgba($color: #000000, $alpha: 0.8);
+        border-left: 4px solid rgba($color: $secondary, $alpha: 0.8);
         padding-left: 16px;
     }
 }
@@ -48,12 +49,18 @@
     .c-news-item__text-container {
         margin-left: 32px;
         order: 2;
+        height: 100%;
     }
 
     .c-news-item__text {
         display: block;
         margin-top: 24px;
-        & > p {
+        font-size: 1.25em;
+        overflow: hidden;
+        
+        &>p {
+            overflow: hidden;
+            text-overflow: ellipsis;
             margin-bottom: 8px;
         }
     }
