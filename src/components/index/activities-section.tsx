@@ -48,7 +48,7 @@ const ActivitiesSection = (props: Props) => {
     );
 
     return (
-        <section className='c-section'>
+        <section className='c-section c-section--no-spacing-mobile'>
             <h2 className="c-section__title d-none d-md-block">
                 Activities
             </h2>
