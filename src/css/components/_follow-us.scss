@@ -1,11 +1,11 @@
 .c-follow-us {
     position: relative;
-    animation: follow-us-anim 1.25s cubic-bezier(0.875, 0.185, 0.32, 1.275) 0s infinite normal none;
+    animation: follow-us-anim 3s cubic-bezier(.04,1.18,.89,.96) 0s infinite normal none;
 }
 
 .c-follow-us__title {
     font-size: 3em;
-    letter-spacing: 0.375em;
+    letter-spacing: 0.175em;
     font-weight: bold;
     text-align: center;
 }
@@ -37,13 +37,23 @@
         transform: translateY(0px);
     }
 
-    50% {
+    17% {
         transform: translateY(25px);
     }
 
-    75% {
-        transform: translateY(-12.5px);
+    25% {
+        transform: translateY(-6px);
     }
+
+    35% {
+        transform: translateY(25px);
+    }
+
+    45% {
+        transform: translateY(0px);
+    }
+
+    75% {}
 
     100% {
         transform: translateY(0px);
