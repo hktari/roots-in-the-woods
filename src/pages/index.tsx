@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql, HeadFC, PageProps } from "gatsby"
 import Layout from "../components/layout/layout";
-import PostItem from "../components/post-item";
+import NewsItem from "../components/news-item";
 import AboutSection from "../components/index/about-section";
 import LocationSection from "../components/index/location-section";
 import ReggaeSeperator from "../components/reggae-seperator";

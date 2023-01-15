@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../components/layout/layout'
 import { graphql, HeadFC, PageProps } from "gatsby"
-import PostItem from '../components/post-item'
+import NewsItem from '../components/news-item'
 
 
 type Props = {}
@@ -10,7 +10,8 @@ const NewsPage = ({ data }: PageProps<Queries.NewsPageQuery>) => {
   return (
     <Layout>
       <h1 className='c-page__title'>News</h1>
-      {data?.allContentfulPost?.nodes?.map(post => (<PostItem key={post.id} post={post} />))}
+      {data?.allContentfulPost?.nodes?.map(post => (
+        <NewsItem key={post.id} post={post} />))}
     </Layout>)
 }
 
