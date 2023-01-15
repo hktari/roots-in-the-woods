@@ -36,9 +36,10 @@ const config: GatsbyConfig = {
     resolve: `gatsby-source-facebook-graphql`,
     options: {
       // Facebook account or page ID
-      pageId: 843258186748994,
+      pageId: 'me/events',
       params: {
         fields: [
+          'id',
           'name',
           'description',
           'cover',
