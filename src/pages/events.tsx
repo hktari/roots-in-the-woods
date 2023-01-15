@@ -9,7 +9,7 @@ type Props = {}
 const EventsPage = ({ data }: PageProps<Queries.EventsPageQuery>) => {
     return (
         <Layout>
-            <h1 className='mt-4'>Events</h1>
+            <h1 className='mt-4 c-page__title'>Events</h1>
             <div className='c-events-list'>
                 {data?.allFacebook?.nodes.map(node => node.data?.map(event => (
                     <div className="c-events-list__item my-3">
