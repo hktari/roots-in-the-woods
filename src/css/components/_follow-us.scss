@@ -1,5 +1,4 @@
 .c-follow-us {
-
     margin-top: 65px;
     margin-bottom: 24px;
     position: relative;
@@ -11,28 +10,6 @@
     letter-spacing: 0.175em;
     font-weight: bold;
     text-align: center;
-}
-
-.c-follow-us__social-list {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.c-follow-us__social-list-item {
-    margin: 0;
-
-    &:last-child {
-        margin-left: 36px;
-    }
-
-    a {
-        font-size: 3rem;
-        color: $secondary;
-    }
 }
 
 @keyframes follow-us-anim {

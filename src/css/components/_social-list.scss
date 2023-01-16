@@ -1,0 +1,29 @@
+.c-social-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.c-social-list--black{
+    .c-social-list__item{
+        a{
+            color: #000;
+        }
+    }
+}
+
+.c-social-list__item {
+    margin: 0;
+
+    &:last-child {
+        margin-left: 36px;
+    }
+
+    a {
+        font-size: 3rem;
+        color: $secondary;
+    }
+}

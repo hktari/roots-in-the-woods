@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from "gatsby"
 import { useRef } from 'react'
 import { useEffect } from 'react'
+import SocialList from './social-list'
 
 type SideBarProps = {
   isOpen: boolean
@@ -53,6 +54,9 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
         </ul>
       </nav>
 
+      <div className="c-sidebar__social">
+        <SocialList classModifiers={'c-social-list--black'} />
+      </div>
     </div>
   )
 }
