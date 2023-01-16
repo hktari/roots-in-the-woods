@@ -1,13 +1,13 @@
-.c-page{
-
+.c-page {
+    position: relative;
 }
 
-.c-page--no-scroll{
+.c-page--no-scroll {
     height: 100vh;
-    overflow: hidden;    
+    overflow: hidden;
 }
 
-.c-page__title{
+.c-page__title {
     @extend .mt-5;
     text-transform: uppercase;
     font-size: 3em;

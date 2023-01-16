@@ -1,9 +1,21 @@
 .c-navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     z-index: $z-index-navbar;
     padding: 1rem;
+    transition: background-color 0.25s ease-in;
+}
+
+.c-navbar--sticky {
+    @extend .bg-dark;
+    position: fixed;
+    top: 0;
+    left: 0
 }
 
 // .c-navbar__title {

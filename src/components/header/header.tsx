@@ -19,9 +19,9 @@ const Header = ({ setDisableScroll }: HeaderProps) => {
         <>
             <header className='c-header'>
                 <img className='c-header__img' src={headerImage} alt="" />
-                <NavBar openMenuClicked={() => setSidebarOpen(true)} />
             </header>
             <SideBar isOpen={sidebarOpen} closeMenuClicked={() => setSidebarOpen(false)} />
+            <NavBar openMenuClicked={() => setSidebarOpen(true)} />
         </>
     )
 }
