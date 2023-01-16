@@ -2,7 +2,7 @@
     @extend .p-3;
     z-index: $z-index-navbar;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 }
 
@@ -20,7 +20,9 @@
     }
 }
 
-.c-navbar__logo {}
+.c-navbar__logo {
+    display: none;
+}
 
 .c-navbar__menu {
     flex-shrink: 1;
@@ -35,16 +37,20 @@
 
 .c-navbar__menu-list-item {
     @extend .ms-3;
-}
 
-.c-navbar__link {
-    @extend .fs-4;
-    text-transform: uppercase;
+    .c-link {
+        @extend .fs-4;
+        text-transform: uppercase;
+    }
 }
 
 @include media-breakpoint-up(md) {
     .c-navbar {
         justify-content: space-between;
+    }
+
+    .c-navbar__logo {
+        display: block;
     }
 
     .c-navbar__menu {

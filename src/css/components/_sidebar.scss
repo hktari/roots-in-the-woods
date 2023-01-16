@@ -32,7 +32,6 @@
 
 }
 
-
 .c-sidebar__menu{
     margin-top: 50px;
     text-align: center;
@@ -57,4 +56,10 @@
 
 .c-sidebar__social{
     margin-top: 25px;
+}
+
+@include media-breakpoint-up(md){
+    .c-sidebar{
+        display: none;
+    }
 }

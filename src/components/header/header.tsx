@@ -2,11 +2,18 @@ import React, { useState } from 'react'
 import NavBar from '../navbar/navbar'
 import headerImage from '../../images/roots-banner-2023.jpg'
 import SideBar from '../sidebar'
+import { useEffect } from 'react'
 
-type Props = {}
+type HeaderProps = {
+    setDisableScroll: (disabled: boolean) => void
+}
 
-const Header = (props: Props) => {
+const Header = ({ setDisableScroll }: HeaderProps) => {
     const [sidebarOpen, setSidebarOpen] = useState(false)
+
+    useEffect(() => {
+        setDisableScroll(sidebarOpen)
+    }, [sidebarOpen])
 
     return (
         <>
