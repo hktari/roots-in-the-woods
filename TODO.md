@@ -1,11 +1,11 @@
 # TODO
 
-- mobile menu
-- logo is link
+- news page detail page 
 - colors are logo
 - landing page background color
-- news page detail page 
 - when and how section
+- logo is link          OK
+- mobile menu           OK
 - landing page spacing  OK
 - smaller font sizes    OK
 - follow us section     OK
