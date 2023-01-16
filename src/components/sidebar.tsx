@@ -5,7 +5,7 @@ type SideBarProps = {
   closeMenuClicked: VoidFunction
 }
 
-const SideBar = ({isOpen, closeMenuClicked}: SideBarProps) => {
+const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
 
   return (
     <div className={`c-sidebar ${isOpen ? 'c-sidebar--show' : ''}`}>
@@ -15,7 +15,15 @@ const SideBar = ({isOpen, closeMenuClicked}: SideBarProps) => {
         </button>
       </header>
 
-      
+      <nav className='c-sidebar__menu'>
+        <ul className='c-sidebar__menu-list'>
+          <li className='c-sidebar__menu-list-item'><a href="/">Home</a></li>
+          <li className='c-sidebar__menu-list-item'><a href="https://fienta.com/roots-in-the-woods-2023">Tickets</a></li>
+          <li className='c-sidebar__menu-list-item'><a href="/events">Events</a></li>
+          <li className='c-sidebar__menu-list-item'><a href="/news">News</a></li>
+        </ul>
+      </nav>
+
     </div>
   )
 }
