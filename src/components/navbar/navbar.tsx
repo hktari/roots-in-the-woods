@@ -6,7 +6,7 @@ type NavBarProps = {
   openMenuClicked: () => void
 }
 
-const NavBar = ({openMenuClicked}: NavBarProps) => {
+const NavBar = ({ openMenuClicked }: NavBarProps) => {
   return (
     <div className="c-header__navbar c-navbar">
       {/* <h1 className='c-navbar__title'>
@@ -19,7 +19,7 @@ const NavBar = ({openMenuClicked}: NavBarProps) => {
       <nav className='c-navbar__menu'>
         <ul className='c-navbar__menu-list'>
           <li className='c-navbar__menu-list-item'><Link to="/">Home</Link></li>
-          <li className='c-navbar__menu-list-item'><Link to="https://fienta.com/roots-in-the-woods-2023">Tickets</Link></li>
+          <li className='c-navbar__menu-list-item'><a href="https://fienta.com/roots-in-the-woods-2023">Tickets</a></li>
           <li className='c-navbar__menu-list-item'><Link to="/events">Events</Link></li>
           <li className='c-navbar__menu-list-item'><Link to="/news">News</Link></li>
         </ul>
