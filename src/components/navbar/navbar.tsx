@@ -15,18 +15,13 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
   const lastScrollY = useRef(0)
 
   const onWindowScrollHandler = () => {
-    console.log('scroll', lastScrollY.current)
     const scrollDiff = window.scrollY - lastScrollY.current
-    if (scrollDiff > 0) {
-      console.log('scroll', 'going down')
-    } else {
-      console.log('scroll', 'going up')
-    }
+    const navbarHeight = 96;
 
+    // stick to top when navbar is scrolled out of sight and when scrolling up
+    setStickToTop(window.scrollY > navbarHeight && scrollDiff < 0)
+    
     lastScrollY.current = window.scrollY;
-
-
-    setStickToTop(window.scrollY > 96)
   }
 
   useEffect(() => {
