@@ -8,7 +8,7 @@ type Props = {}
 
 const EventsPage = ({ data }: PageProps<Queries.EventsPageQuery>) => {
     return (
-        <Layout>
+        <>
             <h1 className='mt-4 c-page__title'>Events</h1>
             <div className='c-events-list'>
                 {data?.allFacebook?.nodes.map(node => node.data?.map(event => (
@@ -17,7 +17,7 @@ const EventsPage = ({ data }: PageProps<Queries.EventsPageQuery>) => {
                     </div>
                 )))}
             </div>
-        </Layout>
+        </>
     )
 }
 
