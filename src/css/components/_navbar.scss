@@ -1,6 +1,6 @@
 .c-navbar {
     @extend .p-3;
-    z-index: 99;
+    z-index: $z-index-navbar;
     display: flex;
     justify-content: space-between;
     align-items: center;
