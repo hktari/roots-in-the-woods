@@ -1,7 +1,7 @@
 import React from 'react'
-import Layout from '../components/layout/layout'
+import Layout from '../../components/layout/layout'
 import { graphql, HeadFC, PageProps } from "gatsby"
-import NewsItem from '../components/news-item'
+import NewsItem from '../../components/news-item'
 
 
 type Props = {}
