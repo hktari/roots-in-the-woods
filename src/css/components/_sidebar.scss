@@ -31,3 +31,26 @@
     }
 
 }
+
+
+.c-sidebar__menu{
+    margin-top: 50px;
+    text-align: center;
+}
+
+.c-sidebar__menu-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.c-sidebar__menu-list-item{
+    margin: 0;
+    margin: 0.5rem 0;
+    
+    a{
+        font-size: 2.5rem;
+        letter-spacing: 0.25rem;
+        text-transform: uppercase;        
+    }
+}

@@ -39,13 +39,7 @@
 
 .c-navbar__link {
     @extend .fs-4;
-    color: #fff;
-    text-decoration: none;
     text-transform: uppercase;
-}
-
-.c-navbar__link--active {
-    color: $secondary;
 }
 
 @include media-breakpoint-up(md) {
