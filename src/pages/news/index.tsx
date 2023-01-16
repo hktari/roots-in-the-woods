@@ -3,10 +3,10 @@ import Layout from '../../components/layout/layout'
 import { graphql, HeadFC, PageProps } from "gatsby"
 import NewsItem from '../../components/news-item'
 
-
 type Props = {}
 
 const NewsPage = ({ data }: PageProps<Queries.NewsPageQuery>) => {
+
   return (
     <>
       <h1 className='c-page__title'>News</h1>

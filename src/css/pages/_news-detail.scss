@@ -1,0 +1,25 @@
+.news-detail-page {}
+
+.news-detail-page__title {
+    @extend .h1, .mt-4, .mb-0;
+}
+
+.news-detail-page__datetime {
+    @extend .fs-3, .text-muted;
+}
+
+.c-news-detail-page__content{
+    @extend .mt-3;
+
+    > *{
+        @extend .fs-4;
+    }
+}
+
+.c-news-detail-page__gallery{
+    @extend .mt-3;
+}
+
+.c-news-detail-page__image{
+    @extend .img-fluid;
+}
