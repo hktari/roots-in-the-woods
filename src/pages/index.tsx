@@ -1,6 +1,5 @@
 import * as React from "react"
 import { graphql, HeadFC, PageProps } from "gatsby"
-import Layout from "../components/layout/layout";
 import NewsItem from "../components/news-item";
 import AboutSection from "../components/index/about-section";
 import LocationSection from "../components/index/location-section";
@@ -10,11 +9,11 @@ import InfoSection from "../components/index/info-section";
 import GetTicketCta from "../components/get-ticket-cta";
 import FollowUsSection from "../components/follow-us-section";
 
+
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
   return (
-    <Layout>
-
+    <>
       <AboutSection />
 
       <LocationSection />
@@ -31,11 +30,11 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
       <FollowUsSection />
 
-    </Layout>
+    </>
   )
 }
 
-export default IndexPage
+export default IndexPage;
 
 export const Head: HeadFC = () => <title>Roots in the Woods</title>
 

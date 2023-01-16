@@ -8,7 +8,7 @@ type Props = {}
 
 const NewsPage = ({ data }: PageProps<Queries.NewsPageQuery>) => {
   return (
-    <Layout>
+    <>
       <h1 className='c-page__title'>News</h1>
       <div className="c-list">
         {data?.allContentfulPost?.edges?.map(edge => (
@@ -17,7 +17,7 @@ const NewsPage = ({ data }: PageProps<Queries.NewsPageQuery>) => {
           </div>
         ))}
       </div>
-    </Layout>)
+    </>)
 }
 
 export default NewsPage
