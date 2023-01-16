@@ -1,9 +1,33 @@
-.c-sidebar{
+.c-sidebar {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -100vw;
     width: 100vw;
     height: 100vh;
     z-index: $z-index-sidebar;
-    background-color: orange;
+    transition: left 0.3s ease-in;
+
+    background: rgb(194, 187, 59);
+    background: linear-gradient(0deg, rgba(194, 187, 59, 1) 0%, rgba(147, 169, 60, 1) 100%);
+}
+
+.c-sidebar--show {
+    left: 0;
+}
+
+.c-sidebar__header {
+    @extend .p-3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.c-sidebar__btn-close {
+    @extend .btn, .btn-lg;
+    color: white;
+
+    i {
+        font-size: 2em;
+    }
+
 }

@@ -2,9 +2,11 @@ import React from 'react'
 
 import logo from '../../images/logo.jpg';
 
-type Props = {}
+type NavBarProps = {
+  openMenuClicked: () => void
+}
 
-const NavBar = (props: Props) => {
+const NavBar = ({openMenuClicked}: NavBarProps) => {
   return (
     <div className="c-header__navbar c-navbar">
       {/* <h1 className='c-navbar__title'>
@@ -13,7 +15,7 @@ const NavBar = (props: Props) => {
       <div className="c-logo c-navbar__logo">
         <img width="64px" height="64px" src={logo} alt="roots in the woods logo" />
       </div>
-      <button className="c-navbar__menu-toggle"><i className="bi bi-list"></i></button>
+      <button className="c-navbar__menu-toggle" onClick={() => openMenuClicked()}><i className="bi bi-list"></i></button>
       <nav className='c-navbar__menu'>
         <ul className='c-navbar__menu-list'>
           <li className='c-navbar__menu-list-item'><a href="/">Home</a></li>
