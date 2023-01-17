@@ -11,16 +11,29 @@ type NavBarProps = {
 
 const NavBar = ({ openMenuClicked }: NavBarProps) => {
 
+  const scrollAmountThresholdPx = 75;
+  const navbarHeightPx = 96;
+
   const [stickToTop, setStickToTop] = useState(false)
   const lastScrollY = useRef(0)
 
+  // The amount the user has scrolled to the top without having scrolled down
+  // this is a positive number
+  const scrollAmountTopPx = useRef(0)
+
   const onWindowScrollHandler = () => {
     const scrollDiff = window.scrollY - lastScrollY.current
-    const navbarHeight = 96;
 
-    // stick to top when navbar is scrolled out of sight and when scrolling up
-    setStickToTop(window.scrollY > navbarHeight && scrollDiff < 0)
-    
+    if (scrollDiff > 0) {
+      scrollAmountTopPx.current = 0; // reset if the user has scrolled down
+    } else {
+      scrollAmountTopPx.current += (scrollDiff * -1); // the number is negative or zero, multiply by -1
+    }
+
+    // stick to top when navbar is scrolled out of sight
+    // and when the user has scrolled up for at least scrollAmountThresholdPx
+    setStickToTop(window.scrollY > navbarHeightPx && scrollAmountTopPx.current > scrollAmountThresholdPx)
+
     lastScrollY.current = window.scrollY;
   }
 
