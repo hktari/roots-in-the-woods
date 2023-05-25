@@ -32,25 +32,25 @@ const config: GatsbyConfig = {
       icon: 'src/images/logo.jpg',
     },
   },
-  {
-    resolve: `gatsby-source-facebook-graphql`,
-    options: {
-      // Facebook account or page ID
-      pageId: 'me/events',
-      params: {
-        fields: [
-          'id',
-          'name',
-          'description',
-          'cover',
-          'attending_count',
-          'start_time'
-        ],
-      },
-      // Access Token from facebook
-      accessToken: process.env.GATSBY_FACEBOOK_GRAPH_TOKEN,
-    },
-  },
+  // {
+  //   resolve: `gatsby-source-facebook-graphql`,
+  //   options: {
+  //     // Facebook account or page ID
+  //     pageId: 'me/events',
+  //     params: {
+  //       fields: [
+  //         'id',
+  //         'name',
+  //         'description',
+  //         'cover',
+  //         'attending_count',
+  //         'start_time'
+  //       ],
+  //     },
+  //     // Access Token from facebook
+  //     accessToken: process.env.GATSBY_FACEBOOK_GRAPH_TOKEN,
+  //   },
+  // },
     'gatsby-plugin-netlify',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
