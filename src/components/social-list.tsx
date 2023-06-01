@@ -1,25 +1,29 @@
-import React from 'react'
+import React from "react";
 
 type SocialListProps = {
-    classModifiers?: string
-}
+  classModifiers?: string;
+};
 
 const SocialList = ({ classModifiers }: SocialListProps) => {
+  return (
+    <ul className={`c-social-list ${classModifiers}`}>
+      <li className="c-social-list__item">
+        <a href="https://www.facebook.com/rootsinthewoodsfestival/">
+          <i className="bi bi-facebook"></i>
+        </a>
+      </li>
+      <li className="c-social-list__item">
+        <a href="https://www.instagram.com/rootsinthewoodsfestival">
+          <i className="bi bi-instagram"></i>
+        </a>
+      </li>
+      <li className="c-social-list__item">
+        <a href="https://www.tiktok.com/@roots_in_the_woods">
+          <i className="bi bi-tiktok"></i>
+        </a>
+      </li>
+    </ul>
+  );
+};
 
-    return (
-        <ul className={`c-social-list ${classModifiers}`}>
-            <li className="c-social-list__item">
-                <a href="https://www.facebook.com/rootsinthewoodsfestival/">
-                    <i className="bi bi-facebook"></i>
-                </a>
-            </li>
-            <li className="c-social-list__item">
-                <a href="https://www.instagram.com/rootsinthewoodsfestival">
-                    <i className="bi bi-instagram"></i>
-                </a>
-            </li>
-        </ul>
-    )
-}
-
-export default SocialList
+export default SocialList;
