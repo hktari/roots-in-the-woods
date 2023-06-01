@@ -91,8 +91,11 @@ const MissionPage = (props: Props) => {
       <br />
       <br />
       <h4 className="text-center">
-        <strong>Follow us and let's stay in touch!</strong> <SocialList />
+        <strong>Follow us and let's stay in touch!</strong>
       </h4>
+      <div className="mt-4">
+        <SocialList />
+      </div>
     </div>
   );
 };
