@@ -51,6 +51,7 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
           <li className='c-sidebar__menu-list-item'><a className='c-link' href="https://fienta.com/roots-in-the-woods-2023">Tickets</a></li>
           <li className='c-sidebar__menu-list-item'><Link className='c-link' activeClassName='c-link--active' to="/events">Events</Link></li>
           <li className='c-sidebar__menu-list-item'><Link className='c-link' activeClassName='c-link--active' to="/news">News</Link></li>
+          <li className='c-sidebar__menu-list-item'><Link className='c-link' activeClassName='c-link--active' to="/mission">Mission</Link></li>
         </ul>
       </nav>
 
