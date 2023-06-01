@@ -41,11 +41,11 @@ const LineupPage = (props: Props) => {
     },
   ];
   return (
-    <div>
+    <div className="c-page-lineup">
       <h1 className="c-page__title">2023 Lineup</h1>
-      <section id="mainStage" className="c-lineup-stage">
+      <section id="mainStage" className="c-page-lineup__stage">
         <h2>Main Stage</h2>
-        <div className="c-lineup-stage__list">
+        <div className="c-page-lineup__list">
           {artists.map((artist) => (
             <LineupArtist artist={artist} />
           ))}
