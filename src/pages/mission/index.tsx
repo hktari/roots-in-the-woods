@@ -1,4 +1,6 @@
 import React from "react";
+import FollowUsSection from "../../components/follow-us-section";
+import SocialList from "../../components/social-list";
 
 type Props = {};
 
@@ -39,40 +41,58 @@ const MissionPage = (props: Props) => {
           People rush past each other through lives full of commitments.
           <br />
           <br />
-          <p className="c-essay__emphasize">
+          <p className="c-essay__emphasize ">
             At times it seems as if we forget to take a deep breath.
           </p>
-
-          <hr className="c-essay__divider"/>
-
-          <span className="c-essay__emphasize__inline">Our mission</span> is to
-          show people the importance of leaving our everyday commitments and
-          returning to the great nature, which is healthy and beneficial for our
-          mental and physical well-being. We want to become a safe, comfortable
-          place where people will want to visit for a dose of positive energy
-          and the many benefits of a boutique music and arts festival set in an
-          idyllic natural environment. By returning to our "roots", we will
-          promote a respectful relationship with nature, care for health and
-          mental well-being. As the name of the festival suggests, we are
-          emphasising the importance and benefits of spending time in nature.
-          The festival is also eco-conscious, encouraging the use of minimal
-          packaging. The festival's creators are committed to maintaining a good
-          attitude towards music, and all our performers are carefully selected,
-          as we believe in the positive vibrations of music and its beneficial
-          effect on people's well-being. In addition to promoting reggae culture
-          and soundsystems, we also encourage opportunities for various artistic
-          pursuits, which are manifested in the many content-rich workshops
-          offered by the festival: massages, yoga, gong meditation, jewellery
-          workshop, dance class, drum circle, etc.
+          <hr className="c-essay__divider" />
+          <span className="c-emphasize-inline c-emphasize-inline--alt">
+            Our mission
+          </span>{" "}
+          is to show people the importance of leaving our everyday commitments
+          and returning to the <span className="fs-2">great nature</span>, which
+          is healthy and beneficial for our mental and physical well-being.
+          <br />
+          <br />
+          We want to become a safe, comfortable place where people will want to
+          visit for a dose of{" "}
+          <span className="c-emphasize-inline">positive energy</span> and the
+          many benefits of a boutique music and arts festival set in an idyllic
+          natural environment.
+          <br />
+          <br />
+          <p className="c-essay__poem">
+            <span className="c-essay__emoji">☮️</span>
+            <br />
+            By returning to our "roots", we will promote a respectful
+            relationship with nature, care for health and mental well-being.
+          </p>{" "}
+          <br />
+          As the name of the festival suggests, we are emphasising the
+          importance and benefits of spending time in nature. The festival is
+          also eco-conscious, encouraging the use of minimal packaging.
+          <br />
+          <p className="c-essay__emoji text-center">🪘🧘🪈</p>
+          The festival's creators are committed to maintaining a good attitude
+          towards music, and all our performers are carefully selected, as{" "}
+          <span className="c-essay__emphasize">
+            {" "}
+            we believe in the positive vibrations of music{" "}
+          </span>
+          and its beneficial effect on people's well-being.
+          <br />
+          <hr className="c-essay__divider" />
+          In addition to promoting reggae culture and soundsystems, we also
+          encourage opportunities for various artistic pursuits, which are
+          manifested in the many content-rich workshops offered by the festival:
+          massages, yoga, gong meditation, jewellery workshop, dance class, drum
+          circle, etc.
         </p>
       </div>
-
-      <p>
-        Follow us and let's stay in touch!
-        https://www.facebook.com/rootsinthewoodsfestival
-        https://www.instagram.com/rootsinthewoodsfestival/
-        https://www.tiktok.com/@roots_in_the_woods
-      </p>
+      <br />
+      <br />
+      <h4 className="text-center">
+        <strong>Follow us and let's stay in touch!</strong> <SocialList />
+      </h4>
     </div>
   );
 };

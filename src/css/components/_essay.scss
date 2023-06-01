@@ -19,13 +19,18 @@
     letter-spacing: 0.85px;
 }
 
-.c-essay__emphasize__inline {
-    padding: 2px 4px;
+.c-emphasize-inline {
+    padding: 2px 7px;
     border-radius: 2px;
-    background-color: $primary;
-    color: $secondary;
+    background-color: $color-green;
+    color: $color-yellow;
     letter-spacing: 1.25px;
     font-weight: 700;
+}
+
+.c-emphasize-inline--alt {
+    background-color: $color-red;
+    color: $color-yellow;
 }
 
 .c-essay__divider {
