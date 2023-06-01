@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
-
 @import './config/bootstrap';
-@import './config/config'; 
-
+@import './config/config';
 @import './components/button-link';
-
 @import './components/page';
 @import './components/section';
 @import './components/header';
@@ -22,6 +19,6 @@
 @import './components/events-list';
 @import './components/follow-us';
 @import './components/social-list';
-
+@import './components/_essay.scss';
 @import './pages/index';
 @import './pages/news-detail';

@@ -59,6 +59,7 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
           <li className='c-navbar__menu-list-item'><a className='c-link' href="https://fienta.com/roots-in-the-woods-2023">Tickets</a></li>
           <li className='c-navbar__menu-list-item'><Link activeClassName='c-link--active' className='c-link' to="/events">Events</Link></li>
           <li className='c-navbar__menu-list-item'><Link activeClassName='c-link--active' className='c-link' to="/news">News</Link></li>
+          <li className='c-navbar__menu-list-item'><Link activeClassName='c-link--active' className='c-link' to="/mission">Mission</Link></li>
         </ul>
       </nav>
     </div>

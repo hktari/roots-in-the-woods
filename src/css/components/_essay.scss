@@ -1,0 +1,34 @@
+.c-essay {
+    text-align: justify;
+}
+
+.c-essay__paragraph {
+    font-size: 1.25em;
+}
+
+.c-essay__poem {
+    text-align: center;
+}
+
+.c-essay__emoji {
+    font-size: 1.5em;
+}
+
+.c-essay__emphasize {
+    font-size: 1.375em;
+    letter-spacing: 0.85px;
+}
+
+.c-essay__emphasize__inline {
+    padding: 2px 4px;
+    border-radius: 2px;
+    background-color: $primary;
+    color: $secondary;
+    letter-spacing: 1.25px;
+    font-weight: 700;
+}
+
+.c-essay__divider {
+    @extend .mt-3;
+    @extend .mb-4;
+}
