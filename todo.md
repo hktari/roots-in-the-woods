@@ -15,7 +15,8 @@
 - raises awareness about mental health and well-being.
 
 ## VISION / MISSION
-- essay
+- essay [OK]
+- style for desktop
 
 ## EVENTS
 - show upcoming and past events from facebook
@@ -24,8 +25,9 @@
 - show instagram feed
 
 ## 2023 LINEUP
+- 
 - show artists categorized by stages
-- artist item has image with link
+- artist item has image with link   [OK]
 - MAIN STAGE
 - DUB STAGE
 - JUNGLE, DRUM & BASS STAGE
