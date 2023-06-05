@@ -11,7 +11,13 @@ type Props = {
   artist: Artist;
 };
 
-const ARTIST_IMAGES_PATH = "../data/imaqes/artists/Haris Pilton/Haris pilton story 2.jpg";
+// TODO:
+// 1. add id to artist
+// 2. move to pages/
+// 3. query by id
+// reference image path ?
+const ARTIST_IMAGES_PATH =
+  "../data/imaqes/artists/Haris Pilton/Haris pilton story 2.jpg";
 const LineupArtist = ({ artist }: Props) => {
   return (
     <a className="c-lineup-artist" href={artist.link}>
