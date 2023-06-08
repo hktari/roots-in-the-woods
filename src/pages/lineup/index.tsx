@@ -20,7 +20,6 @@ function findImageForArtist(
 }
 
 const LineupPage = ({ data }: PageProps<Queries.AllArtistsPageQuery>) => {
-  const ARTIST_IMAGES_PATH = "../data/images/artists/";
 
   return (
     <div className="c-page-lineup">
