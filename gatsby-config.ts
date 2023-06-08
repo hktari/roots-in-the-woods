@@ -37,10 +37,17 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/data`,
-        name: `data`,
+        path: `${__dirname}/src/data/imaqes`,
+        name: `images`,
       },
     },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: `${__dirname}/src/data/artists.json`,
+    //     name: `artists`,
+    //   },
+    // },
     // {
     //   resolve: `gatsby-source-facebook-graphql`,
     //   options: {
