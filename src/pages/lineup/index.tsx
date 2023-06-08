@@ -1,10 +1,10 @@
 import React from "react";
 import { Link, PageProps, graphql } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 
 type Props = {};
 
-const LineupPage = ({ data }: PageProps<Queries.allArtistsPageQuery>) => {
+const LineupPage = ({ data }: PageProps<Queries.AllArtistsPageQuery>) => {
   const ARTIST_IMAGES_PATH = "../data/images/artists/";
 
   return (
@@ -15,11 +15,11 @@ const LineupPage = ({ data }: PageProps<Queries.allArtistsPageQuery>) => {
         <div className="c-page-lineup__list">
           {data.allArtistsJson.nodes.map((artist) => (
             <a key={artist.id} className="c-lineup-artist" href={artist.link!}>
-              <StaticImage
+              <GatsbyImage
                 className="c-lineup-artist__cover"
-                src={`${ARTIST_IMAGES_PATH}${artist.img}`}
+                image={data.allImageSharp.nodes[0].gatsbyImageData}
                 alt=""
-              ></StaticImage>
+              ></GatsbyImage>
               <h4 className="c-lineup-artist__title">{artist.title}</h4>
             </a>
           ))}
@@ -32,13 +32,22 @@ const LineupPage = ({ data }: PageProps<Queries.allArtistsPageQuery>) => {
 export default LineupPage;
 
 export const query = graphql`
-  query allArtistsPage {
+  query AllArtistsPage {
     allArtistsJson {
       nodes {
         img
         link
         title
         id
+      }
+    }
+    allImageSharp(
+      filter: {
+        fixed: { originalName: { glob: "**/Haris pilton story 2.jpg" } }
+      }
+    ) {
+      nodes {
+        gatsbyImageData(width: 512)
       }
     }
   }
