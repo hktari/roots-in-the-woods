@@ -13,6 +13,7 @@ const LineupPage = ({ data }: PageProps<Queries.allArtistsQueryQuery>) => {
         <div className="c-page-lineup__list">
           {data.allDataJson.nodes[0].artists.map((artist) => (
             <Link
+            key={artist.uid}
               className="c-page-lineup__list-item"
               to={`/lineup/${artist?.id}`}
             >

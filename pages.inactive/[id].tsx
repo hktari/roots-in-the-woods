@@ -1,7 +1,7 @@
 import React from "react";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { Artist } from "../../interface/artist";
-
+import { PageProps, graphql } from "gatsby";
 
 type Props = {
   artist: Artist;
@@ -14,7 +14,7 @@ type Props = {
 // reference image path ?
 const ARTIST_IMAGES_PATH =
   "../data/imaqes/artists/Haris Pilton/Haris pilton story 2.jpg";
-const LineupArtist = ({ artist }: Props) => {
+const LineupArtist = ({ artist }: PageProps<Queries.LineupArtistPageQuery>) => {
   return (
     <a className="c-lineup-artist" href={artist.link}>
       <StaticImage
@@ -28,3 +28,20 @@ const LineupArtist = ({ artist }: Props) => {
 };
 
 export default LineupArtist;
+
+export const query = graphql`
+  query LineupArtistPage($id: String) {
+    contentfulPost(id: { eq: $id }) {
+      title
+      updatedAt
+      text {
+        raw
+      }
+      gallery {
+        id
+        title
+        url
+      }
+    }
+  }
+`;
