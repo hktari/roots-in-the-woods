@@ -1,36 +1,36 @@
 {
     "artists": [{
-            "id": "89E6DD4F-9FC5-42F5-A291-A917ABDE166A",
+            "uid": "89E6DD4F-9FC5-42F5-A291-A917ABDE166A",
             "title": "Haris Pilton",
             "img": "Haris Pilton/Haris pilton story 2.jpg",
             "link": "https://soundcloud.com/harispilton"
         },
         {
-            "id": "D2B6DCB1-B5BB-4DC3-A771-C3F349F605B4",
+            "uid": "D2B6DCB1-B5BB-4DC3-A771-C3F349F605B4",
             "title": "Jahklin",
             "img": "Jahklin/FB_IMG_1685020590047.jpg",
             "link": "https://www.mixcloud.com/jahklinselecta/"
         },
         {
-            "id": "35E3F65C-FD30-4E40-8D15-27AFFFB1E398",
+            "uid": "35E3F65C-FD30-4E40-8D15-27AFFFB1E398",
             "title": "Koneski",
             "img": "koneski _story2.jpg",
             "link": "https://soundcloud.com/harispilton"
         },
         {
-            "id": "FDCDC28E-7CB5-43D0-87C8-99DA8D48887F",
+            "uid": "FDCDC28E-7CB5-43D0-87C8-99DA8D48887F",
             "title": "Haris Pilton",
             "img": "Haris Pilton/Haris pilton story 2.jpg",
             "link": "https://soundcloud.com/harispilton"
         },
         {
-            "id": "63F1532B-A272-4B23-932E-243377F62C91",
+            "uid": "63F1532B-A272-4B23-932E-243377F62C91",
             "title": "Haris Pilton",
             "img": "Haris Pilton/Haris pilton story 2.jpg",
             "link": "https://soundcloud.com/harispilton"
         },
         {
-            "id": "7B1B4D26-ADDE-4010-96F5-EFEF9B7B184F",
+            "uid": "7B1B4D26-ADDE-4010-96F5-EFEF9B7B184F",
             "title": "Haris Pilton",
             "img": "Haris Pilton/Haris pilton story 2.jpg",
             "link": "https://soundcloud.com/harispilton"
