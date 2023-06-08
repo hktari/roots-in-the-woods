@@ -1,6 +1,6 @@
 import React from "react";
-import LineupArtist from "../../components/artist";
-import { graphql } from "gatsby";
+import { Link, PageProps, graphql } from "gatsby";
+import { Artist } from "../../interface/artist";
 
 type Props = {};
 
@@ -12,7 +12,12 @@ const LineupPage = ({ data }: PageProps<Queries.allArtistsQueryQuery>) => {
         <h2>Main Stage</h2>
         <div className="c-page-lineup__list">
           {data.allDataJson.nodes[0].artists.map((artist) => (
-            <LineupArtist artist={artist} />
+            <Link
+              className="c-page-lineup__list-item"
+              to={`/lineup/${artist?.id}`}
+            >
+              {artist?.title}
+            </Link>
           ))}
         </div>
       </section>
@@ -27,6 +32,7 @@ export const query = graphql`
     allDataJson {
       nodes {
         artists {
+          id
           img
           link
           title

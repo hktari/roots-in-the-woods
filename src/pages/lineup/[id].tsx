@@ -1,11 +1,7 @@
 import React from "react";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { Artist } from "../../interface/artist";
 
-export interface Artist {
-  title: string;
-  link: string;
-  img: string;
-}
 
 type Props = {
   artist: Artist;
