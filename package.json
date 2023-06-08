@@ -30,6 +30,7 @@
     "gatsby-source-contentful": "^7.23.0",
     "gatsby-source-facebook-graphql": "^0.0.2",
     "gatsby-transformer-json": "^4.25.0",
+    "gatsby-transformer-sharp": "^4.25.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "sass": "^1.57.1"

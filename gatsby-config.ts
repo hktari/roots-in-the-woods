@@ -69,6 +69,7 @@ const config: GatsbyConfig = {
     // },
     "gatsby-plugin-netlify",
     "gatsby-plugin-image",
+    "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-sass",
   ],
