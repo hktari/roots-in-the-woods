@@ -1,6 +1,7 @@
 import React from "react";
-import { Link, PageProps, graphql } from "gatsby";
+import { Link, PageProps, StaticQuery, graphql } from "gatsby";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import ArtistCoverImage from "../../components/lineup/ArtistCoverImage";
 
 type Props = {};
 
@@ -15,11 +16,7 @@ const LineupPage = ({ data }: PageProps<Queries.AllArtistsPageQuery>) => {
         <div className="c-page-lineup__list">
           {data.allArtistsJson.nodes.map((artist) => (
             <a key={artist.id} className="c-lineup-artist" href={artist.link!}>
-              <GatsbyImage
-                className="c-lineup-artist__cover"
-                image={data.allImageSharp.nodes[0].gatsbyImageData}
-                alt=""
-              ></GatsbyImage>
+              <ArtistCoverImage artist={artist} />
               <h4 className="c-lineup-artist__title">{artist.title}</h4>
             </a>
           ))}
@@ -39,15 +36,6 @@ export const query = graphql`
         link
         title
         id
-      }
-    }
-    allImageSharp(
-      filter: {
-        fixed: { originalName: { glob: "**/Haris pilton story 2.jpg" } }
-      }
-    ) {
-      nodes {
-        gatsbyImageData(width: 512)
       }
     }
   }
