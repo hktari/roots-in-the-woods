@@ -64,10 +64,16 @@ function parseArtistCountry(country: string) {
 type Props = {
   artist: Queries.AllArtistsPageQuery["allArtistsJson"]["nodes"][0];
   imageNodes: Queries.AllArtistsPageQuery["allImageSharp"]["nodes"];
+  noImagePlaceholder: IGatsbyImageData;
 };
 
-const LineupArtist = ({ artist, imageNodes }: Props) => {
-  const [imageData, imageName] = findImageForArtist(artist, imageNodes);
+const LineupArtist = ({ artist, imageNodes, noImagePlaceholder }: Props) => {
+  let imageData = noImagePlaceholder;
+  let imageName = "roots in the woods logo";
+  
+  try {
+    [imageData, imageName] = findImageForArtist(artist, imageNodes);
+  } catch (error) {}
 
   const links = parseArtistLinks(artist.links || []);
   const soundCloudLinkOrFirst =
