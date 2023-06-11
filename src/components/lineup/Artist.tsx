@@ -56,6 +56,13 @@ function parseArtistCountry(country: string) {
   const countryIconMap = new Map([
     ["slovenia", "🇸🇮"],
     ["france", "🇫🇷"],
+    ["serbia", "🇷🇸"],
+    ["croatia", "🇭🇷"],
+    ["italy", "🇮🇹"],
+    ["germany", "🇩🇪"],
+    ["austria", "🇦🇹"],
+
+    
   ]);
 
   return countryIconMap.get(country);
@@ -70,10 +77,12 @@ type Props = {
 const LineupArtist = ({ artist, imageNodes, noImagePlaceholder }: Props) => {
   let imageData = noImagePlaceholder;
   let imageName = "roots in the woods logo";
-  
+
   try {
     [imageData, imageName] = findImageForArtist(artist, imageNodes);
-  } catch (error) {}
+  } catch (error) {
+    // todo-bk: log errors
+  }
 
   const links = parseArtistLinks(artist.links || []);
   const soundCloudLinkOrFirst =
