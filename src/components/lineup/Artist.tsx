@@ -52,6 +52,15 @@ function parseArtistLinks(links: string[]): ArtistLink[] {
   return artistLinks;
 }
 
+function parseArtistCountry(country: string) {
+  const countryIconMap = new Map([
+    ["slovenia", "🇸🇮"],
+    ["france", "🇫🇷"],
+  ]);
+
+  return countryIconMap.get(country);
+}
+
 type Props = {
   artist: Queries.AllArtistsPageQuery["allArtistsJson"]["nodes"][0];
   imageNodes: Queries.AllArtistsPageQuery["allImageSharp"]["nodes"];
@@ -75,7 +84,13 @@ const LineupArtist = ({ artist, imageNodes }: Props) => {
         image={imageData}
         alt={imageName}
       ></GatsbyImage>
-      <h4 className="c-lineup-artist__title">{artist.title}</h4>
+      <h4 className="c-lineup-artist__title">
+        {artist.title}
+        <span className="c-lineup-artist__country">
+          {" "}
+          {artist.country && parseArtistCountry(artist.country)}
+        </span>
+      </h4>
     </a>
   );
 };
