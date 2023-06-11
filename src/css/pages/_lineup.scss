@@ -1,12 +1,3 @@
 .c-page-lineup {}
 
 .c-page-lineup__stage {}
-
-@include media-breakpoint-up(md) {
-    .c-page-lineup__list {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 24px;
-        row-gap: 24px;
-    }
-}

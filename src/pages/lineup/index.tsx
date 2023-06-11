@@ -7,6 +7,7 @@ import {
 } from "gatsby-plugin-image";
 import ArtistCoverImage from "../../components/lineup/ArtistCoverImage";
 import LineupArtist from "../../components/lineup/Artist";
+import LineupStage from "../../components/lineup/Stage";
 
 type Props = {};
 
@@ -15,15 +16,22 @@ const LineupPage = ({ data }: PageProps<Queries.AllArtistsPageQuery>) => {
     <div className="c-page-lineup">
       <h1 className="c-page__title">2023 Lineup</h1>
       <section id="mainStage" className="c-page-lineup__stage">
-        <h2>Main Stage</h2>
-        <div className="c-page-lineup__list">
-          {data.allArtistsJson.nodes.map((artist) => (
-            <LineupArtist
-              artist={artist}
-              imageNodes={data.allImageSharp.nodes}
-            />
-          ))}
-        </div>
+        <LineupStage
+          title="Main Stage"
+          artistNodes={data.allArtistsJson.nodes.filter(
+            (artist) => artist.stage === "main_stage"
+          )}
+          imageNodes={data.allImageSharp.nodes}
+        />
+      </section>
+      <section id="dubStage" className="c-page-lineup__stage">
+        <LineupStage
+          title="Dub Stage"
+          artistNodes={data.allArtistsJson.nodes.filter(
+            (artist) => artist.stage === "dub_stage"
+          )}
+          imageNodes={data.allImageSharp.nodes}
+        />
       </section>
     </div>
   );

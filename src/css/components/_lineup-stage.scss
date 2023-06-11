@@ -1,0 +1,14 @@
+.c-lineup-stage {
+}
+
+.c-lineup-stage__title {
+}
+
+@include media-breakpoint-up(md) {
+  .c-lineup-stage__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 24px;
+  }
+}
