@@ -1,3 +1,6 @@
-.c-page-lineup {}
+.c-page-lineup {
+}
 
-.c-page-lineup__stage {}
+.c-page-lineup__stage {
+  @extend .mt-5;
+}

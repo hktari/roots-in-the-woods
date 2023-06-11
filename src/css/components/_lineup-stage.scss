@@ -2,6 +2,12 @@
 }
 
 .c-lineup-stage__title {
+  @extend .fs-1;
+  color: rgba(0, 0, 0, 0.61);
+  text-transform: uppercase;
+}
+.c-lineup-stage__list {
+  @extend .mt-3;
 }
 
 @include media-breakpoint-up(md) {

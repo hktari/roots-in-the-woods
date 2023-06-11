@@ -33,6 +33,15 @@ const LineupPage = ({ data }: PageProps<Queries.AllArtistsPageQuery>) => {
           imageNodes={data.allImageSharp.nodes}
         />
       </section>
+      <section id="jungleDnbStage" className="c-page-lineup__stage">
+        <LineupStage
+          title="Jungle / Drum & Bass Stage"
+          artistNodes={data.allArtistsJson.nodes.filter(
+            (artist) => artist.stage === "jungle_dnb_stage"
+          )}
+          imageNodes={data.allImageSharp.nodes}
+        />
+      </section>
     </div>
   );
 };
