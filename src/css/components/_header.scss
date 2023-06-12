@@ -2,7 +2,7 @@
   position: relative;
   text-align: center;
   background: rgba(41, 49, 37, 1) 100%;
-  height: 616px;
+  height: 332px;
 }
 
 .c-header__img {
@@ -12,6 +12,9 @@
 }
 
 @include media-breakpoint-up(md){
+    .c-header{
+        height: 616px;
+    }
     .c-header__img{
         width: unset;
     }

@@ -1,6 +1,5 @@
 import React from "react";
 
-import aboutImg from "../../images/festival-night1.jpeg";
 import aboutImgTwo from "../../images/stereo-black-white.jpg";
 import { StaticImage } from "gatsby-plugin-image";
 
@@ -11,29 +10,24 @@ const AboutSection = (props: Props) => {
     <section className="c-section">
       <div className="row">
         <div className="col-12 col-md-6 mt-3 mt-md-0">
-          <h2 className="c-section__title">Reggae and Dub Festival</h2>
+          <h2 className="c-section__title">Sound system culture festival</h2>
           <p className="c-section__text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum magni
-            possimus nobis odio, voluptate vel enim dolorem dolores non vitae
-            rem quos provident quas itaque nesciunt quibusdam mollitia, quisquam
-            eveniet.
+            The festival is organized by friends and enthusiasts of festival
+            culture, who come from Slovenia. The vast majority of the organisers
+            are locals who respect the idyllic natural environment that Pohorje
+            offers.
+            <br />
+            <br />
+            For this reason, we have a great desire to offer a unique experience
+            on the beautiful Pohorje plains.{" "}
           </p>
         </div>
         <div className="col-12 col-md-6 mt-3 mt-md-0 px-0">
-          <StaticImage src={aboutImg} alt="" className="img-fluid" />
-        </div>
-      </div>
-      <div className="row mt-md-5">
-        <div className="col-12 col-md-6 mt-3 mt-md-0 px-4 order-md-2">
-          <p className="c-section__text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum magni
-            possimus nobis odio, voluptate vel enim dolorem dolores non vitae
-            rem quos provident quas itaque nesciunt quibusdam mollitia, quisquam
-            eveniet.
-          </p>
-        </div>
-        <div className="col-12 col-md-6 mt-3 mt-md-0 px-0 order-md-1">
-          <img src={aboutImgTwo} alt="" className="img-fluid" />
+          <StaticImage
+            src={"../../images/festival-night1.jpeg"}
+            alt=""
+            className="img-fluid"
+          />
         </div>
       </div>
     </section>
