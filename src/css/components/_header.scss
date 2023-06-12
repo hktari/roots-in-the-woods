@@ -1,11 +1,22 @@
-
-.c-header{
-    height: 450px;
-    position: relative;
+.c-header {
+  position: relative;
+  text-align: center;
+  background: rgba(41, 49, 37, 1) 100%;
+  height: 616px;
 }
 
-.c-header__img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.c-header__img {
+  height: 100%;
+  width: 100vw;
+  object-fit: cover;
 }
+
+@include media-breakpoint-up(md){
+    .c-header__img{
+        width: unset;
+    }
+}
+
+
+
+
