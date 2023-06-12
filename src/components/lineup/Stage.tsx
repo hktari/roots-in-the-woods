@@ -9,17 +9,24 @@ type Props = {
   title: string;
 };
 
-const LineupStage = ({ artistNodes, title, imageNodes, noImagePlaceholder }: Props) => {
+const LineupStage = ({
+  artistNodes,
+  title,
+  imageNodes,
+  noImagePlaceholder,
+}: Props) => {
   return (
     <div className="c-lineup-stage">
       <h2 className="c-lineup-stage__title">{title}</h2>
       <div className="c-lineup-stage__list">
         {artistNodes.map((artist) => (
-          <LineupArtist
-            artist={artist}
-            imageNodes={imageNodes}
-            noImagePlaceholder={noImagePlaceholder}
-          />
+          <div className="c-lineup-stage__list-item">
+            <LineupArtist
+              artist={artist}
+              imageNodes={imageNodes}
+              noImagePlaceholder={noImagePlaceholder}
+            />
+          </div>
         ))}
       </div>
     </div>

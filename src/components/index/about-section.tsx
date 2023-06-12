@@ -1,32 +1,43 @@
-import React from 'react'
+import React from "react";
 
-import aboutImg from '../../images/festival-night1.jpeg';
-import aboutImgTwo from '../../images/stereo-black-white.jpg';
+import aboutImg from "../../images/festival-night1.jpeg";
+import aboutImgTwo from "../../images/stereo-black-white.jpg";
+import { StaticImage } from "gatsby-plugin-image";
 
-type Props = {}
+type Props = {};
 
 const AboutSection = (props: Props) => {
-    return (
-        <section className='c-section'>
-            <div className="row">
-                <div className="col-12 col-md-6 mt-3 mt-md-0">
-                    <h2 className="c-section__title">Reggae and Dub Festival</h2>
-                    <p className="c-section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum magni possimus nobis odio, voluptate vel enim dolorem dolores non vitae rem quos provident quas itaque nesciunt quibusdam mollitia, quisquam eveniet.</p>
-                </div>
-                <div className="col-12 col-md-6 mt-3 mt-md-0 px-0">
-                    <img src={aboutImg} alt="" className="img-fluid" />
-                </div>
-            </div>
-            <div className="row mt-md-5">
-                <div className="col-12 col-md-6 mt-3 mt-md-0 px-4 order-md-2">
-                    <p className="c-section__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum magni possimus nobis odio, voluptate vel enim dolorem dolores non vitae rem quos provident quas itaque nesciunt quibusdam mollitia, quisquam eveniet.</p>
-                </div>
-                <div className="col-12 col-md-6 mt-3 mt-md-0 px-0 order-md-1">
-                    <img src={aboutImgTwo} alt="" className="img-fluid" />
-                </div>
-            </div>
+  return (
+    <section className="c-section">
+      <div className="row">
+        <div className="col-12 col-md-6 mt-3 mt-md-0">
+          <h2 className="c-section__title">Reggae and Dub Festival</h2>
+          <p className="c-section__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum magni
+            possimus nobis odio, voluptate vel enim dolorem dolores non vitae
+            rem quos provident quas itaque nesciunt quibusdam mollitia, quisquam
+            eveniet.
+          </p>
+        </div>
+        <div className="col-12 col-md-6 mt-3 mt-md-0 px-0">
+          <StaticImage src={aboutImg} alt="" className="img-fluid" />
+        </div>
+      </div>
+      <div className="row mt-md-5">
+        <div className="col-12 col-md-6 mt-3 mt-md-0 px-4 order-md-2">
+          <p className="c-section__text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum magni
+            possimus nobis odio, voluptate vel enim dolorem dolores non vitae
+            rem quos provident quas itaque nesciunt quibusdam mollitia, quisquam
+            eveniet.
+          </p>
+        </div>
+        <div className="col-12 col-md-6 mt-3 mt-md-0 px-0 order-md-1">
+          <img src={aboutImgTwo} alt="" className="img-fluid" />
+        </div>
+      </div>
+    </section>
+  );
+};
 
-        </section>)
-}
-
-export default AboutSection
+export default AboutSection;

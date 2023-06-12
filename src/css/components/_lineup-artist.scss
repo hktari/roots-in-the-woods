@@ -12,6 +12,7 @@
   .c-lineup-artist {
     position: relative;
     border-radius: 8px;
+    display: inline-block;
     overflow: hidden;
     &::before {
       content: "";
@@ -23,12 +24,11 @@
       z-index: 1;
     }
   }
-  .c-lineup-artist__cover {
+  .c-lineup-artist__cover.gatsby-image-wrapper {
     display: block;
     width: 100%;
     height: 350px;
     object-fit: cover;
-    object-position: 50% 50%;
   }
   .c-lineup-artist__title {
     position: absolute;
