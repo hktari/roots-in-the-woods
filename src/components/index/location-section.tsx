@@ -12,7 +12,7 @@ const LocationSection = (props: Props) => {
           <i className="bi bi-geo-alt-fill fs-3 me-2"></i>
           <span>Where ?</span>
         </h2>
-        <div className="col-12 col-md-6 px-0 mt-3 mt-md-0">
+        <div className="col-12 col-md-6 px-0 mt-3">
           <img className="img-fluid" src={locationImg} alt="" />
         </div>
         <div className="col-12 col-md-6 px-md-4 d-flex flex-column">
