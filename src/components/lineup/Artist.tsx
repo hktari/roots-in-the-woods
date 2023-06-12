@@ -61,8 +61,7 @@ function parseArtistCountry(country: string) {
     ["italy", "🇮🇹"],
     ["germany", "🇩🇪"],
     ["austria", "🇦🇹"],
-
-    
+    ["uk", "🇬🇧"],
   ]);
 
   return countryIconMap.get(country);
