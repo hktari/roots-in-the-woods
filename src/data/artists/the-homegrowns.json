@@ -1,8 +1,11 @@
 {
-  "uid": "64D1C90A-552B-4E0F-ADFC-B2F3E8AB11DE",
-  "title": "Siti Hlapci",
-  "images": ["siti hlapci 2023 _story2.jpg"],
-  "links": ["https://www.youtube.com/watch?v=Aj1BRBw9_NE"],
+  "uid": "4C14E554-09B8-4A24-94C6-50CBDDED30E8",
+  "title": "The Homegrowns",
+  "images": ["Homegrowns story 2023 _.jpg"],
+  "links": [
+    "https://www.facebook.com/profile.php?id=100079500052941",
+    "https://soundcloud.com/juremiklo-i/sets/the-homegrowns"
+  ],
   "stage": "main_stage",
   "country": "slovenia"
 }
