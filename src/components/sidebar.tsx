@@ -63,7 +63,7 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
               Tickets
             </a>
           </li>
-          <li className="c-sidebar__menu-list-item">
+          {/* <li className="c-sidebar__menu-list-item">
             <Link
               className="c-link"
               activeClassName="c-link--active"
@@ -80,7 +80,7 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
             >
               News
             </Link>
-          </li>
+          </li> */}
           <li className="c-sidebar__menu-list-item">
             <Link
               className="c-link"

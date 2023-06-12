@@ -80,7 +80,7 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
               Tickets
             </a>
           </li>
-          <li className="c-navbar__menu-list-item">
+          {/* <li className="c-navbar__menu-list-item">
             <Link
               activeClassName="c-link--active"
               className="c-link"
@@ -97,7 +97,7 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
             >
               News
             </Link>
-          </li>
+          </li> */}
           <li className="c-navbar__menu-list-item">
             <Link
               activeClassName="c-link--active"
