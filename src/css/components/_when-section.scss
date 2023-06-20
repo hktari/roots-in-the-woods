@@ -22,11 +22,30 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 15px;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-repeat: repeat;
+  background-size: contain;
   background-clip: text;
   -webkit-background-clip: text;
-  color: rgba(0, 0, 0, 0.35);
+  animation: translateX 120s linear 0s infinite alternate none,
+    colorPulse 1.25s cubic-bezier(0.215, 0.610, 0.355, 1) 0s infinite alternate
+      none;
+}
+
+@keyframes colorPulse {
+  0% {
+    color: rgba(0, 0, 0, 0.08);
+  }
+  100% {
+    color: rgba(0, 0, 0, 0.18);
+  }
+}
+@keyframes translateX {
+  0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 1000%;
+  }
 }
 
 .c-when-section__span {
