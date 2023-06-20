@@ -1,5 +1,5 @@
-import * as React from "react"
-import { graphql, HeadFC, PageProps } from "gatsby"
+import * as React from "react";
+import { graphql, HeadFC, PageProps } from "gatsby";
 import NewsItem from "../components/news-item";
 import AboutSection from "../components/index/about-section";
 import LocationSection from "../components/index/location-section";
@@ -8,30 +8,28 @@ import ActivitiesSection from "../components/index/activities-section";
 import InfoSection from "../components/index/info-section";
 import GetTicketCta from "../components/get-ticket-cta";
 import FollowUsSection from "../components/follow-us-section";
-
+import WhenSection from "../components/index/when-section";
 
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
-
   return (
     <>
       <AboutSection />
 
       <LocationSection />
 
+      <WhenSection />
       <InfoSection />
 
       <GetTicketCta />
 
       <FollowUsSection />
-
     </>
-  )
-}
+  );
+};
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Roots in the Woods</title>
-
+export const Head: HeadFC = () => <title>Roots in the Woods</title>;
 
 export const query = graphql`
   query IndexPage {
@@ -54,4 +52,5 @@ export const query = graphql`
         }
       }
     }
-}`
+  }
+`;
