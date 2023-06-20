@@ -24,7 +24,7 @@ const AboutSection = (props: Props) => {
         </div>
         <div className="col-12 col-md-6 mt-3 mt-md-0 px-0">
           <StaticImage
-            src={"../../images/festival-night1.jpeg"}
+            src={"../../data/images/party.jpg"}
             alt=""
             className="img-fluid"
           />
