@@ -21,14 +21,14 @@ const Header = ({ setDisableScroll }: HeaderProps) => {
   return (
     <>
       <header className="c-header">
-        <img
-          className="c-header__img"
-          srcSet={`${headerImageMobile} 1219w, ${headerImageDesktop} 1920w`}
-          sizes="(max-width: 768px) 100vw,
-          1920px"
-          src={headerImageDesktop}
-          alt="Roots In The Woods Banner"
-        />
+        <picture>
+          <source media="(max-width: 576px)" srcSet={headerImageMobile} />
+          <img
+            className="c-header__img"
+            src={headerImageDesktop}
+            alt="Roots In The Woods Banner"
+          />
+        </picture>
       </header>
       <SideBar
         isOpen={sidebarOpen}

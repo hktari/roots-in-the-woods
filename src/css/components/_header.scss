@@ -11,15 +11,14 @@
   object-fit: cover;
 }
 
-@include media-breakpoint-up(md){
-    .c-header{
-        height: 616px;
-    }
-    .c-header__img{
-        width: unset;
-    }
+@include media-breakpoint-up(md) {
+  .c-header {
+    height: 616px;
+  }
 }
 
-
-
-
+@include media-breakpoint-up(lg) {
+  .c-header__img {
+    width: unset;
+  }
+}
