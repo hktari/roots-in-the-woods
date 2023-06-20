@@ -13,13 +13,12 @@ const InfoSection = (props: InfoSectionProps) => {
       {
         title: "Family Friendly",
         description:
-          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dicta officia ab cum fuga voluptas.",
+          "The program will include many varied workshops for adults and children that will take place throughout the festival days. ",
         image: childFriendlyImage,
       },
       {
         title: "Dog Friendly",
-        description:
-          "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam quibusdam, repudiandae, voluptatem deleniti id facilis eligendi provident error nemo ducimus accusamus commodi.",
+        description:"Canine-friendly frequencies shall relax the human as well as project that energy on to animals.",
         image: dogFriendlyImage,
       },
       {
