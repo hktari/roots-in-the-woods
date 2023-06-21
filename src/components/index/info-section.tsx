@@ -4,7 +4,8 @@ type InfoSectionProps = {};
 
 import childFriendlyImage from "../../images/child-friendly.jpg";
 import dogFriendlyImage from "../../images/dog-friendly.jpg";
-import wellbeingImage from "../../data/images/wellbeing.jpg";
+import wellbeingImage from "../../images/wellbeing.jpg";
+import campingImage from "../../images/camping.jpg";
 
 import InfoItem from "../info-item";
 const InfoSection = (props: InfoSectionProps) => {
@@ -18,15 +19,15 @@ const InfoSection = (props: InfoSectionProps) => {
       },
       {
         title: "Dog Friendly",
-        description:"Canine-friendly frequencies shall relax the human as well as project that energy on to animals.",
+        description:
+          "Canine-friendly frequencies shall relax the human as well as project that energy on to animals.",
         image: dogFriendlyImage,
       },
       {
         title: "Environmentally Friendly",
         description:
           "We are emphasising the importance and benefits of spending time in nature. The festival is eco-conscious, encouraging the use of minimal packaging.",
-        image:
-          "https://images.unsplash.com/photo-1537225228614-56cc3556d7ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+        image: campingImage,
       },
       {
         title: "Raises awareness about mental health and well-being.",
