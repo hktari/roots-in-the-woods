@@ -30,16 +30,16 @@
   background-clip: text;
   -webkit-background-clip: text;
   animation: translateX 120s linear 0s infinite alternate none,
-    colorPulse 1.25s cubic-bezier(0.215, 0.610, 0.355, 1) 0s infinite alternate
+    colorPulse 2s ease-out 0s infinite alternate
       none;
 }
 
 @keyframes colorPulse {
   0% {
-    color: rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 0.58);
   }
   100% {
-    color: rgba(0, 0, 0, 0.18);
+    color: rgba(0, 0, 0, 0.08);
   }
 }
 @keyframes translateX {
