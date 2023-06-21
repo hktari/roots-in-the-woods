@@ -3,9 +3,11 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  border-top: 4px solid rgba(0, 0, 0, 0.4);
-  border-bottom: 4px solid rgba(0, 0, 0, 0.4);
 
+  --seperator-thickness: 2px;
+
+  border-top: var(--seperator-thickness) solid rgba(0, 0, 0, 0.4);
+  border-bottom: var(--seperator-thickness) solid rgba(0, 0, 0, 0.4);
 }
 
 .c-when-section__bg {
@@ -20,18 +22,27 @@
 .c-when-section__text {
   padding: 16px;
   border-radius: 16px;
-  font-size: 124px;
   font-weight: 900;
+  font-size: 66px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 15px;
   background-repeat: repeat;
-  background-size: contain;
+  background-size: cover;
   background-clip: text;
   -webkit-background-clip: text;
   animation: translateX 120s linear 0s infinite alternate none,
-    colorPulse 2s ease-out 0s infinite alternate
-      none;
+    colorPulse 2s ease-out 0s infinite alternate none;
+}
+
+@media (min-width: 898px) {
+  .c-when-section__wrapper {
+    --seperator-thickness: 4px;
+  }
+  .c-when-section__text {
+    font-size: 124px;
+    background-size: contain;
+  }
 }
 
 @keyframes colorPulse {
