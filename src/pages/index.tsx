@@ -9,6 +9,7 @@ import InfoSection from "../components/index/info-section";
 import GetTicketCta from "../components/get-ticket-cta";
 import FollowUsSection from "../components/follow-us-section";
 import WhenSection from "../components/index/when-section";
+import PromoVideoSection from "../components/index/promo-video-section";
 
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   return (
@@ -17,10 +18,11 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
       <LocationSection />
 
-      
       <InfoSection />
 
       <WhenSection />
+
+      <PromoVideoSection url={data.promoVideo.nodes[0].video?.url!} />
       
       <GetTicketCta />
 
@@ -35,7 +37,7 @@ export const Head: HeadFC = () => <title>Roots in the Woods</title>;
 
 export const query = graphql`
   query IndexPage {
-    allContentfulPost {
+    allPosts: allContentfulPost {
       nodes {
         id
         title
@@ -50,6 +52,14 @@ export const query = graphql`
         }
         gallery {
           id
+          url
+        }
+      }
+    }
+    promoVideo: allContentfulPromoVideo(limit: 1) {
+      nodes {
+        video {
+          title
           url
         }
       }
