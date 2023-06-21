@@ -28,7 +28,6 @@
   text-transform: uppercase;
   letter-spacing: 15px;
   background-repeat: repeat;
-  background-size: cover;
   background-clip: text;
   -webkit-background-clip: text;
   animation: translateX 120s linear 0s infinite alternate none,
@@ -50,7 +49,7 @@
     color: rgba(0, 0, 0, 0.58);
   }
   100% {
-    color: rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 0);
   }
 }
 @keyframes translateX {
