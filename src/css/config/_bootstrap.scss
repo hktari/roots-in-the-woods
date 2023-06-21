@@ -35,8 +35,8 @@ $font-family-base: // Cross-platform generic font family (default user interface
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 
 
-$primary: #5bb24d;
-$secondary: #EEDB11;
+$primary: $color-green;
+$secondary: $color-yellow;
 // $success:       $green;
 // $info:          $cyan;
 // $warning:       $yellow;

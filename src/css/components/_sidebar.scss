@@ -7,8 +7,8 @@
     z-index: $z-index-sidebar;
     transition: left 0.3s ease-in;
 
-    background: rgb(194, 187, 59);
-    background: linear-gradient(0deg, rgba(194, 187, 59, 1) 0%, rgba(147, 169, 60, 1) 100%);
+    background-color: color-mix(in srgb, $color-green, $color-yellow);
+    // background: linear-gradient(0deg, rgba($color-green, 0) 0%, rgba($color-green, 1) 100%);
 }
 
 .c-sidebar--show {
