@@ -17,9 +17,11 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
       <LocationSection />
 
-      <WhenSection />
+      
       <InfoSection />
 
+      <WhenSection />
+      
       <GetTicketCta />
 
       <FollowUsSection />

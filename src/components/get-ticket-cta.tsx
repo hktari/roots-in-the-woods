@@ -6,7 +6,7 @@ import soundSystemImage from '../images/soundsystem.jpg';
 
 const GetTicketCta = (props: Props) => {
     return (
-        <div className="c-section">
+        <div className="c-section my-0 my-sm-5">
             <div className="row">
                 <div className="col px-0">
                     <div className='c-get-ticket-cta'>
