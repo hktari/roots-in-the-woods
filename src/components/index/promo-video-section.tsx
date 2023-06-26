@@ -9,7 +9,7 @@ const PromoVideoSection = ({ url }: Props) => {
     <div className="c-section c-section--no-spacing-mobile">
       <div className="row">
         <div className="col-12 px-0 text-center">
-          <video className="c-promo-video img-fluid" height="340" controls>
+          <video autoPlay className="c-promo-video img-fluid" height="340" controls>
             <source src={url} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
