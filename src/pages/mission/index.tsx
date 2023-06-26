@@ -27,7 +27,7 @@ const MissionPage = (props: Props) => {
           </p>
           <br />
           <p className="c-essay__poem">
-            <span className="c-essay__emoji">🫚</span>
+            <span className="c-essay__emoji">🗿</span>
             <br />
             By returning to our roots in the forests of the Pohorje Mountains,
             where time stops, worries fade and thoughts are calmed, our vision
@@ -71,7 +71,7 @@ const MissionPage = (props: Props) => {
           importance and benefits of spending time in nature. The festival is
           also eco-conscious, encouraging the use of minimal packaging.
           <br />
-          <p className="c-essay__emoji text-center">🪘🧘🪈</p>
+          <p className="c-essay__emoji text-center">🦁🪘🧘</p>
           The festival's creators are committed to maintaining a good attitude
           towards music, and all our performers are carefully selected, as{" "}
           <span className="c-essay__emphasize">

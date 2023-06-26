@@ -1,39 +1,38 @@
 .c-essay {
-    text-align: justify;
+  text-align: justify;
 }
 
 .c-essay__paragraph {
-    font-size: 1.25em;
+  font-size: 1.25em;
 }
 
 .c-essay__poem {
-    text-align: center;
+  text-align: center;
 }
 
 .c-essay__emoji {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 .c-essay__emphasize {
-    font-size: 1.375em;
-    letter-spacing: 0.85px;
+  font-size: 1.375em;
+  letter-spacing: 0.85px;
 }
 
 .c-emphasize-inline {
-    padding: 2px 7px;
-    border-radius: 2px;
-    background-color: $color-green;
-    color: $color-yellow;
-    letter-spacing: 1.25px;
-    font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 2px;
+  background-color: rgb(120, 171, 105);
+  color: rgb(255, 239, 0);
+  letter-spacing: 1.25px;
+  font-weight: 700;
 }
 
 .c-emphasize-inline--alt {
-    background-color: $color-red;
-    color: $color-yellow;
-}
+    background-color: rgb(242, 238, 0);
+    color: rgb(72, 149, 55);  }
 
 .c-essay__divider {
-    @extend .mt-3;
-    @extend .mb-4;
+  @extend .mt-3;
+  @extend .mb-4;
 }
