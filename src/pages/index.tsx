@@ -16,14 +16,14 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
     <>
       <AboutSection />
 
-      <LocationSection />
-
-      <InfoSection />
-
       <WhenSection />
 
       <PromoVideoSection url={data.promoVideo.nodes[0].video?.url!} />
       
+      <LocationSection />
+
+      <InfoSection />
+
       <GetTicketCta />
 
       <FollowUsSection />

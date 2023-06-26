@@ -2,7 +2,8 @@ import React from 'react'
 
 type Props = {}
 
-import soundSystemImage from '../images/soundsystem.jpg';
+import soundSystemImage from '../data/images/soundsystem-bg.jpg';
+
 
 const GetTicketCta = (props: Props) => {
     return (
