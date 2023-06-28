@@ -3,5 +3,6 @@
   "title": "Haris Pilton",
   "images": ["Haris pilton story 2.jpg"],
   "links": ["https://soundcloud.com/harispilton"],
-  "stage": "dub_stage"
+  "stage": "main_stage",
+  "country": "slovenia"
 }
