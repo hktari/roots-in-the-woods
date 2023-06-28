@@ -4,5 +4,6 @@
   "images": ["urbis portrait.jpg", "urbis story.jpg"],
   "links": ["https://soundcloud.com/urban-the-dread"],
   "stage": "dub_stage",
-  "country": "slovenia"
+  "country": "slovenia",
+  "order": 2
 }

@@ -54,13 +54,14 @@ export default LineupPage;
 
 export const query = graphql`
   query AllArtistsPage {
-    allArtistsJson {
+    allArtistsJson(sort: {order: ASC, fields: order}) {
       nodes {
         country
         stage
         images
         links
         title
+        order
         id
       }
     }
