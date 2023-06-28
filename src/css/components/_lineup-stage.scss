@@ -3,8 +3,9 @@
 
 .c-lineup-stage__title {
   @extend .fs-1;
-  color: rgba(0, 0, 0, 0.61);
+  color: rgba(0, 0, 0, 1);
   text-transform: uppercase;
+  font-weight: 400
 }
 .c-lineup-stage__list {
   @extend .mt-3;
