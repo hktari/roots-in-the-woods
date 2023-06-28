@@ -18,7 +18,7 @@ const SocialList = ({ classModifiers }: SocialListProps) => {
         </a>
       </li>
       <li className="c-social-list__item">
-        <a href="https://www.tiktok.com/@roots_in_the_woods">
+        <a href="https://www.tiktok.com/@rootsinthewoodsfestival">
           <i className="bi bi-tiktok"></i>
         </a>
       </li>
