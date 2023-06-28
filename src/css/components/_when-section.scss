@@ -3,11 +3,6 @@
   justify-content: center;
   align-items: center;
   position: relative;
-
-  --seperator-thickness: 2px;
-
-  border-top: var(--seperator-thickness) solid rgba(0, 0, 0, 0.4);
-  border-bottom: var(--seperator-thickness) solid rgba(0, 0, 0, 0.4);
 }
 
 .c-when-section__bg {
@@ -37,6 +32,9 @@
 @media (min-width: 898px) {
   .c-when-section__wrapper {
     --seperator-thickness: 4px;
+
+    border-top: var(--seperator-thickness) solid rgba(0, 0, 0, 0.4);
+    border-bottom: var(--seperator-thickness) solid rgba(0, 0, 0, 0.4);
   }
   .c-when-section__text {
     font-size: 124px;

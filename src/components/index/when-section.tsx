@@ -8,7 +8,7 @@ type Props = {};
 const WhenSection = (props: Props) => {
   return (
     <section className="c-section">
-      <div className="row">
+      <div className="row gy-0">
         <div className="col-12 px-0">
           <div className="c-when-section__wrapper">
             <div

@@ -6,7 +6,7 @@ type Props = {
 
 const PromoVideoSection = ({ url }: Props) => {
   return (
-    <div className="c-section c-section--no-spacing-mobile">
+    <div className="c-section">
       <div className="row">
         <div className="col-12 px-0 text-center">
           <video autoPlay className="c-promo-video img-fluid" height="340" controls>
