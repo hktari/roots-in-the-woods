@@ -13,12 +13,12 @@ const GetTicketCta = (props: Props) => {
           <div className="c-get-ticket-cta">
             <picture>
               <source
-                media="(max-width: 576px)"
+                media="(max-width: 768px)"
                 srcSet={soundSystemImageMobile}
               />
               <img
                 className="c-get-ticket-cta__image"
-                src={soundSystemImageMobile}
+                src={soundSystemImage}
                 alt="sound system"
               />
             </picture>
