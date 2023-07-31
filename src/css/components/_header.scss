@@ -1,25 +1,9 @@
 .c-header {
   position: relative;
   text-align: center;
-  background: yellow;
-  // height: 332px;
-  // width: 100vw;
 }
 
 .c-header__img {
-  // height: 100%;
   width: 100%;
-  object-fit: contain;
-}
-
-@include media-breakpoint-up(md) {
-  .c-header {
-    // height: 616px;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .c-header__img {
-    // width: unset;
-  }
+  object-fit: cover;
 }

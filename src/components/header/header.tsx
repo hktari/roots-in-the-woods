@@ -22,8 +22,13 @@ const Header = ({ setDisableScroll }: HeaderProps) => {
     <>
       <header className="c-header">
         <picture>
-          <source media="(max-width: 576px)" srcSet={headerImageMobile} />
+          <source
+            height={421}
+            media="(max-width: 576px)"
+            srcSet={headerImageMobile}
+          />
           <img
+            height={684}
             className="c-header__img"
             src={headerImageDesktop}
             alt="Roots In The Woods Banner"
