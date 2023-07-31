@@ -1,6 +1,5 @@
 import React from "react";
-
-import locationImg from "../../data/images/location-1.jpg";
+import { StaticImage } from "gatsby-plugin-image";
 
 type Props = {};
 
@@ -13,7 +12,7 @@ const LocationSection = (props: Props) => {
           <span>Where ?</span>
         </h2>
         <div className="col-12 col-md-6 px-0 mt-3">
-          <img className="img-fluid" src={locationImg} alt="" />
+          <StaticImage src="../../data/images/location-1.jpg" width={776}  alt="Trije Kralji" className="img-fluid"/>
         </div>
         <div className="col-12 col-md-6 px-md-4 d-flex flex-column">
           <p className="c-section__text mt-4 mt-md-0 flex-grow-1">
