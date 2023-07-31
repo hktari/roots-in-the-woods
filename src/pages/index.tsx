@@ -30,7 +30,7 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
       <hr className="d-md-none border-5 mt-5" />
 
-      <InfoSection />
+      <InfoSection items={data.infoItems} images={data.infoItemImages} />
 
       <GetTicketCta />
 
@@ -69,6 +69,33 @@ export const query = graphql`
         video {
           title
           url
+        }
+      }
+    }
+    infoItems: allInfoItemsJson {
+      edges {
+        node {
+          id
+          imageName: image
+          description
+          title
+        }
+      }
+    }
+    infoItemImages: allFile(
+      filter: { absolutePath: { glob: "**/images/info-items/**" } }
+    ) {
+      nodes {
+        childImageSharp {
+          original {
+            width
+            height
+            src
+          }
+          gatsbyImageData(width: 768)
+          fixed {
+            originalName
+          }
         }
       }
     }
