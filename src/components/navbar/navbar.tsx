@@ -15,8 +15,7 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
 
   const [stickToTop, setStickToTop] = useState(false);
   const lastScrollY = useRef(0);
-
-  // The amount the user has scrolled to the top without having scrolled down
+  
   // this is a positive number
   const scrollAmountTopPx = useRef(0);
 
@@ -114,6 +113,15 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
               to="/lineup"
             >
               2023 Lineup
+            </Link>
+          </li>
+          <li className="c-navbar__menu-list-item">
+            <Link
+              activeClassName="c-link--active"
+              className="c-link"
+              to="/map"
+            >
+              Map
             </Link>
           </li>
         </ul>
