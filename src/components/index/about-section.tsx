@@ -8,7 +8,7 @@ type Props = {};
 const AboutSection = (props: Props) => {
   return (
     <section className="c-section">
-      <div className="row gx-5">
+      <div className="row">
         <div className="col-12 mt-3 mb-2 text-left text-md-center">
           <h2 className="c-section__title">Sound system culture festival</h2>
         </div>
@@ -26,11 +26,12 @@ const AboutSection = (props: Props) => {
             on the beautiful Pohorje plains.{" "}
           </p>
         </div>
-        <div className="col-12 col-md-6 mt-3 px-0 d-md-none">
-        <StaticImage
+        <div className="col-12 col-md-6 mt-3 px-0">
+          <StaticImage
             src={"../../data/images/party.jpg"}
-            alt=""
-            className="c-section__img-dimmed img-fluid"
+            alt="party"
+            width={776}
+            className="c-section__img-dimmed"
           />
         </div>
 
