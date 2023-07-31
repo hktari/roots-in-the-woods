@@ -48,6 +48,13 @@ const config: GatsbyConfig = {
         name: `artists`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/data/info-items`,
+        name: `info-items`,
+      },
+    },
     // {
     //   resolve: `gatsby-source-facebook-graphql`,
     //   options: {
