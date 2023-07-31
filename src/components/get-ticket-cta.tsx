@@ -1,9 +1,8 @@
 import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
 
 type Props = {};
 
-import soundSystemImage from "../data/images/soundsystem-bg.jpg";
-import soundSystemImageMobile from "../data/images/soundsystem-bg-mobile.jpg";
 
 const GetTicketCta = (props: Props) => {
   return (
@@ -11,17 +10,21 @@ const GetTicketCta = (props: Props) => {
       <div className="row">
         <div className="col px-0">
           <div className="c-get-ticket-cta">
-            <picture>
-              <source
-                media="(max-width: 768px)"
-                srcSet={soundSystemImageMobile}
-              />
-              <img
-                className="c-get-ticket-cta__image"
-                src={soundSystemImage}
+            <div className="d-md-none">
+              <StaticImage
+                src={"../data/images/soundsystem-bg-mobile.jpg"}
+                width={768}
                 alt="sound system"
-              />
-            </picture>
+              ></StaticImage>
+            </div>
+            <div className="d-none d-md-block">
+              <StaticImage
+                src={"../data/images/soundsystem-bg.jpg"}
+                height={440}
+                alt="sound system"
+                objectPosition={"center center"}
+              ></StaticImage>
+            </div>
             <button className="c-get-ticket-cta__btn c-button-link">
               <a href="https://fienta.com/roots-in-the-woods-2023">
                 GET TICKET
