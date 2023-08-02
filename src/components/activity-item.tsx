@@ -9,7 +9,7 @@ type ActivityItemProps = {
 
 const ActivityItem = ({ title, description, image }: ActivityItemProps) => {
   return (
-    <div className="c-card">
+    <div className="c-card c-activity-item">
       <GatsbyImage image={image} alt={title} />
     </div>
   );

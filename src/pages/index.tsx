@@ -108,7 +108,7 @@ export const query = graphql`
           title
           image {
             filename
-            gatsbyImageData(height: 350)
+            gatsbyImageData(width: 636)
           }
           id
           description

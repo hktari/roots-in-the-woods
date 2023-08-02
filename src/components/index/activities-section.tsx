@@ -10,7 +10,7 @@ import { PageProps } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
 type Props = {
-    activities: PageProps<Queries.IndexPageQuery>["data"]["activities"]
+  activities: PageProps<Queries.IndexPageQuery>["data"]["activities"];
 };
 
 const ActivitiesSection = ({ activities }: Props) => {
@@ -22,9 +22,10 @@ const ActivitiesSection = ({ activities }: Props) => {
       <div
         id="carouselDesktop"
         className="carousel slide d-none d-md-block"
-        data-bs-ride="true"
+        data-bs-ride="carousel"
+        data-bs-pause="false"
       >
-        <div className="carousel-inner">
+        <div className="carousel-inner" data-bs-ride="carousel">
           {
             // make groups of two
             activities.edges
@@ -41,11 +42,19 @@ const ActivitiesSection = ({ activities }: Props) => {
                   data-bs-interval="6000"
                 >
                   <div className="row">
-                    {group.map((activity: PageProps<Queries.IndexPageQuery>["data"]["activities"]["edges"][0]["node"]) => (
-                      <div key={activity.title} className="col-6">
-                        <ActivityItem title={activity.title!} description={activity.description!} image={activity.image?.gatsbyImageData!} />
-                      </div>
-                    ))}
+                    {group.map(
+                      (
+                        activity: PageProps<Queries.IndexPageQuery>["data"]["activities"]["edges"][0]["node"]
+                      ) => (
+                        <div key={activity.title} className="col-6">
+                          <ActivityItem
+                            title={activity.title!}
+                            description={activity.description!}
+                            image={activity.image?.gatsbyImageData!}
+                          />
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
               ))
@@ -85,14 +94,18 @@ const ActivitiesSection = ({ activities }: Props) => {
             className="carousel slide d-md-none"
             data-bs-ride="carousel"
           >
-            <div className="carousel-inner ">
+            <div className="carousel-inner " data-bs-ride="carousel">
               {activities.edges.map((edge, idx) => (
                 <div
                   key={edge.node.title}
                   className={`carousel-item ${idx === 0 ? "active" : ""}`}
                   data-bs-interval="2000"
                 >
-                   <ActivityItem title={edge.node.title!} description={edge.node.description!} image={edge.node.image?.gatsbyImageData!} />
+                  <ActivityItem
+                    title={edge.node.title!}
+                    description={edge.node.description!}
+                    image={edge.node.image?.gatsbyImageData!}
+                  />
                 </div>
               ))}
             </div>
