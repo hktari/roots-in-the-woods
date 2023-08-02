@@ -1,9 +1,4 @@
 import React from "react";
-
-import activity3Image from "../../images/activity-3.jpg";
-import activity4Image from "../../images/activity-4.jpg";
-import activity5Image from "../../images/activity-5.jpg";
-import activity6Image from "../../images/activity-6.jpg";
 import ActivityItem from "../activity-item";
 import InfoItem from "../info-item";
 import { PageProps } from "gatsby";
