@@ -1,7 +1,7 @@
 # TODO
 
 ## HOME
-- activities
+- activities [OK]
 
 ## EVENTS
 - show upcoming and past events from facebook
