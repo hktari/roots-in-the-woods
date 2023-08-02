@@ -99,6 +99,11 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
               2023 Lineup
             </Link>
           </li>
+          <li className="c-sidebar__menu-list-item">
+            <Link activeClassName="c-link--active" className="c-link" to="/map">
+              Map
+            </Link>
+          </li>
         </ul>
       </nav>
 
