@@ -24,6 +24,8 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
       <LocationSection />
 
+      <ActivitiesSection activities={data.activities} />
+
       <div className="d-none d-md-block pt-5">
         <WhenSection />
       </div>
@@ -96,6 +98,20 @@ export const query = graphql`
           fixed {
             originalName
           }
+        }
+      }
+    }
+    activities: allContentfulActivity {
+      totalCount
+      edges {
+        node {
+          title
+          image {
+            filename
+            gatsbyImageData(height: 350)
+          }
+          id
+          description
         }
       }
     }

@@ -1,15 +1,18 @@
-import React from 'react'
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import React from "react";
 
 type ActivityItemProps = {
-    activity: any
-}
+  title: string;
+  description: string;
+  image: IGatsbyImageData;
+};
 
-const ActivityItem = ({ activity }: ActivityItemProps) => {
-    return (
-        <div className='c-card'>
-            <img height='350px' src={activity.image} alt={activity.title} className="img-fluid" />
-        </div>
-    )
-}
+const ActivityItem = ({ title, description, image }: ActivityItemProps) => {
+  return (
+    <div className="c-card">
+      <GatsbyImage image={image} alt={title} />
+    </div>
+  );
+};
 
-export default ActivityItem
+export default ActivityItem;
