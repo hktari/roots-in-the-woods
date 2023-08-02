@@ -23,10 +23,9 @@ $margin-top-desktop: 80px;
     &:first-child {
       margin-top: calc($margin-top-desktop / 2);
     }
-  }
-
-  .c-section--no-spacing-mobile {
-    margin-top: $margin-top-desktop;
+    &.c-section--no-spacing-mobile {
+      margin-top: $margin-top-desktop;
+    }
   }
 }
 

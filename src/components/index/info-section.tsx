@@ -11,8 +11,6 @@ import { PageProps, graphql } from "gatsby";
 const InfoSection = ({ items, images }: InfoSectionProps) => {
   return (
     <section className="c-section">
-      <h2 className="c-section__title"></h2>
-
       <div className="c-floating-layout clearfix">
         {items.edges.map((edge) => {
           const image = images.nodes.find(

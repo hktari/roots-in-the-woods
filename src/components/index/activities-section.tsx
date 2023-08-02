@@ -15,8 +15,8 @@ type Props = {
 
 const ActivitiesSection = ({ activities }: Props) => {
   return (
-    <section className="c-section c-section--no-spacing-mobile">
-      <h2 className="c-section__title d-none d-md-block">Activities</h2>
+    <section className="c-section">
+      <h2 className="c-section__title">Activities</h2>
 
       {/* desktop */}
       <div
@@ -99,7 +99,7 @@ const ActivitiesSection = ({ activities }: Props) => {
                 <div
                   key={edge.node.title}
                   className={`carousel-item ${idx === 0 ? "active" : ""}`}
-                  data-bs-interval="2000"
+                  data-bs-interval="3500"
                 >
                   <ActivityItem
                     title={edge.node.title!}

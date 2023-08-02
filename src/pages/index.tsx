@@ -24,13 +24,13 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
       <LocationSection />
 
-      <ActivitiesSection activities={data.activities} />
-
       <div className="d-none d-md-block pt-5">
         <WhenSection />
       </div>
 
-      <hr className="d-md-none border-5 mt-5" />
+      <ActivitiesSection activities={data.activities} />
+
+      <hr className="d-md-none border-5 my-5" />
 
       <InfoSection items={data.infoItems} images={data.infoItemImages} />
 
