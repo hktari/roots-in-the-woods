@@ -15,7 +15,7 @@
 - banner (need image)
 
 ## Lineup | 0.5 days
-- coming soon
+- coming soon [OK]
 
 ## Merch
 - grid with pictures and titles

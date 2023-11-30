@@ -15,37 +15,8 @@ const LineupPage = ({ data }: PageProps<Queries.AllArtistsPageQuery>) => {
 
   return (
     <div className="c-page-lineup">
-      <h1 className="c-page__title">2023 Lineup</h1>
-      <section id="mainStage" className="c-page-lineup__stage">
-        <LineupStage
-          title="Main Stage"
-          artistNodes={data.allArtistsJson.nodes.filter(
-            (artist) => artist.stage === "main_stage"
-          )}
-          imageNodes={data.allImageSharp.nodes}
-          noImagePlaceholder={noImagePlaceholder}
-        />
-      </section>
-      <section id="dubStage" className="c-page-lineup__stage">
-        <LineupStage
-          title="Dub Stage"
-          artistNodes={data.allArtistsJson.nodes.filter(
-            (artist) => artist.stage === "dub_stage"
-          )}
-          imageNodes={data.allImageSharp.nodes}
-          noImagePlaceholder={noImagePlaceholder}
-        />
-      </section>
-      <section id="jungleDnbStage" className="c-page-lineup__stage">
-        <LineupStage
-          title="Jungle / Drum & Bass Stage"
-          artistNodes={data.allArtistsJson.nodes.filter(
-            (artist) => artist.stage === "jungle_dnb_stage"
-          )}
-          imageNodes={data.allImageSharp.nodes}
-          noImagePlaceholder={noImagePlaceholder}
-        />
-      </section>
+      <h1 className="c-page__title">2024 Lineup</h1>
+      <h3>coming soon...</h3>
     </div>
   );
 };
@@ -54,7 +25,7 @@ export default LineupPage;
 
 export const query = graphql`
   query AllArtistsPage {
-    allArtistsJson(sort: {order: ASC, fields: order}) {
+    allArtistsJson(sort: { order: ASC, fields: order }) {
       nodes {
         country
         stage
