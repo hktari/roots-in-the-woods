@@ -4,6 +4,7 @@ import logo from "../../images/logo.jpg";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
+import Dropdown from "./dropdown";
 
 type NavBarProps = {
   openMenuClicked: () => void;
@@ -15,7 +16,7 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
 
   const [stickToTop, setStickToTop] = useState(false);
   const lastScrollY = useRef(0);
-  
+
   // this is a positive number
   const scrollAmountTopPx = useRef(0);
 
@@ -106,21 +107,26 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
               Mission
             </Link>
           </li>
-          <li className="c-navbar__menu-list-item">
-            <Link
-              activeClassName="c-link--active"
-              className="c-link"
-              to="/lineup"
-            >
-              2023 Lineup
-            </Link>
+          <li className="c-navbar__menu-list-item c-navbar__menu-list-item--drop-down">
+            <Dropdown>
+              <Link
+                activeClassName="c-link--active"
+                className="c-link"
+                to="/lineup/2023"
+              >
+                2023
+              </Link>
+              <Link
+                activeClassName="c-link--active"
+                className="c-link"
+                to="/lineup/2024"
+              >
+                2024
+              </Link>
+            </Dropdown>
           </li>
           <li className="c-navbar__menu-list-item">
-            <Link
-              activeClassName="c-link--active"
-              className="c-link"
-              to="/map"
-            >
+            <Link activeClassName="c-link--active" className="c-link" to="/map">
               Map
             </Link>
           </li>

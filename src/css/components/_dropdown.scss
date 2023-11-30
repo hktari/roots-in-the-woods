@@ -1,0 +1,17 @@
+.c-dropdown {
+}
+
+.c-dropdown__title {
+  cursor: pointer;
+}
+
+.c-dropdown__list {
+  display: none;
+}
+
+.c-dropdown__list-item {
+}
+
+.c-dropdown--active .c-dropdown__list {
+  display: block;
+}

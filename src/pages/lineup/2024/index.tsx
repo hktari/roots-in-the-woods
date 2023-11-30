@@ -5,7 +5,7 @@ import {
   IGatsbyImageData,
   StaticImage,
 } from "gatsby-plugin-image";
-import LineupStage from "../../components/lineup/Stage";
+import LineupStage from "../../../components/lineup/Stage";
 
 type Props = {};
 
