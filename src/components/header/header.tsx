@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "../navbar/navbar";
-import headerImageDesktop from "../../data/images/roots-banner-desktop.jpg";
+import headerImageDesktop from "../../data/images/roots-banner-desktop.png";
 import headerImageMobile from "../../data/images/roots-banner-mobile.jpg";
 //
 import SideBar from "../sidebar";
