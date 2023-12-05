@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import NavBar from "../navbar/navbar";
 import headerImageDesktop from "../../data/images/roots-banner-desktop.png";
 import headerImageMobile from "../../data/images/roots-banner-mobile.jpg";
-//
+
 import SideBar from "../sidebar";
 import { useEffect } from "react";
 import { StaticImage } from "gatsby-plugin-image";

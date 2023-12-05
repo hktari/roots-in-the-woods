@@ -1,8 +1,8 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import links from "../data/links";
 
 type Props = {};
-
 
 const GetTicketCta = (props: Props) => {
   return (
@@ -26,9 +26,7 @@ const GetTicketCta = (props: Props) => {
               ></StaticImage>
             </div>
             <button className="c-get-ticket-cta__btn c-button-link">
-              <a href="https://fienta.com/roots-in-the-woods-2023">
-                GET TICKET
-              </a>
+              <a href={links.tickets}>GET TICKET</a>
             </button>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import { useRef } from "react";
 import { useEffect } from "react";
 import SocialList from "./social-list";
+import links from "../data/links.json";
 
 type SideBarProps = {
   isOpen: boolean;
@@ -58,7 +59,7 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
           <li className="c-sidebar__menu-list-item">
             <a
               className="c-link"
-              href="https://fienta.com/roots-in-the-woods-2023"
+              href={links.tickets}
             >
               Tickets
             </a>

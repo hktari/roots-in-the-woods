@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import Dropdown from "./dropdown";
+import links from "../../data/links.json";
 
 type NavBarProps = {
   openMenuClicked: () => void;
@@ -75,7 +76,7 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
           <li className="c-navbar__menu-list-item">
             <a
               className="c-link"
-              href="https://fienta.com/roots-in-the-woods-2023"
+              href={links.tickets}
             >
               Tickets
             </a>
