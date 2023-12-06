@@ -95,9 +95,9 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
             <Link
               className="c-link"
               activeClassName="c-link--active"
-              to="/lineup"
+              to="/lineup/2024"
             >
-              2023 Lineup
+              Lineup
             </Link>
           </li>
           <li className="c-sidebar__menu-list-item">
