@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import NavBar from "../navbar/navbar";
+import NavBar from "../navigation/navbar";
 import headerImageDesktop from "../../data/images/roots-banner-desktop.png";
 import headerImageMobile from "../../data/images/roots-banner-mobile.jpg";
 
-import SideBar from "../sidebar";
+import SideBar from "../navigation/sidebar";
 import { useEffect } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 

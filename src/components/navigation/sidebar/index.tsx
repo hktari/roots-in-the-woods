@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "gatsby";
 import { useRef } from "react";
 import { useEffect } from "react";
-import SocialList from "./social-list";
-import links from "../data/links.json";
+import SocialList from "../../social-list";
+import links from "../../../data/links.json";
 
 type SideBarProps = {
   isOpen: boolean;
