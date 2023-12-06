@@ -13,7 +13,7 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
         {makeGroupsOf(data.merch.edges, 3).map((edgeGroup, groupIdx) => (
           <div className="row" key={groupIdx}>
             {edgeGroup.map((edge) => (
-              <div className="col col-md-4 my-2" key={edge.node.id}>
+              <div className="col-12 col-md-4 my-2" key={edge.node.id}>
                 <MerchItem {...edge.node} />
               </div>
             ))}
