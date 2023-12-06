@@ -15,7 +15,7 @@ const MerchItem = ({
     <Link className="c-merch-item text-decoration-none" to={`/merch/${id}`}>
       <div className="card border-0">
         <div className="card-body p-0">
-          <div className="d-md-none mb-2 mt-5">
+          <div className="d-md-none mb-2">
             <h2 className="card-title text-decoration-underline fw-bold">{title}</h2>
             <h4 className="card-subtitle fs-2">{price} €</h4>
           </div>
