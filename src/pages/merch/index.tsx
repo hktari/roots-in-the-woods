@@ -2,28 +2,9 @@ import React from "react";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { Link, PageProps, graphql } from "gatsby";
 import { makeGroupsOf } from "../../util/format";
+import MerchItem from "../../components/merch/merch-item";
 
 const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
-  const MerchItem = ({
-    id,
-    title,
-    description,
-    price,
-    image,
-  }: ContentfulMerch) => {
-    return (
-      <Link to={`/merch/${id}`} >
-        <div className="card text-bg-dark">
-          <GatsbyImage image={image.gatsbyImageData} alt={image.filename} />
-          <div className="card-img-overlay">
-            <h2 className="card-title">{title}</h2>
-            <h3 className="card-title">{price} €</h3>
-            <p className="card-text">{description.description}</p>
-          </div>
-        </div>
-      </Link>
-    );
-  };
 
   return (
     <>
