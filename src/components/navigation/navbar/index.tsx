@@ -46,8 +46,12 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
         {navigationItems.map((navItem) => {
           return (
             <li className="c-navbar__menu-list-item">
-              <Link activeClassName="c-link--active" className="c-link" to="/">
-                Home
+              <Link
+                activeClassName="c-link--active"
+                className="c-link"
+                to={navItem.relativeUrl}
+              >
+                {navItem.title}
               </Link>
             </li>
           );
