@@ -15,10 +15,10 @@ const WhenSection = (props: Props) => {
               className="c-when-section__text"
               style={{ backgroundImage: `url("${reggaeTexture}")` }}
             >
-              <span className="c-when-section__span">24 - 26</span>
+              <span className="c-when-section__span">22 - 24</span>
               <br />
               <span className="c-when-section__span">August </span>
-              <span className="c-when-section__span">2023</span>
+              <span className="c-when-section__span">2024</span>
             </div>
           </div>
         </div>
