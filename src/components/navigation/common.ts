@@ -1,3 +1,4 @@
+import links from "../../data/links";
 export interface NavigationItem {
   title: string;
   url: string;
@@ -18,7 +19,11 @@ const navigationItems = [
   },
   {
     title: "Tickets",
-    url: "https://fienta.com/roots-in-the-woods-2024",
+    url: links.tickets,
+  },
+  {
+    title: "Merch",
+    url: "/merch",
   },
   {
     title: "Map",
