@@ -1,19 +1,27 @@
 import React from "react";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import { PageProps, graphql } from "gatsby";
+import { Link, PageProps, graphql } from "gatsby";
 import { makeGroupsOf } from "../../util/format";
 
 const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
-  const MerchItem = ({ title, description, price, image }: ContentfulMerch) => {
+  const MerchItem = ({
+    id,
+    title,
+    description,
+    price,
+    image,
+  }: ContentfulMerch) => {
     return (
-      <div className="card text-bg-dark">
-        <GatsbyImage image={image.gatsbyImageData} alt={image.filename} />
-        <div className="card-img-overlay">
-          <h2 className="card-title">{title}</h2>
-          <h3 className="card-title">{price} €</h3>
-          <p className="card-text">{description.description}</p>
+      <Link to={`/merch/${id}`} >
+        <div className="card text-bg-dark">
+          <GatsbyImage image={image.gatsbyImageData} alt={image.filename} />
+          <div className="card-img-overlay">
+            <h2 className="card-title">{title}</h2>
+            <h3 className="card-title">{price} €</h3>
+            <p className="card-text">{description.description}</p>
+          </div>
         </div>
-      </div>
+      </Link>
     );
   };
 
@@ -43,7 +51,7 @@ export const query = graphql`
       edges {
         node {
           image {
-            gatsbyImageData(aspectRatio: 1, height: 350, cropFocus: CENTER)
+            gatsbyImageData(aspectRatio: 1, width: 460, cropFocus: CENTER)
             filename
           }
           price
