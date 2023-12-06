@@ -49,7 +49,7 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
               <Link
                 activeClassName="c-link--active"
                 className="c-link"
-                to={navItem.relativeUrl}
+                to={navItem.url}
               >
                 {navItem.title}
               </Link>

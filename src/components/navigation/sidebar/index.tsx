@@ -3,7 +3,8 @@ import { Link } from "gatsby";
 import { useRef } from "react";
 import { useEffect } from "react";
 import SocialList from "../../social-list";
-import links from "../../../data/links.json";
+import navigationItems from "../common";
+import NavigationLink from "../navigationLink";
 
 type SideBarProps = {
   isOpen: boolean;
@@ -38,6 +39,20 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
     };
   }, [menuListRef]);
 
+  const renderNavigationItems = () => {
+    return (
+      <>
+        {navigationItems.map((navItem) => {
+          return (
+            <li className="c-sidebar__menu-list-item">
+              <NavigationLink navigationItem={navItem} />
+            </li>
+          );
+        })}
+      </>
+    );
+  };
+
   return (
     <div className={`c-sidebar ${isOpen ? "c-sidebar--show" : ""}`}>
       <header className="c-sidebar__header">
@@ -51,60 +66,7 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
 
       <nav className="c-sidebar__menu">
         <ul className="c-sidebar__menu-list" ref={menuListRef}>
-          <li className="c-sidebar__menu-list-item">
-            <Link className="c-link" activeClassName="c-link--active" to="/">
-              Home
-            </Link>
-          </li>
-          <li className="c-sidebar__menu-list-item">
-            <a
-              className="c-link"
-              href={links.tickets}
-            >
-              Tickets
-            </a>
-          </li>
-          {/* <li className="c-sidebar__menu-list-item">
-            <Link
-              className="c-link"
-              activeClassName="c-link--active"
-              to="/events"
-            >
-              Events
-            </Link>
-          </li>
-          <li className="c-sidebar__menu-list-item">
-            <Link
-              className="c-link"
-              activeClassName="c-link--active"
-              to="/news"
-            >
-              News
-            </Link>
-          </li> */}
-          <li className="c-sidebar__menu-list-item">
-            <Link
-              className="c-link"
-              activeClassName="c-link--active"
-              to="/mission"
-            >
-              Mission
-            </Link>
-          </li>
-          <li className="c-sidebar__menu-list-item">
-            <Link
-              className="c-link"
-              activeClassName="c-link--active"
-              to="/lineup/2024"
-            >
-              Lineup
-            </Link>
-          </li>
-          <li className="c-sidebar__menu-list-item">
-            <Link activeClassName="c-link--active" className="c-link" to="/map">
-              Map
-            </Link>
-          </li>
+          {renderNavigationItems()}
         </ul>
       </nav>
 

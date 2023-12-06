@@ -1,28 +1,28 @@
 export interface NavigationItem {
   title: string;
-  relativeUrl: string;
+  url: string;
 }
 
 const navigationItems = [
   {
     title: "Home",
-    relativeUrl: "/",
+    url: "/",
   },
   {
     title: "Lineup",
-    relativeUrl: "/lineup/2024",
+    url: "/lineup/2024",
   },
   {
     title: "Mission",
-    relativeUrl: "/mission",
+    url: "/mission",
   },
   {
     title: "Tickets",
-    relativeUrl: "https://fienta.com/roots-in-the-woods-2024",
+    url: "https://fienta.com/roots-in-the-woods-2024",
   },
   {
     title: "Map",
-    relativeUrl: "/map",
+    url: "/map",
   },
 ] as NavigationItem[];
 
