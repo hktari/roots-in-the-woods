@@ -1,4 +1,4 @@
-### Type definitions saved at 2023-12-06T10:09:53.531Z ###
+### Type definitions saved at 2023-12-06T14:23:51.210Z ###
 
 interface ContentfulEntry implements Node {
   contentful_id: String!
@@ -457,7 +457,45 @@ type ContentfulActivity implements ContentfulReference & ContentfulEntry & Node 
   node_locale: String!
   title: String!
   description: String!
-  image: ContentfulAsset
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+}
+
+type ContentfulMerch implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  price: Float
+  title: String
+  image: ContentfulAsset @link(by: "id", from: "image___NODE")
+  description: contentfulMerchDescriptionTextNode @link(by: "id", from: "description___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulMerchSys
+}
+
+type contentfulMerchDescriptionTextNode implements Node @derivedTypes @childOf(types: ["ContentfulMerch"]) @dontInfer {
+  description: String
+  sys: contentfulMerchDescriptionTextNodeSys
+}
+
+type contentfulMerchDescriptionTextNodeSys {
+  type: String
+}
+
+type ContentfulMerchSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulMerchSysContentType
+}
+
+type ContentfulMerchSysContentType @derivedTypes {
+  sys: ContentfulMerchSysContentTypeSys
+}
+
+type ContentfulMerchSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
 }
 
 type ContentfulContentType implements Node @derivedTypes @dontInfer {
