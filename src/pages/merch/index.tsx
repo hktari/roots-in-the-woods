@@ -5,7 +5,6 @@ import { makeGroupsOf } from "../../util/format";
 import MerchItem from "../../components/merch/merch-item";
 
 const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
-
   return (
     <>
       <div className="container">
@@ -19,6 +18,10 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
             ))}
           </div>
         ))}
+
+        <div className="text-center">
+          <Link className="btn btn-primary btn-lg text-white" to="/merch/order">ORDER MERCH</Link>
+        </div>
       </div>
     </>
   );

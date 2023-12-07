@@ -1,6 +1,6 @@
 import React from "react";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { graphql, HeadFC, PageProps } from "gatsby";
+import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 type Props = {};
@@ -15,6 +15,9 @@ const MerchDetailPage = ({ data }: PageProps<Queries.MerchDetailPageQuery>) => {
           <p className="my-2 my-md-4">
             {data.contentfulMerch?.description?.description}
           </p>
+          <Link className="btn btn-primary btn-lg text-white" to="/merch/order">
+            ORDER
+          </Link>
         </div>
         <div className="col-12 col-md-6">
           <div className="my-2 my-md-0">
