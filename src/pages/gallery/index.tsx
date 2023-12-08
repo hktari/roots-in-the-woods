@@ -26,12 +26,12 @@ const GalleryPage = ({ data }: PageProps<Queries.GalleryPageQuery>) => {
 
   return (
     <div className="container">
-      <h1 className="c-page__title">Gallery</h1>
+      <h1 className="c-page__title mb-2">Gallery</h1>
 
       {makeGroupsOf(data.allContentfulGallery.edges, 3).map((groups) => (
         <div className="row">
           {groups.map((edge) => (
-            <div className="col col-md-4">
+            <div className="col-12 col-md-4 p-2">
               <GalleryItem {...edge.node} />
             </div>
           ))}
