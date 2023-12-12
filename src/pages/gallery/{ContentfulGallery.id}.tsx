@@ -2,6 +2,7 @@ import React from "react";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { useHeaderContext } from "../../context/header-context";
 
 type Props = {};
 
@@ -11,13 +12,18 @@ const GalleryDetailPage = ({
   const {
     title,
     description,
-    banner,
+    bannerDesktop,
     bannerMobile,
     eventDate,
     eventDateEnd,
     facebookAlbumUrl,
     id,
   } = data.contentfulGallery;
+
+  const { setBanner } = useHeaderContext();
+
+  setBanner(bannerDesktop.gatsbyImageData, bannerMobile.gatsbyImageData);
+
   return (
     <div className="container py-5">
       <div className="row">
@@ -35,12 +41,12 @@ export default GalleryDetailPage;
 export const query = graphql`
   query GalleryDetailPage($id: String) {
     contentfulGallery(id: { eq: $id }) {
-      banner {
-        gatsbyImageData
+      bannerDesktop: banner {
+        gatsbyImageData(layout: FULL_WIDTH, aspectRatio: 2.6)
         title
       }
       bannerMobile {
-        gatsbyImageData
+        gatsbyImageData(height: 421)
         title
       }
       description {
