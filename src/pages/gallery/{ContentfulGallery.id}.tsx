@@ -20,9 +20,9 @@ const GalleryDetailPage = ({
     id,
   } = data.contentfulGallery;
 
-  const { setBanner } = useHeaderContext();
+  const { setOverrideBanner } = useHeaderContext();
 
-  setBanner(bannerDesktop.gatsbyImageData, bannerMobile.gatsbyImageData);
+  setOverrideBanner(bannerDesktop.gatsbyImageData, bannerMobile.gatsbyImageData);
 
   return (
     <div className="container py-5">

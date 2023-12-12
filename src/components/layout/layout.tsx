@@ -16,9 +16,9 @@ const Layout = ({ children }: Props) => {
   return (
     <main className={`c-page ${disableScroll ? "c-page--no-scroll" : ""}`}>
       <HeaderContextProviderComponent>
-        <div className="c-page__content container-md pb-5">
+        <div className="c-page__content">
           <Header setDisableScroll={setDisableScroll} />
-          {children}
+          <div className="container-md pb-5">{children}</div>
         </div>
       </HeaderContextProviderComponent>
       <div className="c-page__footer">

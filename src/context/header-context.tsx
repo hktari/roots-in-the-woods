@@ -3,50 +3,31 @@ import { IGatsbyImageData } from "gatsby-plugin-image";
 import React, { createContext, useContext, useState } from "react";
 
 interface IHeaderContext {
-  bannerDesktopImage?: IGatsbyImageData;
-  bannerMobileImage?: IGatsbyImageData;
-  setBanner: (
+  overrideBannerDesktopImage?: IGatsbyImageData;
+  overrideBannerMobileImage?: IGatsbyImageData;
+  setOverrideBanner: (
     bannerDesktop: IGatsbyImageData,
     bannerMobile: IGatsbyImageData
   ) => void;
+  clearOverrideBanner: VoidFunction;
 }
 
 const headerContext = createContext<IHeaderContext>({
-  setBanner: (bannerDesktop, bannerMobile) => {
+  setOverrideBanner: (bannerDesktop, bannerMobile) => {
+    return;
+  },
+  clearOverrideBanner: () => {
     return;
   },
 });
 
 const HeaderContextProviderComponent = ({ children }) => {
-  const data: Queries.BannerImagesQuery = useStaticQuery(graphql`
-    query BannerImages {
-      bannerDesktop: file(relativePath: { eq: "roots-banner-desktop.png" }) {
-        childImageSharp {
-          gatsbyImageData(height: 684)
-        }
-        name
-      }
-      bannerMobile: file(relativePath: { eq: "roots-banner-mobile.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(height: 421)
-        }
-        name
-      }
-    }
-  `);
-
-  const bannerDesktop = data?.bannerDesktop?.childImageSharp?.gatsbyImageData;
-  const bannerMobile = data?.bannerMobile?.childImageSharp?.gatsbyImageData;
-  if (!bannerDesktop || !bannerMobile) {
-    throw new Error("Failed to find banner image");
-  }
-
   const [bannerDesktopImage, setBannerDesktopImage] =
-    useState<IGatsbyImageData>(bannerDesktop);
+    useState<IGatsbyImageData>();
   const [bannerMobileImage, setBannerMobileImage] =
-    useState<IGatsbyImageData>(bannerMobile);
+    useState<IGatsbyImageData>();
 
-  const setBanner = (
+  const setOverrideBanner = (
     bannerDesktop: IGatsbyImageData,
     bannerMobile: IGatsbyImageData
   ) => {
@@ -54,8 +35,14 @@ const HeaderContextProviderComponent = ({ children }) => {
     setBannerMobileImage(bannerMobile);
   };
 
+  const clearOverrideBanner = () => {
+    setBannerDesktopImage(undefined);
+    setBannerMobileImage(undefined);
+  };
+
   const value = {
-    setBanner,
+    setOverrideBanner,
+    clearOverrideBanner,
     bannerDesktopImage,
     bannerMobileImage,
   };
