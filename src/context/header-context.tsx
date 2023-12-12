@@ -1,3 +1,4 @@
+import { useStaticQuery, graphql } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import React, { createContext, useContext, useState } from "react";
 
@@ -17,10 +18,33 @@ const headerContext = createContext<IHeaderContext>({
 });
 
 const HeaderContextProviderComponent = ({ children }) => {
+  const data: Queries.BannerImagesQuery = useStaticQuery(graphql`
+    query BannerImages {
+      bannerDesktop: file(relativePath: { eq: "roots-banner-desktop.png" }) {
+        childImageSharp {
+          gatsbyImageData(height: 684)
+        }
+        name
+      }
+      bannerMobile: file(relativePath: { eq: "roots-banner-mobile.jpg" }) {
+        childImageSharp {
+          gatsbyImageData(height: 421)
+        }
+        name
+      }
+    }
+  `);
+
+  const bannerDesktop = data?.bannerDesktop?.childImageSharp?.gatsbyImageData;
+  const bannerMobile = data?.bannerMobile?.childImageSharp?.gatsbyImageData;
+  if (!bannerDesktop || !bannerMobile) {
+    throw new Error("Failed to find banner image");
+  }
+
   const [bannerDesktopImage, setBannerDesktopImage] =
-    useState<IGatsbyImageData>();
+    useState<IGatsbyImageData>(bannerDesktop);
   const [bannerMobileImage, setBannerMobileImage] =
-    useState<IGatsbyImageData>();
+    useState<IGatsbyImageData>(bannerMobile);
 
   const setBanner = (
     bannerDesktop: IGatsbyImageData,

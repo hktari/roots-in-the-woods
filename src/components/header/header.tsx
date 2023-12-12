@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import NavBar from "../navigation/navbar";
-import headerImageDesktop from "../../data/images/roots-banner-desktop.png";
-import headerImageMobile from "../../data/images/roots-banner-mobile.jpg";
-
 import SideBar from "../navigation/sidebar";
 import { useEffect } from "react";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
-import { graphql, useStaticQuery } from "gatsby";
 import { useHeaderContext } from "../../context/header-context";
 
 type HeaderProps = {
@@ -15,33 +11,7 @@ type HeaderProps = {
 
 const Header = ({ setDisableScroll }: HeaderProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const data: Queries.BannerImagesQuery = useStaticQuery(graphql`
-    query BannerImages {
-      bannerDesktop: file(relativePath: { eq: "roots-banner-desktop.png" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-        name
-      }
-      bannerMobile: file(relativePath: { eq: "roots-banner-mobile.jpg" }) {
-        childImageSharp {
-          gatsbyImageData
-        }
-        name
-      }
-    }
-  `);
-
-  const { setBanner } = useHeaderContext();
-
-  const bannerDesktop = data?.bannerDesktop?.childImageSharp?.gatsbyImageData;
-  const bannerMobile = data?.bannerMobile?.childImageSharp?.gatsbyImageData;
-  if (!bannerDesktop || !bannerMobile) {
-    throw new Error("Failed to find banner image");
-  }
-
-  setBanner(bannerDesktop, bannerMobile);
+  const { bannerDesktopImage, bannerMobileImage } = useHeaderContext();
 
   useEffect(() => {
     setDisableScroll(sidebarOpen);
@@ -50,19 +20,18 @@ const Header = ({ setDisableScroll }: HeaderProps) => {
   return (
     <>
       <header className="c-header">
-        <picture>
-          <source
-            height={421}
-            media="(max-width: 576px)"
-            srcSet={headerImageMobile}
+        <GatsbyImage
+          image={bannerMobileImage!}
+          alt={"TODO"}
+          className="c-header__img d-md-none"
+        />
+        <div className="d-none d-md-block">
+          <GatsbyImage
+            image={bannerDesktopImage!}
+            alt="TODO"
+            className="c-header__img "
           />
-          <img
-            height={684}
-            className="c-header__img"
-            src={headerImageDesktop}
-            alt="Roots In The Woods Banner"
-          />
-        </picture>
+        </div>
       </header>
       <SideBar
         isOpen={sidebarOpen}
