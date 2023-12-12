@@ -5,7 +5,9 @@ import headerImageMobile from "../../data/images/roots-banner-mobile.jpg";
 
 import SideBar from "../navigation/sidebar";
 import { useEffect } from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { graphql, useStaticQuery } from "gatsby";
+import { useHeaderContext } from "../../context/header-context";
 
 type HeaderProps = {
   setDisableScroll: (disabled: boolean) => void;
@@ -13,6 +15,33 @@ type HeaderProps = {
 
 const Header = ({ setDisableScroll }: HeaderProps) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const data: Queries.BannerImagesQuery = useStaticQuery(graphql`
+    query BannerImages {
+      bannerDesktop: file(relativePath: { eq: "roots-banner-desktop.png" }) {
+        childImageSharp {
+          gatsbyImageData
+        }
+        name
+      }
+      bannerMobile: file(relativePath: { eq: "roots-banner-mobile.jpg" }) {
+        childImageSharp {
+          gatsbyImageData
+        }
+        name
+      }
+    }
+  `);
+
+  const { setBanner } = useHeaderContext();
+
+  const bannerDesktop = data?.bannerDesktop?.childImageSharp?.gatsbyImageData;
+  const bannerMobile = data?.bannerMobile?.childImageSharp?.gatsbyImageData;
+  if (!bannerDesktop || !bannerMobile) {
+    throw new Error("Failed to find banner image");
+  }
+
+  setBanner(bannerDesktop, bannerMobile);
 
   useEffect(() => {
     setDisableScroll(sidebarOpen);

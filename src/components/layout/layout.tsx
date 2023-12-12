@@ -4,6 +4,7 @@ import Header from "../header/header";
 import "../../css/main.scss";
 import Footer from "../footer";
 import { useState } from "react";
+import HeaderContextProviderComponent from "../../context/header-context";
 
 type Props = {
   children: React.ReactNode;
@@ -14,10 +15,12 @@ const Layout = ({ children }: Props) => {
 
   return (
     <main className={`c-page ${disableScroll ? "c-page--no-scroll" : ""}`}>
-      <div className="c-page__content container-md pb-5">
-        <Header setDisableScroll={setDisableScroll} />
-        {children}
-      </div>
+      <HeaderContextProviderComponent>
+        <div className="c-page__content container-md pb-5">
+          <Header setDisableScroll={setDisableScroll} />
+          {children}
+        </div>
+      </HeaderContextProviderComponent>
       <div className="c-page__footer">
         <Footer />
       </div>

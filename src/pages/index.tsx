@@ -47,6 +47,19 @@ export const Head: HeadFC = () => <title>Roots in the Woods</title>;
 
 export const query = graphql`
   query IndexPage {
+    bannerDesktop: file(relativePath: { eq: "roots-banner-desktop.png" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+      name
+    }
+    bannerMobile: file(relativePath: { eq: "roots-banner-mobile.jpg" }) {
+      childImageSharp {
+        gatsbyImageData
+      }
+      name
+    }
+
     allPosts: allContentfulPost {
       nodes {
         id
