@@ -13,9 +13,6 @@ import PromoVideoSection from "../components/index/promo-video-section";
 import { useHeaderContext } from "../context/header-context";
 
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
-  // const { clearOverrideBanner } = useHeaderContext();
-  // clearOverrideBanner();
-
   return (
     <>
       <AboutSection />
