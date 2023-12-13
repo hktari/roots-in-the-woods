@@ -5,15 +5,13 @@ import React, { createContext, useContext, useState } from "react";
 interface IHeaderContext {
   overrideBannerDesktopImage?: IGatsbyImageData;
   overrideBannerMobileImage?: IGatsbyImageData;
-  setOverrideBanner: (
-    bannerDesktop: IGatsbyImageData,
-    bannerMobile: IGatsbyImageData
-  ) => void;
+  setOverrideBannerDesktopImage: (bannerDesktop: IGatsbyImageData) => void;
   clearOverrideBanner: VoidFunction;
 }
 
 const headerContext = createContext<IHeaderContext>({
-  setOverrideBanner: (bannerDesktop, bannerMobile) => {
+  setOverrideBannerDesktopImage: (bannerDesktop) => {
+    console.log("BANNER", "DEFAULT!!");
     return;
   },
   clearOverrideBanner: () => {
@@ -22,30 +20,37 @@ const headerContext = createContext<IHeaderContext>({
 });
 
 const HeaderContextProviderComponent = ({ children }) => {
-  const [bannerDesktopImage, setBannerDesktopImage] =
+  const [overrideBannerDesktopImage, setOverrideBannerDesktopImage] =
     useState<IGatsbyImageData>();
-  const [bannerMobileImage, setBannerMobileImage] =
+  const [overrideBannerMobileImage, setOverrideBannerMobileImage] =
     useState<IGatsbyImageData>();
 
   const setOverrideBanner = (
     bannerDesktop: IGatsbyImageData,
     bannerMobile: IGatsbyImageData
   ) => {
-    setBannerDesktopImage(bannerDesktop);
-    setBannerMobileImage(bannerMobile);
+    console.log(
+      "BANNER",
+      "SET",
+      JSON.stringify({ bannerDesktop, bannerMobile })
+    );
+    setOverrideBannerDesktopImage(bannerDesktop);
+    setOverrideBannerMobileImage(bannerMobile);
   };
 
   const clearOverrideBanner = () => {
-    setBannerDesktopImage(undefined);
-    setBannerMobileImage(undefined);
+    console.log("BANNER", "CLEAR");
+    setOverrideBannerDesktopImage(undefined);
+    setOverrideBannerMobileImage(undefined);
   };
 
   const value = {
-    setOverrideBanner,
+    setOverrideBannerDesktopImage,
     clearOverrideBanner,
-    bannerDesktopImage,
-    bannerMobileImage,
+    overrideBannerDesktopImage,
+    overrideBannerMobileImage,
   };
+
   return (
     <headerContext.Provider value={value}>{children}</headerContext.Provider>
   );

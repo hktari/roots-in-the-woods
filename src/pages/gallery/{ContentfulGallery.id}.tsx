@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
@@ -20,9 +20,11 @@ const GalleryDetailPage = ({
     id,
   } = data.contentfulGallery;
 
-  const { setOverrideBanner } = useHeaderContext();
+  const { setOverrideBannerDesktopImage } = useHeaderContext();
 
-  setOverrideBanner(bannerDesktop.gatsbyImageData, bannerMobile.gatsbyImageData);
+  useEffect(() => {
+    setOverrideBannerDesktopImage(bannerDesktop.gatsbyImageData);
+  }, [bannerDesktop.gatsbyImageData, setOverrideBannerDesktopImage]);
 
   return (
     <div className="container py-5">
