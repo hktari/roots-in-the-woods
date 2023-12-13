@@ -44,23 +44,17 @@ const Header = ({ setDisableScroll }: HeaderProps) => {
     setDisableScroll(sidebarOpen);
   }, [sidebarOpen]);
   
-  console.log(
-    "HEADER",
-    "RENDER",
-    JSON.stringify({ overrideBannerDesktopImage, defaultBannerDesktop })
-  );
-  
   const altText = "Roots in the Woods Banner";
   return (
     <>
       <header className="c-header">
         <GatsbyImage
-          image={overrideBannerMobileImage}
+          image={overrideBannerMobileImage || defaultBannerMobile}
           alt={altText}
           className="c-header__img d-md-none"
         />
         <GatsbyImage
-          image={overrideBannerDesktopImage}
+          image={overrideBannerDesktopImage || defaultBannerDesktop}
           alt={altText}
           className="c-header__img d-none d-md-block"
         />

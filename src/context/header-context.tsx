@@ -1,17 +1,21 @@
 import { useStaticQuery, graphql } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useMemo, useState } from "react";
 
 interface IHeaderContext {
-  overrideBannerDesktopImage?: IGatsbyImageData;
-  overrideBannerMobileImage?: IGatsbyImageData;
-  setOverrideBannerDesktopImage: (bannerDesktop: IGatsbyImageData) => void;
+  overrideBannerDesktopImage: IGatsbyImageData | null;
+  overrideBannerMobileImage: IGatsbyImageData | null;
+  setOverrideBanner: (
+    bannerDesktop: IGatsbyImageData,
+    bannerMobile: IGatsbyImageData
+  ) => void;
   clearOverrideBanner: VoidFunction;
 }
 
 const headerContext = createContext<IHeaderContext>({
-  setOverrideBannerDesktopImage: (bannerDesktop) => {
-    console.log("BANNER", "DEFAULT!!");
+  overrideBannerDesktopImage: null,
+  overrideBannerMobileImage: null,
+  setOverrideBanner: (bannerDesktop, bannerMobile) => {
     return;
   },
   clearOverrideBanner: () => {
@@ -21,31 +25,25 @@ const headerContext = createContext<IHeaderContext>({
 
 const HeaderContextProviderComponent = ({ children }) => {
   const [overrideBannerDesktopImage, setOverrideBannerDesktopImage] =
-    useState<IGatsbyImageData>();
+    useState<IGatsbyImageData | null>(null);
   const [overrideBannerMobileImage, setOverrideBannerMobileImage] =
-    useState<IGatsbyImageData>();
+    useState<IGatsbyImageData | null>(null);
 
-  const setOverrideBanner = (
-    bannerDesktop: IGatsbyImageData,
-    bannerMobile: IGatsbyImageData
-  ) => {
-    console.log(
-      "BANNER",
-      "SET",
-      JSON.stringify({ bannerDesktop, bannerMobile })
-    );
-    setOverrideBannerDesktopImage(bannerDesktop);
-    setOverrideBannerMobileImage(bannerMobile);
-  };
+  const setOverrideBanner = useMemo(
+    () => (bannerDesktop: IGatsbyImageData, bannerMobile: IGatsbyImageData) => {
+      setOverrideBannerDesktopImage(bannerDesktop);
+      setOverrideBannerMobileImage(bannerMobile);
+    },
+    []
+  );
 
   const clearOverrideBanner = () => {
-    console.log("BANNER", "CLEAR");
-    setOverrideBannerDesktopImage(undefined);
-    setOverrideBannerMobileImage(undefined);
+    setOverrideBannerDesktopImage(null);
+    setOverrideBannerMobileImage(null);
   };
 
   const value = {
-    setOverrideBannerDesktopImage,
+    setOverrideBanner,
     clearOverrideBanner,
     overrideBannerDesktopImage,
     overrideBannerMobileImage,

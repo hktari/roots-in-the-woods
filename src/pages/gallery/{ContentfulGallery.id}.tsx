@@ -20,11 +20,18 @@ const GalleryDetailPage = ({
     id,
   } = data.contentfulGallery;
 
-  const { setOverrideBannerDesktopImage } = useHeaderContext();
+  const { setOverrideBanner } = useHeaderContext();
 
   useEffect(() => {
-    setOverrideBannerDesktopImage(bannerDesktop.gatsbyImageData);
-  }, [bannerDesktop.gatsbyImageData, setOverrideBannerDesktopImage]);
+    setOverrideBanner(
+      bannerDesktop.gatsbyImageData,
+      bannerMobile.gatsbyImageData
+    );
+  }, [
+    bannerDesktop.gatsbyImageData,
+    bannerMobile.gatsbyImageData,
+    setOverrideBanner,
+  ]);
 
   return (
     <div className="container py-5">
