@@ -6,6 +6,10 @@ import { useHeaderContext } from "../../context/header-context";
 
 type Props = {};
 
+const PhotoAlbum = (data) => {
+  return <></>;
+};
+
 const GalleryDetailPage = ({
   data,
 }: PageProps<Queries.GalleryDetailPageQuery>) => {
@@ -19,6 +23,22 @@ const GalleryDetailPage = ({
     facebookAlbumUrl,
     id,
   } = data.contentfulGallery;
+
+  const albumId = "122093375228162302";
+
+  const album = data.albums.nodes[0]?.data?.find(
+    (album) => album?.id === albumId
+  );
+
+  let photos = <></>;
+  if (album) {
+    // TODO: select the right dimensions photo
+    // TODO: place into layout
+    
+    photos = album.photos?.data?.map((photo) => (
+      <img src={photo?.webp_images[0]?.source} alt={photo?.id} />
+    ));
+  }
 
   const { isRelative: isLineupLinkRelative, link: lineupLink } = {
     isRelative: true,
@@ -62,6 +82,7 @@ const GalleryDetailPage = ({
           <p className="my-2 my-md-4 fs-4">{description?.description}</p>
         </div>
       </div>
+      <div className="row">{photos}</div>
     </div>
   );
 };
@@ -70,6 +91,24 @@ export default GalleryDetailPage;
 
 export const query = graphql`
   query GalleryDetailPage($id: String) {
+    albums: allFacebook {
+      nodes {
+        data {
+          id
+          name
+          photos {
+            data {
+              id
+              webp_images {
+                source
+                height
+                width
+              }
+            }
+          }
+        }
+      }
+    }
     contentfulGallery(id: { eq: $id }) {
       bannerDesktop: banner {
         gatsbyImageData(layout: FULL_WIDTH, aspectRatio: 2.6)
