@@ -20,6 +20,11 @@ const GalleryDetailPage = ({
     id,
   } = data.contentfulGallery;
 
+  const { isRelative: isLineupLinkRelative, link: lineupLink } = {
+    isRelative: true,
+    link: "/lineup/2023",
+  };
+
   const { setOverrideBanner } = useHeaderContext();
 
   useEffect(() => {
@@ -38,7 +43,23 @@ const GalleryDetailPage = ({
       <div className="row">
         <div className="col-12 col-md-6">
           <h1 className="c-page__title"> {title} </h1>
-          <p className="my-2 my-md-4">{description?.description}</p>
+
+          {isLineupLinkRelative ? (
+            <Link
+              to={lineupLink}
+              className="btn btn-primary btn-lg text-white text-uppercase"
+            >
+              Lineup
+            </Link>
+          ) : (
+            <a
+              href={lineupLink}
+              className="btn btn-primary btn-lg text-white text-uppercase"
+            >
+              Lineup
+            </a>
+          )}
+          <p className="my-2 my-md-4 fs-4">{description?.description}</p>
         </div>
       </div>
     </div>

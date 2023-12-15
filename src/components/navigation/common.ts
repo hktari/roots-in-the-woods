@@ -29,6 +29,10 @@ const navigationItems = [
     title: "Map",
     url: "/map",
   },
+  {
+    title: "Gallery",
+    url: "/gallery",
+  },
 ] as NavigationItem[];
 
 export default navigationItems;
