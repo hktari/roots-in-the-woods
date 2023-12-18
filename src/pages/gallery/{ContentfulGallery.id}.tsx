@@ -3,12 +3,9 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useHeaderContext } from "../../context/header-context";
+import PhotoAlbum from "../../components/gallery/PhotoAlbum";
 
 type Props = {};
-
-const PhotoAlbum = (data) => {
-  return <></>;
-};
 
 const GalleryDetailPage = ({
   data,
@@ -29,16 +26,6 @@ const GalleryDetailPage = ({
   const album = data.albums.nodes[0]?.data?.find(
     (album) => album?.id === albumId
   );
-
-  let photos = <></>;
-  if (album) {
-    // TODO: select the right dimensions photo
-    // TODO: place into layout
-    
-    photos = album.photos?.data?.map((photo) => (
-      <img src={photo?.webp_images[0]?.source} alt={photo?.id} />
-    ));
-  }
 
   const { isRelative: isLineupLinkRelative, link: lineupLink } = {
     isRelative: true,
@@ -82,7 +69,9 @@ const GalleryDetailPage = ({
           <p className="my-2 my-md-4 fs-4">{description?.description}</p>
         </div>
       </div>
-      <div className="row">{photos}</div>
+      <div className="row">
+        <PhotoAlbum album={album}></PhotoAlbum>
+      </div>
     </div>
   );
 };
