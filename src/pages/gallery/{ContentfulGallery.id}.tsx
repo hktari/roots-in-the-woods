@@ -43,7 +43,7 @@ const GalleryDetailPage = ({
     setOverrideBanner,
   ]);
 
-  const formattedDate = (date: string) => {
+  const formatDateString = (date: string) => {
     return new Date(date).toDateString();
   };
 
@@ -51,27 +51,29 @@ const GalleryDetailPage = ({
     <div className="container py-5">
       <div className="row">
         <div className="col-12 col-md-6">
-          <h1 className="c-page__title"> {title} </h1>
-          <h5>
-            {formattedDate(eventDate)} - {formattedDate(eventDateEnd)}
+          <h1 className="c-page__title mb-3"> {title} </h1>
+          <h5 className="mb-4 mt-2">
+            {formatDateString(eventDate)} - {formatDateString(eventDateEnd)}
           </h5>
+          <p className="fs-4 mb-3">{description?.description}</p>
 
-          {isLineupLinkRelative ? (
-            <Link
-              to={lineupLink}
-              className="btn btn-primary btn-lg text-white text-uppercase"
-            >
-              Lineup
-            </Link>
-          ) : (
-            <a
-              href={lineupLink}
-              className="btn btn-primary btn-lg text-white text-uppercase"
-            >
-              Lineup
-            </a>
-          )}
-          <p className="my-2 my-md-4 fs-4">{description?.description}</p>
+          <div className="mb-5">
+            {isLineupLinkRelative ? (
+              <Link
+                to={lineupLink}
+                className="btn btn-primary btn-lg text-white text-uppercase"
+              >
+                Lineup
+              </Link>
+            ) : (
+              <a
+                href={lineupLink}
+                className="btn btn-primary btn-lg text-white text-uppercase"
+              >
+                Lineup
+              </a>
+            )}
+          </div>
         </div>
       </div>
       <div className="row">
