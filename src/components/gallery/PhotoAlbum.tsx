@@ -4,6 +4,11 @@ import React from "react";
 type Props = {};
 
 type Photo = {
+  id: string;
+  webp_images: PhotoSource[];
+};
+
+type PhotoSource = {
   source: string;
   height: number;
   width: number;
@@ -14,12 +19,12 @@ const PhotoAlbum = ({
 }: PageProps<Queries.GalleryDetailPageQuery>["data"]["albums"]["nodes"][0]["data"][0]) => {
   const MinPhotoWidth = 432;
 
-  const sortByWidthAscending = (photos: Photo[]) => {
+  const sortByWidthAscending = (photos: PhotoSource[]) => {
     const copy = [...photos];
     return copy.sort((a, b) => a.width - b.width);
   };
 
-  const takePhotoWithAtLeast = (minWidth: number, photos: Photo[]) => {
+  const takePhotoWithAtLeast = (minWidth: number, photos: PhotoSource[]) => {
     if (photos.length === 0) {
       throw new Error("photos length is zero");
     }
@@ -33,19 +38,29 @@ const PhotoAlbum = ({
     return sortedPhotos[sortedPhotos.length - 1];
   };
 
+  const takeLargestPhoto = (photos: PhotoSource[]) => {
+    const sortedPhotos = sortByWidthAscending(photos);
+    return sortedPhotos[sortedPhotos.length - 1];
+  };
+
   return (
     <div className="c-photo-album">
-      {/* // TODO: select the right dimensions photo
-    // TODO: place into layout
-    // TODO: link to full size    */}
 
-      {album.photos?.data?.map((photo) => (
-        <div className="c-photo-album__img-container">
-          <a href={photo?.webp_images[0]?.source}>
-            <img src={photo?.webp_images[0]?.source} alt={photo?.id} />
-          </a>
-        </div>
-      ))}
+      {album.photos?.data?.map((photo: Photo) => {
+        const largestPhoto = takeLargestPhoto(photo.webp_images);
+        const optimalSizePhoto = takePhotoWithAtLeast(
+          MinPhotoWidth,
+          photo.webp_images
+        );
+
+        return (
+          <div className="c-photo-album__img-container">
+            <a href={largestPhoto.source}>
+              <img src={optimalSizePhoto.source} alt={photo?.id} />
+            </a>
+          </div>
+        );
+      })}
     </div>
   );
 };

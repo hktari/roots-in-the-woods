@@ -1,0 +1,13 @@
+.c-photo-album{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.c-photo-album__img-container{
+    flex-basis: 33%;
+    padding: 10px;
+
+    img{
+        width: 100%;
+    }
+}
