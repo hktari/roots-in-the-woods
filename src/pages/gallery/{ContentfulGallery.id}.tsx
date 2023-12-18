@@ -43,13 +43,17 @@ const GalleryDetailPage = ({
     setOverrideBanner,
   ]);
 
+  const formattedDate = (date: string) => {
+    return new Date(date).toDateString();
+  };
+
   return (
     <div className="container py-5">
       <div className="row">
         <div className="col-12 col-md-6">
           <h1 className="c-page__title"> {title} </h1>
           <h5>
-            {eventDate} - {eventDateEnd}
+            {formattedDate(eventDate)} - {formattedDate(eventDateEnd)}
           </h5>
 
           {isLineupLinkRelative ? (
