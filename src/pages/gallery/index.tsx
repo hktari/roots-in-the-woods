@@ -52,12 +52,6 @@ export const query = graphql`
             gatsbyImageData(width: 432)
             title
           }
-          description {
-            description
-          }
-          eventDate
-          eventDateEnd
-          facebookAlbumUrl
           id
           title
         }

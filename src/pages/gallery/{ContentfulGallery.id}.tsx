@@ -17,14 +17,12 @@ const GalleryDetailPage = ({
     bannerMobile,
     eventDate,
     eventDateEnd,
-    facebookAlbumUrl,
+    facebookAlbumId,
     id,
   } = data.contentfulGallery;
 
-  const albumId = "122093375228162302";
-
   const album = data.albums.nodes[0]?.data?.find(
-    (album) => album?.id === albumId
+    (album) => album?.id === facebookAlbumId
   );
 
   const { isRelative: isLineupLinkRelative, link: lineupLink } = {
@@ -50,6 +48,9 @@ const GalleryDetailPage = ({
       <div className="row">
         <div className="col-12 col-md-6">
           <h1 className="c-page__title"> {title} </h1>
+          <h5>
+            {eventDate} - {eventDateEnd}
+          </h5>
 
           {isLineupLinkRelative ? (
             <Link
@@ -70,7 +71,14 @@ const GalleryDetailPage = ({
         </div>
       </div>
       <div className="row">
-        <PhotoAlbum album={album}></PhotoAlbum>
+        {album ? (
+          <PhotoAlbum album={album}></PhotoAlbum>
+        ) : (
+          <div>
+            No facebook album found for id {facebookAlbumId}. Please check you
+            have provided the correct id.
+          </div>
+        )}
       </div>
     </div>
   );
@@ -112,7 +120,7 @@ export const query = graphql`
       }
       eventDate
       eventDateEnd
-      facebookAlbumUrl
+      facebookAlbumId
       id
       title
     }
