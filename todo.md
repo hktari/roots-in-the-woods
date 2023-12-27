@@ -1,10 +1,10 @@
 # TODO
 
 ## Archive | 1 days
-- create a page with list of past events 
+- create a page with list of past events [OK]
 - create event detail page (need info, design)
-  - use banner
-  - facebook album embed
+  - use banner  [OK]
+  - facebook album embed [OK]
   - list of artists
   - link do recenzije na reggae.si
 
