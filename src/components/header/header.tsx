@@ -17,19 +17,20 @@ const Header = ({ setDisableScroll }: HeaderProps) => {
 
   const data: Queries.BannerImagesQuery = useStaticQuery(graphql`
     query BannerImages {
-      bannerDesktop: file(relativePath: { eq: "roots-banner-desktop.png" }) {
-        childImageSharp {
-          gatsbyImageData(height: 684)
-        }
-        name
-      }
-      bannerMobile: file(relativePath: { eq: "roots-banner-mobile.jpg" }) {
-        childImageSharp {
-          gatsbyImageData(height: 421)
-        }
-        name
-      }
+  bannerDesktop: file(relativePath: {eq: "roots-banner-desktop.png"}) {
+    childImageSharp {
+      gatsbyImageData(height: 915, layout: FULL_WIDTH)
     }
+    name
+  }
+  bannerMobile: file(relativePath: {eq: "roots-banner-mobile.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(height: 915, layout: FULL_WIDTH)
+    }
+    name
+  }
+}
+
   `);
 
   const defaultBannerDesktop =
