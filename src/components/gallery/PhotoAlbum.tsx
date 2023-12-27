@@ -44,7 +44,7 @@ const PhotoAlbum = ({
   };
 
   return (
-    <div className="c-photo-album">
+    <div className="col px-0 c-photo-album">
 
       {album.photos?.data?.map((photo: Photo) => {
         const largestPhoto = takeLargestPhoto(photo.webp_images);
