@@ -48,7 +48,7 @@ const GalleryDetailPage = ({
   };
 
   return (
-    <div className="container py-5">
+    <div className="container py-1">
       <div className="row">
         <div className="col-12 col-md-6">
           <h1 className="c-page__title mb-3"> {title} </h1>
