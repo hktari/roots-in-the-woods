@@ -23,7 +23,7 @@ const MerchItem = ({
           <div className="c-merch-item__overlay card-img-overlay  d-none d-md-block text-white">
             <h2 className=" card-title">{title}</h2>
             <h3 className="card-title">{price} €</h3>
-            <p className="card-text">{description.description}</p>
+            <p className="card-text">{description?.description}</p>
           </div>
         </div>
       </div>
