@@ -1,4 +1,4 @@
-### Type definitions saved at 2023-12-06T14:23:51.210Z ###
+### Type definitions saved at 2024-01-08T15:30:15.685Z ###
 
 interface ContentfulEntry implements Node {
   contentful_id: String!
@@ -496,6 +496,92 @@ type ContentfulMerchSysContentTypeSys {
   type: String
   linkType: String
   id: String
+}
+
+type ContentfulGallery implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  facebookAlbumId: String
+  eventDate: Date @dateformat
+  eventDateEnd: Date @dateformat
+  banner: ContentfulAsset @link(by: "id", from: "banner___NODE")
+  bannerMobile: ContentfulAsset @link(by: "id", from: "bannerMobile___NODE")
+  description: contentfulGalleryDescriptionTextNode @link(by: "id", from: "description___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulGallerySys
+}
+
+type contentfulGalleryDescriptionTextNode implements Node @derivedTypes @childOf(types: ["ContentfulGallery"]) @dontInfer {
+  description: String
+  sys: contentfulGalleryDescriptionTextNodeSys
+}
+
+type contentfulGalleryDescriptionTextNodeSys {
+  type: String
+}
+
+type ContentfulGallerySys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulGallerySysContentType
+}
+
+type ContentfulGallerySysContentType @derivedTypes {
+  sys: ContentfulGallerySysContentTypeSys
+}
+
+type ContentfulGallerySysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
+}
+
+type facebook implements Node @derivedTypes @dontInfer {
+  data: [facebookData]
+  paging: facebookPaging
+}
+
+type facebookData @derivedTypes {
+  id: String
+  name: String
+  photos: facebookDataPhotos
+}
+
+type facebookDataPhotos @derivedTypes {
+  data: [facebookDataPhotosData]
+  paging: facebookDataPhotosPaging
+}
+
+type facebookDataPhotosData @derivedTypes {
+  webp_images: [facebookDataPhotosDataWebp_images]
+  id: String
+}
+
+type facebookDataPhotosDataWebp_images {
+  height: Int
+  source: String
+  width: Int
+}
+
+type facebookDataPhotosPaging @derivedTypes {
+  cursors: facebookDataPhotosPagingCursors
+}
+
+type facebookDataPhotosPagingCursors {
+  before: String
+  after: String
+}
+
+type facebookPaging @derivedTypes {
+  cursors: facebookPagingCursors
+}
+
+type facebookPagingCursors {
+  before: String
+  after: String
 }
 
 type ContentfulContentType implements Node @derivedTypes @dontInfer {
