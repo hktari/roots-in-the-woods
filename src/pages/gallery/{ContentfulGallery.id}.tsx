@@ -30,19 +30,6 @@ const GalleryDetailPage = ({
     link: "/lineup/2023",
   };
 
-  const { setOverrideBanner } = useHeaderContext();
-
-  useEffect(() => {
-    setOverrideBanner(
-      bannerDesktop.gatsbyImageData,
-      bannerMobile.gatsbyImageData
-    );
-  }, [
-    bannerDesktop.gatsbyImageData,
-    bannerMobile.gatsbyImageData,
-    setOverrideBanner,
-  ]);
-
   const formatDateString = (date: string) => {
     return new Date(date).toDateString();
   };
