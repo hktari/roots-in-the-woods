@@ -1,2 +1,36 @@
-.c-page{
+.c-page {
+  --footer-height: 40px;
+}
+
+@include media-breakpoint-up(md) {
+  .c-page {
+    --footer-height: 72px;
+  }
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.c-page {
+  min-height: 100vh;
+}
+
+.c-page__content {
+  min-height: 100vh;
+  margin-bottom: calc(-1 * var(--footer-height));
+}
+
+.c-page__content:after {
+  content: "";
+  display: block;
+}
+.c-page__footer,
+.c-page__content:after {
+  height: var(--footer-height);
 }

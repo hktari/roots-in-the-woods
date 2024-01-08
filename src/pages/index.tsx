@@ -10,6 +10,7 @@ import GetTicketCta from "../components/get-ticket-cta";
 import FollowUsSection from "../components/follow-us-section";
 import WhenSection from "../components/index/when-section";
 import PromoVideoSection from "../components/index/promo-video-section";
+import { useHeaderContext } from "../context/header-context";
 
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   return (

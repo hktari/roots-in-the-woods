@@ -1,8 +1,16 @@
 import type { GatsbyConfig } from "gatsby";
 
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+console.log("STAGING: ", process.env.STAGING);
+
+if (process.env.STAGING) {
+  require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}.staging`,
+  });
+} else {
+  require("dotenv").config({
+    path: `.env.${process.env.NODE_ENV}`,
+  });
+}
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -19,6 +27,7 @@ const config: GatsbyConfig = {
       options: {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         spaceId: "5cz37cqc4ngx",
+        environment: process.env.CONTENTFUL_ENVIRONMENT || "master",
       },
     },
     {
@@ -55,25 +64,28 @@ const config: GatsbyConfig = {
         name: `info-items`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-facebook-graphql`,
-    //   options: {
-    //     // Facebook account or page ID
-    //     pageId: 'me/events',
-    //     params: {
-    //       fields: [
-    //         'id',
-    //         'name',
-    //         'description',
-    //         'cover',
-    //         'attending_count',
-    //         'start_time'
-    //       ],
-    //     },
-    //     // Access Token from facebook
-    //     accessToken: process.env.GATSBY_FACEBOOK_GRAPH_TOKEN,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-facebook-graphql`,
+      options: {
+        // Facebook account or page ID
+        pageId: "193876047139404/albums/",
+        params: {
+          fields: ["id", "name", "photos{webp_images}"],
+        },
+        // Access Token from facebook
+        accessToken: process.env.GATSBY_FACEBOOK_GRAPH_TOKEN,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-schema-snapshot`,
+      options: {
+        path: `contentful-schema.gql`,
+        include: {
+          plugins: [`gatsby-source-contentful`],
+        },
+        update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
+      },
+    },
     "gatsby-plugin-netlify",
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",

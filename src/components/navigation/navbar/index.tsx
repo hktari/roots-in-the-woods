@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "gatsby";
-import logo from "../../images/logo.jpg";
+import logo from "../../../images/logo.jpg";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import Dropdown from "./dropdown";
+import navigationItems from "../common";
 
 type NavBarProps = {
   openMenuClicked: () => void;
@@ -39,6 +40,26 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
     lastScrollY.current = window.scrollY;
   };
 
+  const renderNavigationItems = () => {
+    return (
+      <>
+        {navigationItems.map((navItem) => {
+          return (
+            <li className="c-navbar__menu-list-item">
+              <Link
+                activeClassName="c-link--active"
+                className="c-link"
+                to={navItem.url}
+              >
+                {navItem.title}
+              </Link>
+            </li>
+          );
+        })}
+      </>
+    );
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", onWindowScrollHandler, { passive: true });
     return () => {
@@ -66,71 +87,7 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
         <i className="bi bi-list"></i>
       </button>
       <nav className="c-navbar__menu">
-        <ul className="c-navbar__menu-list">
-          <li className="c-navbar__menu-list-item">
-            <Link activeClassName="c-link--active" className="c-link" to="/">
-              Home
-            </Link>
-          </li>
-          <li className="c-navbar__menu-list-item">
-            <a
-              className="c-link"
-              href="https://fienta.com/roots-in-the-woods-2023"
-            >
-              Tickets
-            </a>
-          </li>
-          {/* <li className="c-navbar__menu-list-item">
-            <Link
-              activeClassName="c-link--active"
-              className="c-link"
-              to="/events"
-            >
-              Events
-            </Link>
-          </li>
-          <li className="c-navbar__menu-list-item">
-            <Link
-              activeClassName="c-link--active"
-              className="c-link"
-              to="/news"
-            >
-              News
-            </Link>
-          </li> */}
-          <li className="c-navbar__menu-list-item">
-            <Link
-              activeClassName="c-link--active"
-              className="c-link"
-              to="/mission"
-            >
-              Mission
-            </Link>
-          </li>
-          <li className="c-navbar__menu-list-item c-navbar__menu-list-item--drop-down">
-            <Dropdown>
-              <Link
-                activeClassName="c-link--active"
-                className="c-link"
-                to="/lineup/2023"
-              >
-                2023
-              </Link>
-              <Link
-                activeClassName="c-link--active"
-                className="c-link"
-                to="/lineup/2024"
-              >
-                2024
-              </Link>
-            </Dropdown>
-          </li>
-          <li className="c-navbar__menu-list-item">
-            <Link activeClassName="c-link--active" className="c-link" to="/map">
-              Map
-            </Link>
-          </li>
-        </ul>
+        <ul className="c-navbar__menu-list">{renderNavigationItems()}</ul>
       </nav>
     </div>
   );
