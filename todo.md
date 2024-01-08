@@ -1,25 +1,28 @@
 # TODO
 
+## BUGS
+- desktop: banner stays as roots 2023 after leaving gallery detail page
+
 ## Archive | 1 days
-- create a page with list of past events 
+- create a page with list of past events [OK]
 - create event detail page (need info, design)
-  - use banner
-  - facebook album embed
-  - list of artists
+  - use banner  [OK]
+  - facebook album embed [OK]
+  - list of artists [OK]
   - link do recenzije na reggae.si
 
-## Home | 0.5 days
-- update activities (need info and images), 
-- date, 
-- tickets link 2024 (https://fienta.com/roots-in-the-woods-2024), 
-- banner (need image)
+## Home | 0.5 days [OK]
+- update activities (need info and images), [OK]
+- date, [OK]
+- tickets link 2024 (https://fienta.com/roots-in-the-woods-2024), [OK]
+- banner (need image) [OK]
 
 ## Lineup | 0.5 days
 - coming soon [OK]
 
 ## Merch
-- grid with pictures and titles
-- order instructions
+- grid with pictures and titles [OK]
+- order instructions  [OK]
 
 ## Store 
 ### Setup | 5 days
