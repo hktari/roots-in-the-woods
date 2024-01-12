@@ -19,7 +19,7 @@ const ContactForm = (props: Props) => {
                 action="https://getform.io/f/6151fe23-cbd8-4de1-9f0d-7d1216c3cd04"
               >
                 <div className="row">
-                  <div className="col col-md-6">
+                  <div className="col-12 col-md-6">
                     <label className="d-block mb-3">
                       <span className="form-label d-block">Your name</span>
                       <input
@@ -34,7 +34,7 @@ const ContactForm = (props: Props) => {
                 </div>
 
                 <div className="row">
-                  <div className="col col-md-6">
+                  <div className="col-12 col-md-6">
                     <label className="d-block mb-3">
                       <span className="form-label d-block">Address line</span>
                       <input
@@ -47,14 +47,14 @@ const ContactForm = (props: Props) => {
                     </label>
                   </div>
 
-                  <div className="col col-md-3">
-                    <label className="d-block">
+                  <div className="col col-md-6">
+                    <label className="d-block mb-3">
                       <span className="form-label d-block">City</span>
                       <input
                         name="city"
                         required
                         type="text"
-                        className="form-control"
+                        className="form-control w-100 p-1"
                         placeholder=""
                       />
                     </label>
@@ -62,7 +62,7 @@ const ContactForm = (props: Props) => {
                 </div>
 
                 <div className="row">
-                  <div className="col col-md-6">
+                  <div className="col-12 col-md-6">
                     <label className="d-block mb-3">
                       <span className="form-label d-block">
                         Zip/Postal code
@@ -71,20 +71,20 @@ const ContactForm = (props: Props) => {
                         name="zip"
                         required
                         type="text"
-                        className="form-control"
+                        className="form-control w-100 p-1"
                         placeholder=""
                       />
                     </label>
                   </div>
 
-                  <div className="col col-md-6">
+                  <div className="col-12 col-md-6">
                     <label className="d-block mb-3">
                       <span className="form-label d-block">State/Province</span>
                       <input
                         name="state"
                         required
                         type="text"
-                        className="form-control"
+                        className="form-control w-100 p-1"
                         placeholder=""
                       />
                     </label>
@@ -92,27 +92,27 @@ const ContactForm = (props: Props) => {
                 </div>
 
                 <div className="row">
-                  <div className="col col-md-6">
+                  <div className="col-12 col-md-6">
                     <label className="d-block mb-3">
                       <span className="form-label d-block">Country</span>
                       <input
                         name="country"
                         required
                         type="text"
-                        className="form-control"
+                        className="form-control w-100 p-1"
                         placeholder=""
                       />
                     </label>
                   </div>
 
-                  <div className="col col-md-6">
+                  <div className="col-12 col-md-6">
                     <label className="d-block mb-3">
                       <span className="form-label d-block">Telephone</span>
                       <input
                         name="telephone"
                         required
                         type="tel"
-                        className="form-control"
+                        className="form-control w-100 p-1"
                         placeholder=""
                       />
                     </label>
@@ -127,7 +127,7 @@ const ContactForm = (props: Props) => {
                         name="message"
                         required
                         className="form-control w-100 p-1 px-2 py-1"
-                        style={{resize: "none"}}
+                        style={{ resize: "none" }}
                         rows={4}
                         placeholder="Please specify a list containing the merchandise you wish to order."
                       ></textarea>
@@ -143,7 +143,7 @@ const ContactForm = (props: Props) => {
                 <div className="mb-3">
                   <button
                     type="submit"
-                    className="btn btn-primary px-3 rounded-3 text-white text-uppercase text-bold"
+                    className="btn btn-primary btn-lg px-3 mt-2 rounded-3 text-white text-uppercase text-bold"
                   >
                     Place Order
                   </button>
