@@ -82,7 +82,6 @@ const ContactForm = (props: Props) => {
                       <span className="form-label d-block">State/Province</span>
                       <input
                         name="state"
-                        required
                         type="text"
                         className="form-control w-100 p-1"
                         placeholder=""
@@ -143,7 +142,7 @@ const ContactForm = (props: Props) => {
                 <div className="mb-3">
                   <button
                     type="submit"
-                    className="btn btn-primary btn-lg px-3 mt-2 rounded-3 text-white text-uppercase text-bold"
+                    className="btn btn-primary btn-lg px-3 mt-2 rounded-3 text-white text-uppercase"
                   >
                     Place Order
                   </button>
