@@ -16,12 +16,13 @@ const ContactForm = (props: Props) => {
               <form
                 method="POST"
                 className="w-100 p-4 bg-white"
-                action="https://herotofu.com/start"
+                action="https://getform.io/f/6151fe23-cbd8-4de1-9f0d-7d1216c3cd04"
               >
                 <label className="d-block mb-4">
                   <span className="form-label d-block">Your name</span>
                   <input
                     name="name"
+                    required
                     type="text"
                     className="form-control"
                     placeholder="Joe Bloggs"
@@ -31,7 +32,8 @@ const ContactForm = (props: Props) => {
                 <label className="d-block mb-4">
                   <span className="form-label d-block">Address line</span>
                   <input
-                    name="address1"
+                    name="address"
+                    required
                     type="text"
                     className="form-control"
                     placeholder=""
@@ -42,6 +44,7 @@ const ContactForm = (props: Props) => {
                   <span className="form-label d-block">City</span>
                   <input
                     name="city"
+                    required
                     type="text"
                     className="form-control"
                     placeholder=""
@@ -52,6 +55,7 @@ const ContactForm = (props: Props) => {
                   <span className="form-label d-block">State/Province</span>
                   <input
                     name="state"
+                    required
                     type="text"
                     className="form-control"
                     placeholder=""
@@ -62,6 +66,7 @@ const ContactForm = (props: Props) => {
                   <span className="form-label d-block">Zip/Postal code</span>
                   <input
                     name="zip"
+                    required
                     type="text"
                     className="form-control"
                     placeholder=""
@@ -72,6 +77,7 @@ const ContactForm = (props: Props) => {
                   <span className="form-label d-block">Country</span>
                   <input
                     name="country"
+                    required
                     type="text"
                     className="form-control"
                     placeholder=""
@@ -82,6 +88,7 @@ const ContactForm = (props: Props) => {
                   <span className="form-label d-block">Telephone</span>
                   <input
                     name="telephone"
+                    required
                     type="tel"
                     className="form-control"
                     placeholder=""
@@ -94,18 +101,20 @@ const ContactForm = (props: Props) => {
                   </span>
                   <textarea
                     name="message"
+                    required
                     className="form-control"
                     rows={4}
                     placeholder="Please specify a list containing the merchandise you wish to order."
                   ></textarea>
                 </label>
 
+                <input type="hidden" name="_gotcha" style={{display:"none !important"}}/>
                 <div className="mb-3">
                   <button
                     type="submit"
-                    className="btn btn-primary px-3 rounded-3"
+                    className="btn btn-primary px-3 rounded-3 text-white"
                   >
-                    Save
+                    Place Order
                   </button>
                 </div>
               </form>
