@@ -21,7 +21,7 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
           </div>
         ))}
 
-        <div className="text-center">
+        <div className="text-center mt-4">
           <Link className="btn btn-primary btn-lg text-white" to="/merch/order">
             ORDER MERCH
           </Link>
