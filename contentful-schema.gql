@@ -1,4 +1,4 @@
-### Type definitions saved at 2024-01-08T15:30:15.685Z ###
+### Type definitions saved at 2024-01-17T14:10:01.307Z ###
 
 interface ContentfulEntry implements Node {
   contentful_id: String!
@@ -539,49 +539,62 @@ type ContentfulGallerySysContentTypeSys {
   id: String
 }
 
-type facebook implements Node @derivedTypes @dontInfer {
-  data: [facebookData]
-  paging: facebookPaging
-}
-
-type facebookData @derivedTypes {
-  id: String
+type ContentfulLineup implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
   name: String
-  photos: facebookDataPhotos
+  artists: [ContentfulArtist] @link(by: "id", from: "artists___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulLineupSys
 }
 
-type facebookDataPhotos @derivedTypes {
-  data: [facebookDataPhotosData]
-  paging: facebookDataPhotosPaging
+type ContentfulArtist implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  name: String
+  countryOfOrigin: String
+  socialMediaLink: String
+  stage: String
+  photo: ContentfulAsset @link(by: "id", from: "photo___NODE")
+  lineup: [ContentfulLineup] @link(by: "id", from: "lineup___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulArtistSys
 }
 
-type facebookDataPhotosData @derivedTypes {
-  webp_images: [facebookDataPhotosDataWebp_images]
+type ContentfulArtistSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulArtistSysContentType
+}
+
+type ContentfulArtistSysContentType @derivedTypes {
+  sys: ContentfulArtistSysContentTypeSys
+}
+
+type ContentfulArtistSysContentTypeSys {
+  type: String
+  linkType: String
   id: String
 }
 
-type facebookDataPhotosDataWebp_images {
-  height: Int
-  source: String
-  width: Int
+type ContentfulLineupSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulLineupSysContentType
 }
 
-type facebookDataPhotosPaging @derivedTypes {
-  cursors: facebookDataPhotosPagingCursors
+type ContentfulLineupSysContentType @derivedTypes {
+  sys: ContentfulLineupSysContentTypeSys
 }
 
-type facebookDataPhotosPagingCursors {
-  before: String
-  after: String
-}
-
-type facebookPaging @derivedTypes {
-  cursors: facebookPagingCursors
-}
-
-type facebookPagingCursors {
-  before: String
-  after: String
+type ContentfulLineupSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
 }
 
 type ContentfulContentType implements Node @derivedTypes @dontInfer {
