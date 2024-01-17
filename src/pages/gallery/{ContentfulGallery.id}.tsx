@@ -25,10 +25,7 @@ const GalleryDetailPage = ({
     (album) => album?.id === facebookAlbumId
   );
 
-  const { isRelative: isLineupLinkRelative, link: lineupLink } = {
-    isRelative: true,
-    link: "/lineup/2023",
-  };
+  const lineupUrl = data.contentfulGallery?.lineup?.url;
 
   const formatDateString = (date: string) => {
     return new Date(date).toDateString();
@@ -45,21 +42,12 @@ const GalleryDetailPage = ({
           <p className="fs-4 mb-3">{description?.description}</p>
 
           <div className="mb-5">
-            {isLineupLinkRelative ? (
-              <Link
-                to={lineupLink}
-                className="btn btn-primary btn-lg text-white text-uppercase"
-              >
-                Lineup
-              </Link>
-            ) : (
-              <a
-                href={lineupLink}
-                className="btn btn-primary btn-lg text-white text-uppercase"
-              >
-                Lineup
-              </a>
-            )}
+            <Link
+              to={`/lineup/${lineupUrl}`}
+              className="btn btn-primary btn-lg text-white text-uppercase"
+            >
+              Lineup
+            </Link>
           </div>
         </div>
       </div>
@@ -116,6 +104,9 @@ export const query = graphql`
       facebookAlbumId
       id
       title
+      lineup {
+        url
+      }
     }
   }
 `;
