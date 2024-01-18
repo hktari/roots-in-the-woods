@@ -1,4 +1,4 @@
-### Type definitions saved at 2024-01-17T14:35:11.439Z ###
+### Type definitions saved at 2024-01-18T09:55:08.082Z ###
 
 interface ContentfulEntry implements Node {
   contentful_id: String!
@@ -502,17 +502,33 @@ type ContentfulGallery implements ContentfulReference & ContentfulEntry & Node @
   contentful_id: String!
   node_locale: String!
   title: String
+  description: String!
+  lineup: ContentfulLineup!
   facebookAlbumId: String
   eventDate: Date @dateformat
   eventDateEnd: Date @dateformat
   banner: ContentfulAsset @link(by: "id", from: "banner___NODE")
   bannerMobile: ContentfulAsset @link(by: "id", from: "bannerMobile___NODE")
-  lineup: ContentfulLineup @link(by: "id", from: "lineup___NODE")
-  description: contentfulGalleryDescriptionTextNode @link(by: "id", from: "description___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulGallerySys
+}
+
+type ContentfulGallerySys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulGallerySysContentType
+}
+
+type ContentfulGallerySysContentType @derivedTypes {
+  sys: ContentfulGallerySysContentTypeSys
+}
+
+type ContentfulGallerySysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
 }
 
 type ContentfulLineup implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
@@ -521,7 +537,6 @@ type ContentfulLineup implements ContentfulReference & ContentfulEntry & Node @d
   name: String
   url: Date @dateformat
   artists: [ContentfulArtist] @link(by: "id", from: "artists___NODE")
-  gallery: [ContentfulGallery] @link(by: "id", from: "gallery___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
@@ -534,13 +549,41 @@ type ContentfulArtist implements ContentfulReference & ContentfulEntry & Node @d
   name: String
   countryOfOrigin: String
   socialMediaLink: String
-  stage: String
   photo: ContentfulAsset @link(by: "id", from: "photo___NODE")
-  lineup: [ContentfulLineup] @link(by: "id", from: "lineup___NODE")
+  stage: ContentfulStage @link(by: "id", from: "stage___NODE")
   spaceId: String
   createdAt: Date @dateformat
   updatedAt: Date @dateformat
   sys: ContentfulArtistSys
+  lineup: [ContentfulLineup] @link(by: "id", from: "lineup___NODE")
+}
+
+type ContentfulStage implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+  contentful_id: String!
+  node_locale: String!
+  title: String
+  order: Int
+  artist: [ContentfulArtist] @link(by: "id", from: "artist___NODE")
+  spaceId: String
+  createdAt: Date @dateformat
+  updatedAt: Date @dateformat
+  sys: ContentfulStageSys
+}
+
+type ContentfulStageSys @derivedTypes {
+  type: String
+  revision: Int
+  contentType: ContentfulStageSysContentType
+}
+
+type ContentfulStageSysContentType @derivedTypes {
+  sys: ContentfulStageSysContentTypeSys
+}
+
+type ContentfulStageSysContentTypeSys {
+  type: String
+  linkType: String
+  id: String
 }
 
 type ContentfulArtistSys @derivedTypes {
@@ -570,31 +613,6 @@ type ContentfulLineupSysContentType @derivedTypes {
 }
 
 type ContentfulLineupSysContentTypeSys {
-  type: String
-  linkType: String
-  id: String
-}
-
-type contentfulGalleryDescriptionTextNode implements Node @derivedTypes @childOf(types: ["ContentfulGallery"]) @dontInfer {
-  description: String
-  sys: contentfulGalleryDescriptionTextNodeSys
-}
-
-type contentfulGalleryDescriptionTextNodeSys {
-  type: String
-}
-
-type ContentfulGallerySys @derivedTypes {
-  type: String
-  revision: Int
-  contentType: ContentfulGallerySysContentType
-}
-
-type ContentfulGallerySysContentType @derivedTypes {
-  sys: ContentfulGallerySysContentTypeSys
-}
-
-type ContentfulGallerySysContentTypeSys {
   type: String
   linkType: String
   id: String
