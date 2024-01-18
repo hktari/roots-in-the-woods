@@ -98,9 +98,7 @@ export const query = graphql`
         gatsbyImageData(height: 421)
         title
       }
-      description {
-        description
-      }
+      description
       eventDate
       eventDateEnd
       facebookAlbumId

@@ -67,6 +67,7 @@ function parseArtistCountry(country: string) {
   return countryIconMap.get(country.toLocaleLowerCase());
 }
 
+// todo: use GraphQL fragments
 type Props = {
   artist: Queries.ContentfulArtist;
   noImagePlaceholder: IGatsbyImageData;
