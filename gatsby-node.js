@@ -12,6 +12,7 @@ exports.createPages = async function ({
           node {
             name
             id
+            url
           }
         }
       }
