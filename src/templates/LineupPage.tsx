@@ -3,6 +3,8 @@ import { IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 import LineupStage from "../components/lineup/Stage";
 import _groupBy from "lodash/groupBy";
+import _sortedUniqBy from "lodash/sortedUniqBy";
+import _uniqBy from "lodash/uniqBy";
 
 type Props = {};
 
@@ -10,21 +12,26 @@ const LineupPage = ({ data }: PageProps<Queries.LineupDetailPageQuery>) => {
   const noImagePlaceholder: IGatsbyImageData =
     data.noImagePlaceholder.nodes[0].gatsbyImageData;
 
-  const artistsByStage = _groupBy(
-    data.contentfulLineup?.artists,
-    (artist) => artist?.stage
-  );
+  const artists = data.contentfulLineup?.artists;
+
+  let allStages = artists?.map((artist) => artist?.stage);
+  allStages = _uniqBy(allStages, (stage) => stage?.id);
+  allStages.sort((first, second) => first?.order! - second?.order!);
 
   return (
     <div className="c-page-lineup">
       <h1 className="c-page__title">2023 Lineup</h1>
-      {Object.entries(artistsByStage).map(([stageName, artists]) => {
+      {allStages.map((stage) => {
+        const artistsForStage = artists?.filter(
+          (artist) => artist?.stage?.id === stage?.id
+        );
+
         return (
-          <section id={stageName} className="c-page-lineup__stage">
+          <section id={stage?.id} className="c-page-lineup__stage">
             {artists && (
               <LineupStage
-                title={stageName}
-                artistNodes={artists}
+                title={stage?.title}
+                artistNodes={artistsForStage}
                 noImagePlaceholder={noImagePlaceholder}
               />
             )}
@@ -77,7 +84,11 @@ export const query = graphql`
           gatsbyImageData
         }
         socialMediaLink
-        stage
+        stage {
+          id
+          title
+          order
+        }
       }
       id
       name
