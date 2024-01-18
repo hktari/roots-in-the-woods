@@ -502,8 +502,8 @@ type ContentfulGallery implements ContentfulReference & ContentfulEntry & Node @
   contentful_id: String!
   node_locale: String!
   title: String
-  description: String!
-  lineup: ContentfulLineup!
+  description: String
+  lineup: ContentfulLineup
   facebookAlbumId: String
   eventDate: Date @dateformat
   eventDateEnd: Date @dateformat
@@ -562,7 +562,7 @@ type ContentfulStage implements ContentfulReference & ContentfulEntry & Node @de
   contentful_id: String!
   node_locale: String!
   title: String
-  order: Int
+  order: Int!
   artist: [ContentfulArtist] @link(by: "id", from: "artist___NODE")
   spaceId: String
   createdAt: Date @dateformat
