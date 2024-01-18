@@ -46,37 +46,6 @@ const LineupPage = ({ data }: PageProps<Queries.LineupDetailPageQuery>) => {
           </section>
         );
       })}
-      {/*<section id="mainStage" className="c-page-lineup__stage">
-
-         <LineupStage
-          title="Main Stage"
-          artistNodes={data.contentfulLineup?.artists.filter(
-            (artist) => artist.stage === "main_stage"
-          )}
-          imageNodes={data.allImageSharp.nodes}
-          noImagePlaceholder={noImagePlaceholder}
-        />
-      </section>
-      <section id="dubStage" className="c-page-lineup__stage">
-        <LineupStage
-          title="Dub Stage"
-          artistNodes={data.allArtistsJson.nodes.filter(
-            (artist) => artist.stage === "dub_stage"
-          )}
-          imageNodes={data.allImageSharp.nodes}
-          noImagePlaceholder={noImagePlaceholder}
-        />
-      </section>
-      <section id="jungleDnbStage" className="c-page-lineup__stage">
-        <LineupStage
-          title="Jungle / Drum & Bass Stage"
-          artistNodes={data.allArtistsJson.nodes.filter(
-            (artist) => artist.stage === "jungle_dnb_stage"
-          )}
-          imageNodes={data.allImageSharp.nodes}
-          noImagePlaceholder={noImagePlaceholder}
-        />
-      </section> */}
     </div>
   );
 };
@@ -89,7 +58,7 @@ export const query = graphql`
         countryOfOrigin
         name
         photo {
-          gatsbyImageData
+          gatsbyImageData(width: 512)
         }
         socialMediaLink
         stage {
