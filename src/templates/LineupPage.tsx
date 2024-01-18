@@ -13,6 +13,7 @@ const LineupPage = ({ data }: PageProps<Queries.LineupDetailPageQuery>) => {
   if (!artists) {
     return (
       <div className="c-page-lineup">
+        <h1 className="c-page__title">{data.contentfulLineup?.name}</h1>
         <h2>coming soon...</h2>
       </div>
     );

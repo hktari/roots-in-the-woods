@@ -1,15 +1,8 @@
 # TODO
 
-## BUGS
-- desktop: banner stays as roots 2023 after leaving gallery detail page
+## MISSION
+- update text
 
-
-## LINEUP
-- contenful integration
-## MERCH
-- merch detail don't cnage banner
-- order contact us
-- 
 ## Store 
 ### Setup | 5 days
 - 10€ / mesec oz. 2% od mesečne prodaje če ta znaša nad 500€
