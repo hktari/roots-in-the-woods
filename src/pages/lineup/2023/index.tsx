@@ -1,41 +1,25 @@
-import { PageProps, graphql, useStaticQuery } from "gatsby";
-import { IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
-import LineupStage from "../components/lineup/Stage";
-import _groupBy from "lodash/groupBy";
+import { Link, PageProps, StaticQuery, graphql } from "gatsby";
+import {
+  GatsbyImage,
+  IGatsbyImageData,
+  StaticImage,
+} from "gatsby-plugin-image";
+import LineupStage from "../../../components/lineup/Stage";
 
 type Props = {};
 
-const LineupPage = ({ data }: PageProps<Queries.LineupDetailPageQuery>) => {
+const LineupPage = ({ data }: PageProps<Queries.AllArtistsPageQuery>) => {
   const noImagePlaceholder: IGatsbyImageData =
     data.noImagePlaceholder.nodes[0].gatsbyImageData;
-
-  const artistsByStage = _groupBy(
-    data.contentfulLineup?.artists,
-    (artist) => artist?.stage
-  );
 
   return (
     <div className="c-page-lineup">
       <h1 className="c-page__title">2023 Lineup</h1>
-      {Object.entries(artistsByStage).map(([stageName, artists]) => {
-        return (
-          <section id={stageName} className="c-page-lineup__stage">
-            {artists && (
-              <LineupStage
-                title={stageName}
-                artistNodes={artists}
-                noImagePlaceholder={noImagePlaceholder}
-              />
-            )}
-          </section>
-        );
-      })}
-      {/*<section id="mainStage" className="c-page-lineup__stage">
-
-         <LineupStage
+      <section id="mainStage" className="c-page-lineup__stage">
+        <LineupStage
           title="Main Stage"
-          artistNodes={data.contentfulLineup?.artists.filter(
+          artistNodes={data.allArtistsJson.nodes.filter(
             (artist) => artist.stage === "main_stage"
           )}
           imageNodes={data.allImageSharp.nodes}
@@ -61,26 +45,34 @@ const LineupPage = ({ data }: PageProps<Queries.LineupDetailPageQuery>) => {
           imageNodes={data.allImageSharp.nodes}
           noImagePlaceholder={noImagePlaceholder}
         />
-      </section> */}
+      </section>
     </div>
   );
 };
+
 export default LineupPage;
 
 export const query = graphql`
-  query LineupDetailPage($id: String!) {
-    contentfulLineup(id: { eq: $id }) {
-      artists {
-        countryOfOrigin
-        name
-        photo {
-          gatsbyImageData
-        }
-        socialMediaLink
+  query AllArtistsPage {
+    allArtistsJson(sort: {order: ASC, fields: order}) {
+      nodes {
+        country
         stage
+        images
+        links
+        title
+        order
+        id
       }
-      id
-      name
+    }
+
+    allImageSharp {
+      nodes {
+        gatsbyImageData(width: 512)
+        fixed {
+          originalName
+        }
+      }
     }
 
     noImagePlaceholder: allImageSharp(

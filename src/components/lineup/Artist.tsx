@@ -64,34 +64,24 @@ function parseArtistCountry(country: string) {
     ["uk", "🇬🇧"],
   ]);
 
-  return countryIconMap.get(country);
+  return countryIconMap.get(country.toLocaleLowerCase());
 }
 
 type Props = {
-  artist: Queries.AllArtistsPageQuery["allArtistsJson"]["nodes"][0];
-  imageNodes: Queries.AllArtistsPageQuery["allImageSharp"]["nodes"];
+  artist: Queries.ContentfulArtist;
   noImagePlaceholder: IGatsbyImageData;
 };
 
-const LineupArtist = ({ artist, imageNodes, noImagePlaceholder }: Props) => {
-  let imageData = noImagePlaceholder;
-  let imageName = "roots in the woods logo";
+const LineupArtist = ({ artist, noImagePlaceholder }: Props) => {
+  const imageData = artist.photo?.gatsbyImageData || noImagePlaceholder;
+  const imageName = artist.photo?.filename || "Roots in the Woods logo";
 
-  try {
-    [imageData, imageName] = findImageForArtist(artist, imageNodes);
-  } catch (error) {
-    // todo-bk: log errors
-  }
-
-  const links = parseArtistLinks(artist.links || []);
-  const soundCloudLinkOrFirst =
-    links.find((link) => link.type === _ArtistLinkType.SOUNDCLOUD) || links[0];
-
+  const soundCloudLinkOrFirst = artist.socialMediaLink;
   return (
     <a
       key={artist.id}
       className="c-lineup-artist"
-      href={soundCloudLinkOrFirst?.url}
+      href={soundCloudLinkOrFirst || "#"}
     >
       <GatsbyImage
         className="c-lineup-artist__cover"
@@ -99,10 +89,10 @@ const LineupArtist = ({ artist, imageNodes, noImagePlaceholder }: Props) => {
         alt={imageName}
       ></GatsbyImage>
       <h4 className="c-lineup-artist__title">
-        {artist.title}
+        {artist.name}
         <span className="c-lineup-artist__country">
           {" "}
-          {artist.country && parseArtistCountry(artist.country)}
+          {artist.countryOfOrigin && parseArtistCountry(artist.countryOfOrigin)}
         </span>
       </h4>
     </a>

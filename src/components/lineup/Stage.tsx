@@ -2,9 +2,13 @@ import React from "react";
 import LineupArtist from "./Artist";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 
+
+type Arist =  {
+
+}
+
 type Props = {
-  artistNodes: Queries.AllArtistsPageQuery["allArtistsJson"]["nodes"];
-  imageNodes: Queries.AllArtistsPageQuery["allImageSharp"]["nodes"];
+  artistNodes: Queries.ContentfulArtist[];
   noImagePlaceholder: IGatsbyImageData;
   title: string;
 };
@@ -12,7 +16,6 @@ type Props = {
 const LineupStage = ({
   artistNodes,
   title,
-  imageNodes,
   noImagePlaceholder,
 }: Props) => {
   return (
@@ -23,7 +26,6 @@ const LineupStage = ({
           <div className="c-lineup-stage__list-item">
             <LineupArtist
               artist={artist}
-              imageNodes={imageNodes}
               noImagePlaceholder={noImagePlaceholder}
             />
           </div>
