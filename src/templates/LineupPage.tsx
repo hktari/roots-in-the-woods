@@ -9,20 +9,28 @@ import _uniqBy from "lodash/uniqBy";
 type Props = {};
 
 const LineupPage = ({ data }: PageProps<Queries.LineupDetailPageQuery>) => {
+  const artists = data.contentfulLineup?.artists;
+  if (!artists) {
+    return (
+      <div className="c-page-lineup">
+        <h2>coming soon...</h2>
+      </div>
+    );
+  }
+
   const noImagePlaceholder: IGatsbyImageData =
     data.noImagePlaceholder.nodes[0].gatsbyImageData;
 
-  const artists = data.contentfulLineup?.artists;
-
-  let allStages = artists?.map((artist) => artist?.stage);
+  let allStages = artists.map((artist) => artist?.stage);
   allStages = _uniqBy(allStages, (stage) => stage?.id);
+  allStages = allStages.filter((stage) => !!stage);
   allStages.sort((first, second) => first?.order! - second?.order!);
 
   return (
     <div className="c-page-lineup">
       <h1 className="c-page__title">2023 Lineup</h1>
       {allStages.map((stage) => {
-        const artistsForStage = artists?.filter(
+        const artistsForStage = artists.filter(
           (artist) => artist?.stage?.id === stage?.id
         );
 
