@@ -28,7 +28,7 @@ const LineupPage = ({ data }: PageProps<Queries.LineupDetailPageQuery>) => {
 
   return (
     <div className="c-page-lineup">
-      <h1 className="c-page__title">2023 Lineup</h1>
+      <h1 className="c-page__title">{data.contentfulLineup.name}</h1>
       {allStages.map((stage) => {
         const artistsForStage = artists.filter(
           (artist) => artist?.stage?.id === stage?.id
