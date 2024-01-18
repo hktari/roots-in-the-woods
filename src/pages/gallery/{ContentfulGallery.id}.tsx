@@ -41,14 +41,16 @@ const GalleryDetailPage = ({
           </h5>
           <p className="fs-4 mb-3">{description?.description}</p>
 
-          <div className="mb-5">
-            <Link
-              to={`/lineup/${lineupUrl}`}
-              className="btn btn-primary btn-lg text-white text-uppercase"
-            >
-              Lineup
-            </Link>
-          </div>
+          {lineupUrl && (
+            <div className="mb-5">
+              <Link
+                to={`/lineup/${lineupUrl}`}
+                className="btn btn-primary btn-lg text-white text-uppercase"
+              >
+                Lineup
+              </Link>
+            </div>
+          )}
         </div>
       </div>
       <div className="row">
