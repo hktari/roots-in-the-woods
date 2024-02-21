@@ -80,6 +80,7 @@ const LineupArtist = ({ artist, noImagePlaceholder }: Props) => {
   const soundCloudLinkOrFirst = artist.socialMediaLink;
   return (
     <a
+      target="_blank"
       key={artist.id}
       className="c-lineup-artist"
       href={soundCloudLinkOrFirst || "#"}

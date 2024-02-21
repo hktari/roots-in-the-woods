@@ -14,7 +14,7 @@ const NavigationLink = ({ navigationItem: navItem }: Props) => {
       {navItem.title}
     </Link>
   ) : (
-    <a className="c-link" href={navItem.url}>
+    <a className="c-link" href={navItem.url} target="_blank">
       {navItem.title}
     </a>
   );
