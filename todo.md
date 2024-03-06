@@ -3,6 +3,9 @@
 ## BUGS
 - desktop: banner stays as roots 2023 after leaving gallery detail page
 
+- put GALLERY, MAP and MISSION under MORE dropdown
+- add FAQ page
+
 
 ## LINEUP
 - contenful integration
