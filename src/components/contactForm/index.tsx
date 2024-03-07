@@ -17,7 +17,6 @@ const ContactForm = (props: Props) => {
                 method="POST"
                 className="w-100 p-2 bg-white"
                 action="https://getform.io/f/6151fe23-cbd8-4de1-9f0d-7d1216c3cd04"
-                rel="opener"
               >
                 <div className="row">
                   <div className="col-12 col-md-6">

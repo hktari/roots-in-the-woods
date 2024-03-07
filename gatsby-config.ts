@@ -15,7 +15,9 @@ if (process.env.STAGING) {
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Roots in the Woods`,
-    siteUrl: `https://rootsinthewoods.netlify.app`,
+    description: "Sound system culture festival",
+    siteUrl: `https://${process.env.DOMAIN}`,
+    referrer: "origin",
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -81,7 +83,10 @@ const config: GatsbyConfig = {
       options: {
         path: `contentful-schema.gql`,
         include: {
-          plugins: [`gatsby-source-contentful`, `gatsby-source-facebook-graphql`],
+          plugins: [
+            `gatsby-source-contentful`,
+            `gatsby-source-facebook-graphql`,
+          ],
         },
         update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
       },

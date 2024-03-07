@@ -11,6 +11,7 @@ import FollowUsSection from "../components/follow-us-section";
 import WhenSection from "../components/index/when-section";
 import PromoVideoSection from "../components/index/promo-video-section";
 import { useHeaderContext } from "../context/header-context";
+import SEO from "../components/seo";
 
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   return (
@@ -44,7 +45,7 @@ const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Roots in the Woods</title>;
+export const Head = () => <SEO />;
 
 export const query = graphql`
   query IndexPage {
