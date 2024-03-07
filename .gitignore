@@ -5,3 +5,5 @@ public
 src/gatsby-types.d.ts
 .env.*
 tmp/
+# Local Netlify folder
+.netlify
