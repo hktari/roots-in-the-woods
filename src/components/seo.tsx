@@ -1,19 +1,26 @@
 import React from "react";
 import { useSiteMetadata } from "../hooks/use-site-metadata";
 
-const SEO = ({ title, description, pathname, children }) => {
+type Props = {
+  title: string;
+  description: string;
+  pathname: string;
+  children: React.ReactNode;
+};
+
+const SEO = ({ title, description, pathname, children }: Props) => {
   const {
     title: defaultTitle,
     description: defaultDescription,
     siteUrl,
-    referrer
+    referrer,
   } = useSiteMetadata();
 
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
     url: `${siteUrl}${pathname || ``}`,
-    referrer
+    referrer,
   };
 
   return (
