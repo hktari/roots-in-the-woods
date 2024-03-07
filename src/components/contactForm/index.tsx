@@ -1,8 +1,10 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+};
 
-const ContactForm = (props: Props) => {
+const ContactForm = ({ onSubmit }: Props) => {
   return (
     <div className="container">
       <div className="row">
@@ -17,10 +19,11 @@ const ContactForm = (props: Props) => {
                 method="POST"
                 className="w-100 p-2 bg-white"
                 data-netlify="true"
-                action="/merch/order/success"
                 netlify-honeypot="_gotcha"
                 name="merch"
+                onSubmit={onSubmit}
               >
+                <input type="hidden" name="form-name" value="merch" />
                 <div className="row">
                   <div className="col-12 col-md-6">
                     <label className="d-block mb-3">
