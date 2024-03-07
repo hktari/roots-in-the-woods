@@ -1,6 +1,7 @@
 import React from "react";
 import SocialList from "../../components/social-list";
 import ContactForm from "../../components/contactForm";
+import SEO from "../../components/seo";
 
 type Props = {};
 
@@ -19,5 +20,7 @@ const OrderPage = (props: Props) => {
     </div>
   );
 };
+
+export const Head = () => <SEO />;
 
 export default OrderPage;

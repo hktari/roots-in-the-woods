@@ -3,6 +3,9 @@
 ## MISSION
 - update text
 
+- put GALLERY, MAP and MISSION under MORE dropdown
+- add FAQ page
+
 ## Store 
 ### Setup | 5 days
 - 10€ / mesec oz. 2% od mesečne prodaje če ta znaša nad 500€
