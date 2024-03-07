@@ -18,6 +18,7 @@ const ContactForm = (props: Props) => {
                 className="w-100 p-2 bg-white"
                 data-netlify="true"
                 action="/merch/order/success"
+                netlify-honeypot="_gotcha"
                 name="merch"
               >
                 <div className="row">
