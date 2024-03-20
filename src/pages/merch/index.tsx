@@ -1,4 +1,5 @@
 import React from "react";
+import { DebugCart } from "use-shopping-cart";
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
 import { Link, PageProps, graphql } from "gatsby";
 import { makeGroupsOf } from "../../util/format";
@@ -11,15 +12,10 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
   return (
     <>
       <CartProvider
-        mode="payment"
-        cartMode="client-only"
+        cartMode="checkout-session"
         shouldPersist
         stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY!}
-        successUrl={`${window.location.origin}/page-2/`}
-        cancelUrl={`${window.location.origin}/`}
         currency="EUR"
-        allowedCountries={["EU"]}
-        billingAddressCollection={true}
       >
         <div className="container">
           <div className="px-0">
@@ -27,6 +23,7 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
           </div>
           <Products />
 
+          <DebugCart />
           <div className="text-center mt-4">
             <Link
               className="btn btn-primary btn-lg text-white"
