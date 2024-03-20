@@ -59,7 +59,7 @@ const ProductCard = ({ product }) => {
     event.preventDefault();
     setLoading(true);
 
-    const response = await fetch("/.netlify/functions/create-session", {
+    const response = await fetch("/netlify/functions/create-session", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ [product.id]: { ...product, quantity: 1 } }),
