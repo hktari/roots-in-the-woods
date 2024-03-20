@@ -28,6 +28,7 @@ export default function Products(props) {
                 product {
                   id
                   name
+                  images
                 }
               }
             }

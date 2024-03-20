@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import getStripe from "../../utils/stripejs";
+import { useShoppingCart, formatCurrencyString } from "use-shopping-cart";
 
 const cardStyles = {
   display: "flex",
@@ -41,25 +42,36 @@ const formatPrice = (amount, currency) => {
 };
 
 const ProductCard = ({ product }) => {
+  const { redirectToCheckout } = useShoppingCart();
+  const { name, images, description, currency } = product;
+  const productPrice = product.prices[0];
+  const formattedPrice = formatCurrencyString({
+    value: productPrice.unit_amount,
+    currency: productPrice.currency,
+    language: "en-US",
+  });
+
+  async function buyNow() {}
+
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
 
-    const price = new FormData(event.target).get("priceSelect");
-    const stripe = await getStripe();
-    const { error } = await stripe.redirectToCheckout({
-      mode: "payment",
-      lineItems: [{ price, quantity: 1 }],
-      successUrl: `${window.location.origin}/merch/order/success/`,
-      cancelUrl: `${window.location.origin}/merch`,
-    });
+    const response = await fetch("/.netlify/functions/create-session", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ [product.id]: { ...product, quantity: 1 } }),
+    })
+      .then((res) => res.json())
+      .catch((error) => {
+        /* Error handling */
+        console.warn("Error:", error);
+      })
+      .finally(() => setLoading(false));
 
-    if (error) {
-      console.warn("Error:", error);
-      setLoading(false);
-    }
+    redirectToCheckout({ sessionId: response.sessionId });
   };
 
   return (
@@ -67,18 +79,9 @@ const ProductCard = ({ product }) => {
       <form onSubmit={handleSubmit}>
         <fieldset style={{ border: "none" }}>
           <legend>
-            <h4>{product.name}</h4>
+            <h4>{name}</h4>
           </legend>
-          <label>
-            Price{" "}
-            <select name="priceSelect">
-              {product.prices.map((price) => (
-                <option key={price.id} value={price.id}>
-                  {formatPrice(price.unit_amount, price.currency)}
-                </option>
-              ))}
-            </select>
-          </label>
+          <label>Price: {formattedPrice} </label>
         </fieldset>
         <button
           disabled={loading}
