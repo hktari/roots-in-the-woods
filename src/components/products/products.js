@@ -10,6 +10,23 @@ const containerStyles = {
   padding: "1rem 0 1rem 0",
 };
 
+function mapToProduct(priceNode) {
+  return {
+    id: priceNode.product.id,
+    // Line item name to be shown on the Stripe Checkout page
+    name: priceNode.product.name,
+    // Optional description to be shown on the Stripe Checkout page
+    description: priceNode.product.description,
+    // A unique identifier for this item (stock keeping unit)
+    sku: priceNode.product.sku,
+    // price in smallest currency unit (e.g. cent for USD)
+    price: priceNode.unit_amount,
+    currency: priceNode.currency,
+    // Optional image to be shown on the Stripe Checkout page
+    image: priceNode.product.images[0],
+  };
+}
+
 export default function Products(props) {
   return (
     <StaticQuery
@@ -37,14 +54,13 @@ export default function Products(props) {
       `}
       render={({ prices }) => {
         // Group prices by product
+
         const products = {};
         for (const { node: price } of prices.edges) {
-          const product = { ...price.product };
+          const product = mapToProduct(price);
           if (!products[product.id]) {
             products[product.id] = product;
-            products[product.id].prices = [];
           }
-          products[product.id].prices.push(price);
         }
         return (
           <div style={containerStyles}>

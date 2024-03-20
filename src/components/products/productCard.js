@@ -17,8 +17,9 @@ const ProductCard = ({ product }) => {
     event.preventDefault();
     setLoading(true);
 
+    const quantity = new FormData(event.target).get("quantity");
     const payload = JSON.stringify({
-      [product.id]: { ...product, quantity: 1 },
+      [product.id]: { ...product, quantity },
     });
 
     const response = await fetch(
@@ -46,14 +47,14 @@ const ProductCard = ({ product }) => {
           <h5 className="card-title">{name}</h5>
           <h6> {formattedPrice}</h6>
           <input
-            name="amount"
+            name="quantity"
             class="form-control"
             type="number"
             placeholder="0"
             max={10}
             min={1}
             required
-            aria-label="amount"
+            aria-label="quantity"
           />
 
           <p className="card-text">{description}</p>

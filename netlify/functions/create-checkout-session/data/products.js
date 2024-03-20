@@ -5,6 +5,8 @@ const products = [
     currency: "eur",
     name: "T-Shirt Green",
     price: 1500,
+    image:
+      "https://files.stripe.com/links/MDB8YWNjdF8xT3dNSHFQMGVXbUs3NWRrfGZsX3Rlc3RfUUlRTHMwMVV4M3cyS0FVa01ubDJzZ1Jp00TBGo2n75",
   },
 ];
 
