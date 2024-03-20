@@ -14,8 +14,8 @@ const Success = (props: Props) => {
         </span>
         <br />
         <br />
-        We will get back to you as soon as we process the order. Feel free to
-        reach out to us should you have any questions.
+        Expect an email containing additional information regarding the delivery of your Roots in the Woods merch ! 
+        Feel free to reach out to us should you have any questions.
       </p>
 
       <div className="mt-5">
