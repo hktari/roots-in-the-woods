@@ -10,7 +10,7 @@
       "program": "${workspaceFolder}/node_modules/.bin/netlify",
       "args": ["dev"],
       "console": "integratedTerminal",
-      "env": { "BROWSER": "none" },
+      "env": { "BROWSER": "none", "NODE_OPTIONS": "--inspect" },
       "serverReadyAction": {
         "pattern": "Server now ready on (https?://[\\w:.-]+)",
         "uriFormat": "%s",
