@@ -1,3 +1,25 @@
 {
-    
+  "prod_PluTApxxF4OI2e": {
+    "id": "prod_PluTApxxF4OI2e",
+    "name": "T-Shirt Green",
+    "images": [
+      "https://files.stripe.com/links/MDB8YWNjdF8xT3dNSHFQMGVXbUs3NWRrfGZsX3Rlc3RfUUlRTHMwMVV4M3cyS0FVa01ubDJzZ1Jp00TBGo2n75"
+    ],
+    "prices": [
+      {
+        "id": "price_1OwMeQP0eWmK75dkUaoM9Qrp",
+        "active": true,
+        "currency": "eur",
+        "unit_amount": 1500,
+        "product": {
+          "id": "prod_PluTApxxF4OI2e",
+          "name": "T-Shirt Green",
+          "images": [
+            "https://files.stripe.com/links/MDB8YWNjdF8xT3dNSHFQMGVXbUs3NWRrfGZsX3Rlc3RfUUlRTHMwMVV4M3cyS0FVa01ubDJzZ1Jp00TBGo2n75"
+          ]
+        }
+      }
+    ],
+    "quantity": 1
+  }
 }

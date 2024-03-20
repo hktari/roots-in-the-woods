@@ -1,7 +1,7 @@
-import stripe from "./lib/stripe";
+const stripe = require("./lib/stripe");
 const validateCartItems =
   require("use-shopping-cart/utilities").validateCartItems;
-import inventory from "./data/products";
+const inventory = require("./data/products");
 
 exports.handler = async (event) => {
   try {
@@ -9,9 +9,11 @@ exports.handler = async (event) => {
     const line_items = validateCartItems(inventory, productJSON);
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
+      currency: "eur",
+      mode: "payment",
       billing_address_collection: "auto",
       shipping_address_collection: {
-        allowed_countries: ["EU"],
+        allowed_countries: ["SI"],
       },
       success_url: process.env.STRIPE_SUCCESS_URL,
       cancel_url: process.env.STRIPE_CANCEL_URL,
@@ -22,6 +24,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({ sessionId: session.id }),
     };
   } catch (error) {
+    console.log(error);
     /* Error handling */
   }
 };

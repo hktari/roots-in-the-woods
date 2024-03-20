@@ -1,5 +1,5 @@
-import Stripe from "stripe";
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+const Stripe = require("stripe");
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   // https://github.com/stripe/stripe-node#configuration
   apiVersion: "2023-08-16",
   appInfo: {
@@ -7,3 +7,5 @@ export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
     url: "http://localhost:3000/",
   },
 });
+
+module.exports = stripe;
