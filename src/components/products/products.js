@@ -39,7 +39,7 @@ export default function Products(props) {
         // Group prices by product
         const products = {};
         for (const { node: price } of prices.edges) {
-          const product = price.product;
+          const product = { ...price.product };
           if (!products[product.id]) {
             products[product.id] = product;
             products[product.id].prices = [];

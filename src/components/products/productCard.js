@@ -59,19 +59,25 @@ const ProductCard = ({ product }) => {
     event.preventDefault();
     setLoading(true);
 
-    const response = await fetch("/netlify/functions/create-session", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ [product.id]: { ...product, quantity: 1 } }),
-    })
+    const payload = JSON.stringify({
+      [product.id]: { ...product, quantity: 1 },
+    });
+
+    const response = await fetch(
+      "/.netlify/functions/create-checkout-session",
+      {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }
+    )
       .then((res) => res.json())
       .catch((error) => {
         /* Error handling */
         console.warn("Error:", error);
       })
       .finally(() => setLoading(false));
-
-    redirectToCheckout({ sessionId: response.sessionId });
+    redirectToCheckout(response.sessionId);
   };
 
   return (
