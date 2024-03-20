@@ -5,21 +5,38 @@ import { makeGroupsOf } from "../../util/format";
 import MerchItem from "../../components/merch/merch-item";
 import Products from "../../components/products/products";
 
+import { CartProvider } from "use-shopping-cart";
+
 const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
   return (
     <>
-      <div className="container">
-        <div className="px-0">
-          <h1 className="c-page__title my-md-4">Merchandise</h1>
-        </div>
-        <Products />
+      <CartProvider
+        mode="payment"
+        cartMode="client-only"
+        shouldPersist
+        stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY!}
+        successUrl={`${window.location.origin}/page-2/`}
+        cancelUrl={`${window.location.origin}/`}
+        currency="EUR"
+        allowedCountries={["EU"]}
+        billingAddressCollection={true}
+      >
+        <div className="container">
+          <div className="px-0">
+            <h1 className="c-page__title my-md-4">Merchandise</h1>
+          </div>
+          <Products />
 
-        <div className="text-center mt-4">
-          <Link className="btn btn-primary btn-lg text-white" to="/merch/order">
-            ORDER MERCH
-          </Link>
+          <div className="text-center mt-4">
+            <Link
+              className="btn btn-primary btn-lg text-white"
+              to="/merch/order"
+            >
+              ORDER MERCH
+            </Link>
+          </div>
         </div>
-      </div>
+      </CartProvider>
     </>
   );
 };

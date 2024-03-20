@@ -6,6 +6,7 @@ import Footer from "../footer";
 import { useState } from "react";
 import HeaderContextProviderComponent from "../../context/header-context";
 
+
 type Props = {
   children: React.ReactNode;
 };
