@@ -5,6 +5,7 @@ import "../../css/main.scss";
 import Footer from "../footer";
 import { useState } from "react";
 import HeaderContextProviderComponent from "../../context/header-context";
+import ShoppingCart from "../shopping-cart/shopping-cart";
 
 type Props = {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ const Layout = ({ children }: Props) => {
           <Header setDisableScroll={setDisableScroll} />
           <div style={{ position: "relative" }}>
             <div className="container-md pb-5">{children}</div>
+            <ShoppingCart />
           </div>
         </div>
       </HeaderContextProviderComponent>
