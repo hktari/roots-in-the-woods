@@ -12,30 +12,19 @@ import ShoppingCart from "../../components/shopping-cart/shopping-cart";
 const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
   return (
     <>
-      <CartProvider
-        cartMode="checkout-session"
-        shouldPersist
-        stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY!}
-        currency="EUR"
-      >
-        <div className="container bg-secondary">
-          <div className="px-0">
-            <h1 className="c-page__title my-md-4">Merchandise</h1>
-          </div>
-          <Products />
-
-          <ShoppingCart />
-          <DebugCart />
-          <div className="text-center mt-4">
-            <Link
-              className="btn btn-primary btn-lg text-white"
-              to="/merch/order"
-            >
-              ORDER MERCH
-            </Link>
-          </div>
+      <div className="container bg-secondary">
+        <div className="px-0">
+          <h1 className="c-page__title my-md-4">Merchandise</h1>
         </div>
-      </CartProvider>
+        <Products />
+
+        {/* <DebugCart /> */}
+        <div className="text-center mt-4">
+          <Link className="btn btn-primary btn-lg text-white" to="/merch/order">
+            ORDER MERCH
+          </Link>
+        </div>
+      </div>
     </>
   );
 };
