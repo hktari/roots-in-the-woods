@@ -21,7 +21,6 @@ const Layout = ({ children }: Props) => {
           <Header setDisableScroll={setDisableScroll} />
           <div style={{ position: "relative" }}>
             <div className="container-md pb-5">{children}</div>
-            <ShoppingCart />
           </div>
         </div>
       </HeaderContextProviderComponent>
