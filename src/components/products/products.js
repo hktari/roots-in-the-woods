@@ -62,6 +62,7 @@ export default function Products(props) {
             products[product.id] = product;
           }
         }
+        console.log(products);
         return (
           <div style={containerStyles}>
             {Object.keys(products).map((key) => (
