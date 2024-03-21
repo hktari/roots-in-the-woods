@@ -3,7 +3,7 @@ import getStripe from "../../utils/stripejs";
 import { useShoppingCart, formatCurrencyString } from "use-shopping-cart";
 
 const ProductCard = ({ product }) => {
-  const { redirectToCheckout } = useShoppingCart();
+  const { redirectToCheckout, addItem } = useShoppingCart();
   const { name, image, description, currency, price } = product;
   const formattedPrice = formatCurrencyString({
     value: price,
@@ -17,26 +17,28 @@ const ProductCard = ({ product }) => {
     event.preventDefault();
     setLoading(true);
 
-    const quantity = new FormData(event.target).get("quantity");
-    const payload = JSON.stringify({
-      [product.id]: { ...product, quantity },
-    });
+    // const quantity = new FormData(event.target).get("quantity");
+    // const payload = JSON.stringify({
+    //   [product.id]: { ...product, quantity },
+    // });
 
-    const response = await fetch(
-      "/.netlify/functions/create-checkout-session",
-      {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: payload,
-      }
-    )
-      .then((res) => res.json())
-      .catch((error) => {
-        /* Error handling */
-        console.warn("Error:", error);
-      })
-      .finally(() => setLoading(false));
-    redirectToCheckout(response.sessionId);
+    // const response = await fetch(
+    //   "/.netlify/functions/create-checkout-session",
+    //   {
+    //     method: "post",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: payload,
+    //   }
+    // )
+    //   .then((res) => res.json())
+    //   .catch((error) => {
+    //     /* Error handling */
+    //     console.warn("Error:", error);
+    //   })
+    //   .finally(() => setLoading(false));
+    // redirectToCheckout(response.sessionId);
+
+    addItem(product);
   };
 
   return (
@@ -58,8 +60,8 @@ const ProductCard = ({ product }) => {
           />
 
           <p className="card-text">{description}</p>
-          <button disabled={loading} href="#" className="btn btn-primary">
-            BUY
+          <button disabled={loading} href="#" className="btn btn-primary text-white">
+            ADD TO CART
           </button>
         </div>
       </div>

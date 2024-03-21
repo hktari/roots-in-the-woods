@@ -7,6 +7,7 @@ import MerchItem from "../../components/merch/merch-item";
 import Products from "../../components/products/products";
 
 import { CartProvider } from "use-shopping-cart";
+import ShoppingCart from "../../components/shopping-cart/shopping-cart";
 
 const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
   return (
@@ -23,6 +24,7 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
           </div>
           <Products />
 
+          <ShoppingCart />
           <DebugCart />
           <div className="text-center mt-4">
             <Link
