@@ -18,7 +18,7 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
         stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY!}
         currency="EUR"
       >
-        <div className="container">
+        <div className="container bg-secondary">
           <div className="px-0">
             <h1 className="c-page__title my-md-4">Merchandise</h1>
           </div>
