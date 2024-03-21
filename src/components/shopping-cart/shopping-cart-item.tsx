@@ -1,9 +1,13 @@
 import React from "react";
+import { useShoppingCart } from "use-shopping-cart";
 
 type Props = { item: any };
 
 const ShoppingCartItem = ({ item }: Props) => {
-  const { image, name, quantity, formattedPrice } = item;
+  const { id, image, name, quantity, formattedPrice } = item;
+  const { removeItem } = useShoppingCart();
+
+  const onRemoveItem = () => removeItem(id);
   return (
     <div className="list-group-item d-flex bg-secondary align-items-center">
       <img height={100} src={image} alt={name} />
@@ -11,7 +15,12 @@ const ShoppingCartItem = ({ item }: Props) => {
         {quantity}x {name}
       </span>
       <span className="ms-5 fs-4">{formattedPrice}</span>
-      <button type="button" className="btn btn-close ms-1" aria-label="Close">
+      <button
+        type="button"
+        className="btn btn-close ms-1"
+        aria-label="Close"
+        onClick={onRemoveItem}
+      >
         <i className="bi bi-x fs-2"></i>
       </button>
     </div>
