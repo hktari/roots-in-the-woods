@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import getStripe from "../../utils/stripejs";
 import { useShoppingCart, formatCurrencyString } from "use-shopping-cart";
 import { Link } from "gatsby";
 
@@ -27,7 +26,7 @@ const ProductCard = ({ product }: { product: StripeProduct }) => {
             <h4 className="card-subtitle fs-2">{formattedPrice} €</h4>
           </div>
           {/* TODO: gatsby image data */}
-          <img src={product.image} alt={product.name} />
+          <img src={product.image} width={460} alt={product.name} />
           <div className="c-merch-item__overlay card-img-overlay  d-none d-md-block text-white">
             <h2 className=" card-title">{product.name}</h2>
             <h3 className="card-title">{price} €</h3>
