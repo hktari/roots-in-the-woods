@@ -1,23 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import getStripe from "../../utils/stripejs";
 import { useShoppingCart, formatCurrencyString } from "use-shopping-cart";
 
 const ProductCard = ({ product }) => {
   const { redirectToCheckout, addItem } = useShoppingCart();
   const { name, image, description, currency, price } = product;
+  const formRef = useRef(null);
   const formattedPrice = formatCurrencyString({
     value: price,
     currency: currency,
     language: "en-US",
   });
 
-  const [loading, setLoading] = useState(false);
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true);
+    // formRef.current.reset();
+    const quantity = new FormData(event.target).get("quantity");
+    console.log("add item", quantity, event.target);
+    event.target.reset();
 
-    // const quantity = new FormData(event.target).get("quantity");
+    addItem(product, { count: quantity });
     // const payload = JSON.stringify({
     //   [product.id]: { ...product, quantity },
     // });
@@ -37,12 +39,10 @@ const ProductCard = ({ product }) => {
     //   })
     //   .finally(() => setLoading(false));
     // redirectToCheckout(response.sessionId);
-
-    addItem(product);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form ref={formRef} onSubmit={handleSubmit}>
       <div className="card" style={{ width: "18rem" }}>
         <img src={image} className="card-img-top" alt={name} />
         <div className="card-body">
@@ -60,9 +60,7 @@ const ProductCard = ({ product }) => {
           />
 
           <p className="card-text">{description}</p>
-          <button disabled={loading} href="#" className="btn btn-primary text-white">
-            ADD TO CART
-          </button>
+          <button className="btn btn-primary text-white">ADD TO CART</button>
         </div>
       </div>
     </form>
