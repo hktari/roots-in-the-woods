@@ -1,4 +1,4 @@
-export default interface StripeProduct {
+type StripeProduct = {
   id: string;
   name: string;
   description: string;
@@ -6,4 +6,6 @@ export default interface StripeProduct {
   price: number;
   currency: string;
   image?: string;
-}
+};
+
+export default StripeProduct;
