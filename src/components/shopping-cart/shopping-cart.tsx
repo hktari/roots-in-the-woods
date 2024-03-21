@@ -32,7 +32,7 @@ const ShoppingCart = (props: Props) => {
   };
 
   return (
-    <div className="c-shopping-cart list-group">
+    <div className="c-shopping-cart list-group me-5">
       {Object.keys(cartDetails).map((itemId) => (
         <ShoppingCartItem item={cartDetails[itemId]} />
       ))}
