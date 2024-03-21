@@ -12,6 +12,10 @@ const ShoppingCart = (props: Props) => {
       {Object.keys(cartDetails).map((itemId) => (
         <ShoppingCartItem item={cartDetails[itemId]} />
       ))}
+
+      <div className="text-center mt-2">
+        <button className="btn btn-primary btn-lg text-white">CHECKOUT</button>
+      </div>
     </div>
   );
 };

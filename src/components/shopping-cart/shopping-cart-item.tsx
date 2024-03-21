@@ -4,7 +4,7 @@ import { useShoppingCart } from "use-shopping-cart";
 type Props = { item: any };
 
 const ShoppingCartItem = ({ item }: Props) => {
-  const { id, image, name, quantity, formattedPrice } = item;
+  const { id, image, name, quantity,  formattedValue } = item;
   const { removeItem } = useShoppingCart();
 
   const onRemoveItem = () => removeItem(id);
@@ -14,7 +14,7 @@ const ShoppingCartItem = ({ item }: Props) => {
       <span className="fs-4 flex-grow-1">
         {quantity}x {name}
       </span>
-      <span className="ms-5 fs-4">{formattedPrice}</span>
+      <span className="ms-5 fs-4">{formattedValue}</span>
       <button
         type="button"
         className="btn btn-close ms-1"

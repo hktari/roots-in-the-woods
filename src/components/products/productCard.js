@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
     console.log("add item", quantity, event.target);
     event.target.reset();
 
-    addItem(product, { count: quantity });
+    addItem(product, { count: Number(quantity) });
     // const payload = JSON.stringify({
     //   [product.id]: { ...product, quantity },
     // });
