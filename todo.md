@@ -14,4 +14,5 @@
 - add to cart button on product detail page [OK]
 - edit cart ?
 - checkout button
+- hide cart when empty
 - generate create-checkout-session/data/products.js

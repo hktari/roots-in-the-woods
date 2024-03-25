@@ -31,8 +31,12 @@ const ShoppingCart = (props: Props) => {
       .finally(() => setIsLoading(false));
     redirectToCheckout(response.sessionId);
   };
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
-  const isCollapsed = true;
+  const onToggleShoppingCart = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
     <div
       className={`c-shopping-cart ${
@@ -41,6 +45,14 @@ const ShoppingCart = (props: Props) => {
       hidden={isEmpty}
     >
       <div className="c-shopping-cart--container">
+        <div className="c-shopping-cart--header">
+          <div className="c-shopping-cart--close">
+            <button className="btn" onClick={onToggleShoppingCart}>
+              <i className="bi bi-x fs-1"></i>
+            </button>
+          </div>
+        </div>
+
         <div className="list-group me-5">
           {Object.keys(cartDetails).map((itemId) => (
             <ShoppingCartItem item={cartDetails[itemId]} />
@@ -58,7 +70,10 @@ const ShoppingCart = (props: Props) => {
       </div>
 
       <div className="c-shopping-cart--toggle">
-        <button className="btn bg-dark rounded-circle">
+        <button
+          className="btn bg-dark rounded-circle"
+          onClick={onToggleShoppingCart}
+        >
           <i className="bi bi-cart4 text-white fs-1"></i>
         </button>
         <div className="c-shopping-cart--toggle-counter-bg rounded-circle ">

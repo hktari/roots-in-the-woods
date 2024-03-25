@@ -1,12 +1,19 @@
 .c-shopping-cart {
-  max-width: 425px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: $z-index-shopping-cart;
+  background-color: $danger;
 }
 
 .c-shopping-cart--container {
   display: none;
+}
+
+:not(.c-shopping-cart--collapsed) > .c-shopping-cart--container {
+  display: unset;
 }
 
 .c-shopping-cart.c-shopping-cart--collapsed {
@@ -16,6 +23,17 @@
   right: 50px;
 }
 
+.c-shopping-cart--header {
+  height: 50px;
+  display: flex;
+  justify-content: end;
+  @extend .p-2;
+}
+
+// Toggle button
+.c-shopping-cart--close {
+}
+
 .c-shopping-cart--toggle button {
   height: 65px;
   width: 65px;
@@ -23,6 +41,7 @@
 
 .c-shopping-cart--toggle {
   position: relative;
+  display: none;
 }
 .c-shopping-cart--toggle-counter-bg {
   height: 20px;
@@ -40,5 +59,20 @@
   // max-width: 100%;
   // white-space: nowrap;
   // overflow: hidden;
-  // text-overflow: ellipsis;
+  // text-overflow ellipsis;
+}
+
+.c-shopping-cart--collapsed {
+  .c-shopping-cart--toggle {
+    display: unset;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .c-shopping-cart {
+    max-width: 425px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }

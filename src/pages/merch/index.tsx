@@ -28,9 +28,8 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
             ))}
           </div>
         ))}
-
-        {/* <DebugCart /> */}
       </div>
+      {/* <DebugCart /> */}
       <ShoppingCart />
     </>
   );
