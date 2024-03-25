@@ -16,7 +16,7 @@ const ShoppingCartToggleButton = ({}: Props) => {
         <i className="bi bi-cart4 text-white fs-1"></i>
       </button>
       <div className="c-shopping-cart-toggle-button--counter-bg rounded-circle ">
-        <span className="c-shopping-cart-toggle-button--counter badge text-bg-primary text-white">
+        <span className="c-shopping-cart-toggle-button--counter">
           {cartCount}
         </span>
       </div>

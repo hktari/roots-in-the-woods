@@ -10,8 +10,8 @@
 ## Store 
 
 - add total [ok]
-- add animation
-- remove margin on desktop header
+- add animation[ok]
+- remove margin on desktop header[ok]
 - position pill
 - merch item price
 - max image width mobile

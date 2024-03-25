@@ -42,7 +42,7 @@ const StripeProductPage = ({ pageContext }: Props) => {
           <div className="row">
             <div className="col-12 col-md-6">
               <h2 className="fw-bold"> {product?.name} </h2>
-              <h4 className=" fs-2">{formattedPrice} €</h4>
+              <h4 className=" fs-2">{formattedPrice}</h4>
               <p className="my-2 my-md-4">{product?.description}</p>
 
               <div className="input-group input-group-md">
