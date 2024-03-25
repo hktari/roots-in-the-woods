@@ -3,6 +3,14 @@
   display: none;
 }
 .c-shopping-cart-toggle-button.c-shopping-cart-toggle-button--collapsed {
+  position: fixed;
+  top: unset;
+  bottom: 50px;
+  right: 50px;
+  left: unset;
+}
+
+.c-shopping-cart-toggle-button.c-shopping-cart-toggle-button--collapsed {
   display: unset;
 }
 
@@ -28,4 +36,15 @@
   // white-space: nowrap;
   // overflow: hidden;
   // text-overflow ellipsis;
+}
+
+@include media-breakpoint-up(md) {
+  .c-shopping-cart-toggle-button.c-shopping-cart-toggle-button--collapsed {
+    display: unset;
+    position: absolute;
+    top: 16px;
+    right: 32px;
+    left: unset;
+    bottom: unset;
+  }
 }

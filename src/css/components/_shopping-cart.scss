@@ -16,14 +16,6 @@
   display: unset;
 }
 
-.c-shopping-cart.c-shopping-cart--collapsed {
-  position: fixed;
-  top: unset;
-  bottom: 50px;
-  right: 50px;
-  left: unset;
-}
-
 .c-shopping-cart--header {
   display: flex;
   justify-content: end;
@@ -68,6 +60,9 @@
     bottom: unset;
     left: unset;
     background-color: #192b1f;
+  }
+  .c-shopping-cart.c-shopping-cart--collapsed{
+    transform: translateX(100%);
   }
 
   .c-shopping-cart--container {

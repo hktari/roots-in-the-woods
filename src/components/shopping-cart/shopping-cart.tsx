@@ -39,45 +39,46 @@ const ShoppingCart = (props: Props) => {
   };
 
   return (
-    <div
-      className={`c-shopping-cart p-md-2 pb-md-3 ${
-        isCollapsed ? "c-shopping-cart--collapsed" : ""
-      }`}
-      hidden={isEmpty}
-    >
-      <div className="c-shopping-cart--container ">
-        <div className="c-shopping-cart--header">
-          <button
-            className="c-shopping-cart--close btn"
-            onClick={onToggleShoppingCart}
-          >
-            <i className="bi bi-x"></i>
-          </button>
-        </div>
+    <>
+      <div
+        className={`c-shopping-cart p-md-2 pb-md-3 ${
+          isCollapsed ? "c-shopping-cart--collapsed" : ""
+        }`}
+        hidden={isEmpty}
+      >
+        <div className="c-shopping-cart--container ">
+          <div className="c-shopping-cart--header">
+            <button
+              className="c-shopping-cart--close btn"
+              onClick={onToggleShoppingCart}
+            >
+              <i className="bi bi-x"></i>
+            </button>
+          </div>
 
-        <div className="c-shopping-cart--list">
-          <div className="">
-            {Object.keys(cartDetails).map((itemId) => (
-              <ShoppingCartItem item={cartDetails[itemId]} />
-            ))}
+          <div className="c-shopping-cart--list">
+            <div className="">
+              {Object.keys(cartDetails).map((itemId) => (
+                <ShoppingCartItem item={cartDetails[itemId]} />
+              ))}
+            </div>
+          </div>
+          <div className="c-shopping-cart--checkout-btn mt-4">
+            <button
+              disabled={isLoading}
+              className="btn btn-primary text-white btn-md-lg"
+              onClick={onCheckout}
+            >
+              CHECKOUT
+            </button>
           </div>
         </div>
-        <div className="c-shopping-cart--checkout-btn mt-4">
-          <button
-            disabled={isLoading}
-            className="btn btn-primary text-white btn-md-lg"
-            onClick={onCheckout}
-          >
-            CHECKOUT
-          </button>
-        </div>
       </div>
-
       <ShoppingCartToggleButton
         onToggleShoppingCart={onToggleShoppingCart}
         isCollapsed={isCollapsed}
       />
-    </div>
+    </>
   );
 };
 
