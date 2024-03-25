@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useShoppingCart } from "use-shopping-cart";
+import { LayoutContext } from "../layout/layout";
 
 type Props = {};
 
 const ShoppingCartToggleButton = ({}: Props) => {
   const { cartCount, shouldDisplayCart, handleCartClick } = useShoppingCart();
 
+  const { setDisableScroll } = useContext(LayoutContext);
+  useEffect(() => {
+    setDisableScroll(Boolean(shouldDisplayCart));
+  }, [shouldDisplayCart]);
+  
   return (
     <div
       className={`c-shopping-cart-toggle-button ${
