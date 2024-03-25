@@ -5,7 +5,7 @@
   left: 0;
   bottom: 0;
   z-index: $z-index-shopping-cart;
-  background-color: $danger;
+  background-color: $gray-700;
 }
 
 .c-shopping-cart--container {
@@ -113,7 +113,6 @@
     position: unset;
     background-color: transparent;
     button {
-
     }
   }
 }

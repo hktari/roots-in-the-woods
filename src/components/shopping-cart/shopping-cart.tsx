@@ -39,7 +39,7 @@ const ShoppingCart = (props: Props) => {
 
   return (
     <div
-      className={`c-shopping-cart pe-md-3 ${
+      className={`c-shopping-cart p-md-2 pb-md-3 ${
         isCollapsed ? "c-shopping-cart--collapsed" : ""
       }`}
       hidden={isEmpty}
@@ -61,7 +61,7 @@ const ShoppingCart = (props: Props) => {
             ))}
           </div>
         </div>
-        <div className="c-shopping-cart--checkout-btn ">
+        <div className="c-shopping-cart--checkout-btn mt-4">
           <button
             disabled={isLoading}
             className="btn btn-primary text-white btn-md-lg"
