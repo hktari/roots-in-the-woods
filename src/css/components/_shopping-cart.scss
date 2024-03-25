@@ -34,14 +34,15 @@
 }
 
 .c-shopping-cart--checkout-btn {
-  @extend .text-center, .mt-2, .rounded-0, .bg-primary;
+  @extend .text-center, .mt-2;
+  background-color: $primary;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
 
   button {
-    @extend .fs-3, .py-3;
+    font-size: $font-size-lg;
   }
 }
 
@@ -55,15 +56,19 @@
   }
 }
 
+.c-shopping-cart--toggle {
+  position: relative;
+  display: none;
+}
+.c-shopping-cart--collapsed .c-shopping-cart--toggle {
+  display: unset;
+}
+
 .c-shopping-cart--toggle button {
   height: 65px;
   width: 65px;
 }
 
-.c-shopping-cart--toggle {
-  position: relative;
-  display: none;
-}
 .c-shopping-cart--toggle-counter-bg {
   height: 20px;
   width: 20px;
@@ -83,17 +88,32 @@
   // text-overflow ellipsis;
 }
 
-.c-shopping-cart--collapsed {
-  .c-shopping-cart--toggle {
-    display: unset;
-  }
-}
-
 @include media-breakpoint-up(md) {
-  .c-shopping-cart {
+  .c-shopping-cart.c-shopping-cart--collapsed {
     max-width: 425px;
     position: absolute;
     right: 0;
     top: 0;
+    bottom: unset;
+    left: unset;
+  }
+
+  .c-shopping-cart.c-shopping-cart--collapsed .c-shopping-cart--toggle {
+    display: none;
+  }
+
+  .c-shopping-cart--container {
+    display: block;
+  }
+
+  .c-shopping-cart--header {
+    display: none;
+  }
+  .c-shopping-cart--checkout-btn {
+    position: unset;
+    background-color: transparent;
+    button {
+
+    }
   }
 }
