@@ -46,21 +46,20 @@ const ShoppingCart = (props: Props) => {
   return (
     <>
       <div
-        className={`c-shopping-cart p-md-2 pb-md-3 ${
+        className={`c-shopping-cart ${
           !shouldDisplayCart ? "c-shopping-cart--collapsed" : ""
         }`}
         hidden={isEmpty}
       >
+        <div className="c-shopping-cart--header">
+          <button
+            className="c-shopping-cart--close btn"
+            onClick={onToggleShoppingCart}
+          >
+            <i className="bi bi-x"></i>
+          </button>
+        </div>
         <div className="c-shopping-cart--container ">
-          <div className="c-shopping-cart--header">
-            <button
-              className="c-shopping-cart--close btn"
-              onClick={onToggleShoppingCart}
-            >
-              <i className="bi bi-x"></i>
-            </button>
-          </div>
-
           <div className="c-shopping-cart--list">
             <div className="">
               {Object.keys(cartDetails).map((itemId) => (

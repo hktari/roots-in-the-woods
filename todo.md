@@ -15,5 +15,10 @@
 - add to cart button on product detail page [OK]
 - edit cart ?[ok]
 - checkout button
+- add total
+- add animation
+- remove margin on desktop header
+- position pill
+- merch item price
 - hide cart when empty[ok]
 - generate create-checkout-session/data/products.js

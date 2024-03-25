@@ -14,7 +14,8 @@
 .c-shopping-cart--header {
   display: flex;
   justify-content: end;
-  @extend .p-2;
+  padding: calc($spacer/2);
+
   background-color: $primary;
   color: white;
 }
@@ -29,8 +30,9 @@
   bottom: 0;
   left: 0;
   right: 0;
-
+  height: 50px;
   button {
+    height: 100%;
     font-size: $font-size-lg;
   }
 }
@@ -61,9 +63,11 @@
 
   .c-shopping-cart--container {
     display: block;
+    padding: $spacer;
   }
 
   .c-shopping-cart--header {
+    padding: 0;
   }
   .c-shopping-cart--checkout-btn {
     position: unset;
