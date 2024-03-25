@@ -5,7 +5,7 @@
   left: 0;
   bottom: 0;
   z-index: $z-index-shopping-cart;
-  background-color: $gray-700;
+  background-color: white;
 }
 
 .c-shopping-cart--container {
@@ -28,6 +28,8 @@
   display: flex;
   justify-content: end;
   @extend .p-2;
+  background-color: $primary;
+  color: white;
 }
 
 .c-shopping-cart--list {
@@ -96,6 +98,7 @@
     top: 0;
     bottom: unset;
     left: unset;
+    background-color: $gray-700;
   }
 
   .c-shopping-cart.c-shopping-cart--collapsed .c-shopping-cart--toggle {

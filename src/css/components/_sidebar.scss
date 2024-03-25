@@ -6,7 +6,7 @@
   height: 100vh;
   z-index: $z-index-sidebar;
   transition: left 0.3s ease-in;
-  background-color: #a6b332;
+  background-color: $primary;
 }
 
 .c-sidebar--show {
