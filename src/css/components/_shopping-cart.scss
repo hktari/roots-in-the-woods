@@ -7,13 +7,8 @@
   z-index: $z-index-shopping-cart;
   background-color: white;
 }
-
-.c-shopping-cart--container {
-  display: none;
-}
-
-:not(.c-shopping-cart--collapsed) > .c-shopping-cart--container {
-  display: unset;
+.c-shopping-cart.c-shopping-cart--collapsed {
+  transform: translateY(100%);
 }
 
 .c-shopping-cart--header {
@@ -50,7 +45,6 @@
   }
 }
 
-
 @include media-breakpoint-up(md) {
   .c-shopping-cart {
     max-width: 425px;
@@ -61,7 +55,7 @@
     left: unset;
     background-color: #192b1f;
   }
-  .c-shopping-cart.c-shopping-cart--collapsed{
+  .c-shopping-cart.c-shopping-cart--collapsed {
     transform: translateX(100%);
   }
 

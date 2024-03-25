@@ -17,7 +17,7 @@ type Props = {
 const StripeProductPage = ({ pageContext }: Props) => {
   const { product } = pageContext;
 
-  const { addItem } = useShoppingCart();
+  const { addItem, handleCartHover } = useShoppingCart();
 
   const formattedPrice = formatCurrencyString({
     value: product.price,
@@ -32,6 +32,7 @@ const StripeProductPage = ({ pageContext }: Props) => {
     event.target.reset();
     addItem(product, { count: Number(quantity) });
     await navigate(-1);
+    handleCartHover();
   };
 
   return (

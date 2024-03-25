@@ -6,7 +6,13 @@ import ShoppingCartToggleButton from "./shopping-cart-toggle-button";
 type Props = {};
 
 const ShoppingCart = (props: Props) => {
-  const { cartDetails, cartCount, redirectToCheckout } = useShoppingCart();
+  const {
+    cartDetails,
+    cartCount,
+    redirectToCheckout,
+    shouldDisplayCart,
+    handleCartClick,
+  } = useShoppingCart();
 
   const [isLoading, setIsLoading] = useState(false);
   const isEmpty = cartCount === 0;
@@ -32,17 +38,16 @@ const ShoppingCart = (props: Props) => {
       .finally(() => setIsLoading(false));
     redirectToCheckout(response.sessionId);
   };
-  const [isCollapsed, setIsCollapsed] = useState(true);
 
   const onToggleShoppingCart = () => {
-    setIsCollapsed(!isCollapsed);
+    handleCartClick();
   };
 
   return (
     <>
       <div
         className={`c-shopping-cart p-md-2 pb-md-3 ${
-          isCollapsed ? "c-shopping-cart--collapsed" : ""
+          !shouldDisplayCart ? "c-shopping-cart--collapsed" : ""
         }`}
         hidden={isEmpty}
       >
@@ -74,10 +79,7 @@ const ShoppingCart = (props: Props) => {
           </div>
         </div>
       </div>
-      <ShoppingCartToggleButton
-        onToggleShoppingCart={onToggleShoppingCart}
-        isCollapsed={isCollapsed}
-      />
+      <ShoppingCartToggleButton />
     </>
   );
 };

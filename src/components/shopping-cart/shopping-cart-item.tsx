@@ -17,7 +17,7 @@ const ShoppingCartItem = ({ item }: Props) => {
       <span className="ms-5 fs-4">{formattedValue}</span>
       <button
         type="button"
-        className="btn btn-close ms-1 text-white"
+        className="c-shopping-cart-item--remove btn btn-close ms-1"
         aria-label="Close"
         onClick={onRemoveItem}
       >
