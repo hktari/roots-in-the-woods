@@ -5,9 +5,10 @@ import ShoppingCartItem from "./shopping-cart-item";
 type Props = {};
 
 const ShoppingCart = (props: Props) => {
-  const { cartDetails, redirectToCheckout } = useShoppingCart();
+  const { cartDetails, cartCount, redirectToCheckout } = useShoppingCart();
 
   const [isLoading, setIsLoading] = useState(false);
+  const isEmpty = cartCount === 0;
 
   const onCheckout = async () => {
     const payload = JSON.stringify(cartDetails);
@@ -32,7 +33,7 @@ const ShoppingCart = (props: Props) => {
   };
 
   return (
-    <div className="c-shopping-cart list-group me-5">
+    <div className="c-shopping-cart list-group me-5" hidden={isEmpty}>
       {Object.keys(cartDetails).map((itemId) => (
         <ShoppingCartItem item={cartDetails[itemId]} />
       ))}
