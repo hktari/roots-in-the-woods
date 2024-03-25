@@ -6,6 +6,7 @@
   bottom: 0;
   z-index: $z-index-shopping-cart;
   background-color: white;
+  transition: transform 0.3s ease-in;
 }
 .c-shopping-cart.c-shopping-cart--collapsed {
   transform: translateY(100%);
