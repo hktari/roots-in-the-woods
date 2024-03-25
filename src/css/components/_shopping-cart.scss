@@ -12,6 +12,10 @@
   transform: translateY(100%);
 }
 
+.c-shopping-cart--container {
+  padding: $spacer;
+}
+
 .c-shopping-cart--header {
   display: flex;
   justify-content: end;

@@ -10,7 +10,7 @@ const ShoppingCartItem = ({ item }: Props) => {
   const onRemoveItem = () => removeItem(id);
   return (
     <div className="c-shopping-cart-item list-group-item d-flex align-items-center my-2">
-      <img height={100} src={image} alt={name} />
+      <img className="c-shopping-cart-item--img" width={100} src={image} alt={name} />
       <span className="ms-3 fs-4 flex-grow-1">
         {quantity}x {name}
       </span>

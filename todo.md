@@ -12,8 +12,8 @@
 - add total [ok]
 - add animation[ok]
 - remove margin on desktop header[ok]
-- position pill
-- merch item price
+- position pill[ok]
+- merch item price[ok]
 - max image width mobile
 - disable scroll on mobile !isCollapsed
 - checkout button
