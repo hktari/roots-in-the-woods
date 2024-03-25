@@ -14,7 +14,7 @@ const ProductCard = ({ product }: { product: StripeProduct }) => {
 
   return (
     <Link
-      className="c-merch-item text-decoration-none"
+      className="c-product-card text-decoration-none"
       to={`/merch/${product.id}`}
     >
       <div className="card border-0">
@@ -27,7 +27,7 @@ const ProductCard = ({ product }: { product: StripeProduct }) => {
           </div>
           {/* TODO: gatsby image data */}
           <img src={product.image} width={460} alt={product.name} />
-          <div className="c-merch-item__overlay card-img-overlay  d-none d-md-block text-white">
+          <div className="c-product-card__overlay card-img-overlay  d-none d-md-block text-white">
             <h2 className=" card-title">{product.name}</h2>
             <h3 className="card-title">{price} €</h3>
             <p className="card-text">{product.description}</p>

@@ -19,7 +19,10 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
         {makeGroupsOf(data.prices.edges, 3).map((edgeGroup, groupIdx) => (
           <div className="row" key={groupIdx}>
             {edgeGroup.map((edge) => (
-              <div className="col-12 col-md-4 mt-5 mt-md-4 d-flex align-items-center" key={edge.node.id}>
+              <div
+                className="col-12 col-md-4 mt-5 mt-md-4 d-flex align-items-center"
+                key={edge.node.id}
+              >
                 <ProductCard product={mapToProduct(edge.node)} />
               </div>
             ))}
@@ -27,11 +30,6 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
         ))}
 
         {/* <DebugCart /> */}
-        <div className="text-center mt-4">
-          <Link className="btn btn-primary btn-lg text-white" to="/merch/order">
-            ORDER MERCH
-          </Link>
-        </div>
       </div>
       <ShoppingCart />
     </>
