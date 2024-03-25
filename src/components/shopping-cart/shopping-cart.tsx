@@ -12,6 +12,7 @@ const ShoppingCart = (props: Props) => {
     redirectToCheckout,
     shouldDisplayCart,
     handleCartClick,
+    formattedTotalPrice,
   } = useShoppingCart();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -67,6 +68,15 @@ const ShoppingCart = (props: Props) => {
               ))}
             </div>
           </div>
+
+          <div className="mt-4">
+            <hr />
+          </div>
+          <div className="c-shopping-cart--total text-end me-3   fs-4">
+            <span className="">Total: </span>
+            <span className="">{formattedTotalPrice}</span>
+          </div>
+
           <div className="c-shopping-cart--checkout-btn mt-4">
             <button
               disabled={isLoading}
