@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useShoppingCart } from "use-shopping-cart";
 import ShoppingCartItem from "./shopping-cart-item";
+import ShoppingCartToggleButton from "./shopping-cart-toggle-button";
 
 type Props = {};
 
@@ -72,19 +73,10 @@ const ShoppingCart = (props: Props) => {
         </div>
       </div>
 
-      <div className="c-shopping-cart--toggle">
-        <button
-          className="btn bg-dark rounded-circle"
-          onClick={onToggleShoppingCart}
-        >
-          <i className="bi bi-cart4 text-white fs-1"></i>
-        </button>
-        <div className="c-shopping-cart--toggle-counter-bg rounded-circle ">
-          <span className="c-shopping-cart--toggle-counter badge text-bg-primary text-white">
-            {cartCount}
-          </span>
-        </div>
-      </div>
+      <ShoppingCartToggleButton
+        onToggleShoppingCart={onToggleShoppingCart}
+        isCollapsed={isCollapsed}
+      />
     </div>
   );
 };
