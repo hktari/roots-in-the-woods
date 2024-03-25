@@ -2,7 +2,11 @@ import React from "react";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { navigate } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { formatCurrencyString, useShoppingCart } from "use-shopping-cart";
+import {
+  DebugCart,
+  formatCurrencyString,
+  useShoppingCart,
+} from "use-shopping-cart";
 import StripeProduct from "../interface/stripe/product";
 import ShoppingCart from "../components/shopping-cart/shopping-cart";
 
@@ -27,7 +31,7 @@ const StripeProductPage = ({ pageContext }: Props) => {
     console.log("add item", quantity, event.target);
     event.target.reset();
     addItem(product, { count: Number(quantity) });
-    navigate("/merch");
+    await navigate(-1);
   };
 
   return (
@@ -65,6 +69,7 @@ const StripeProductPage = ({ pageContext }: Props) => {
           </div>
         </div>
       </form>
+      <DebugCart />
       <ShoppingCart />
     </>
   );
