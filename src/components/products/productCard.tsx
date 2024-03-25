@@ -26,7 +26,7 @@ const ProductCard = ({ product }: { product: StripeProduct }) => {
             <h4 className="card-subtitle fs-2">{formattedPrice} €</h4>
           </div>
           {/* TODO: gatsby image data */}
-          <img src={product.image} width={460} alt={product.name} />
+          <img className="c-product-card--img" src={product.image} width={460} alt={product.name} />
           <div className="c-product-card__overlay card-img-overlay  d-none d-md-block text-white">
             <h2 className=" card-title">{product.name}</h2>
             <h3 className="card-title">{price} €</h3>
