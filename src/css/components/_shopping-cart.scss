@@ -21,17 +21,38 @@
   top: unset;
   bottom: 50px;
   right: 50px;
+  left: unset;
 }
 
 .c-shopping-cart--header {
-  height: 50px;
   display: flex;
   justify-content: end;
   @extend .p-2;
 }
 
+.c-shopping-cart--list {
+}
+
+.c-shopping-cart--checkout-btn {
+  @extend .text-center, .mt-2, .rounded-0, .bg-primary;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  button {
+    @extend .fs-3, .py-3;
+  }
+}
+
 // Toggle button
 .c-shopping-cart--close {
+  @extend .btn, .btn-lg;
+  color: white;
+
+  i {
+    font-size: 2em;
+  }
 }
 
 .c-shopping-cart--toggle button {

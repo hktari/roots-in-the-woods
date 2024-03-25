@@ -46,22 +46,25 @@ const ShoppingCart = (props: Props) => {
     >
       <div className="c-shopping-cart--container">
         <div className="c-shopping-cart--header">
-          <div className="c-shopping-cart--close">
-            <button className="btn" onClick={onToggleShoppingCart}>
-              <i className="bi bi-x fs-1"></i>
-            </button>
-          </div>
+          <button
+            className="c-shopping-cart--close btn"
+            onClick={onToggleShoppingCart}
+          >
+            <i className="bi bi-x"></i>
+          </button>
         </div>
 
-        <div className="list-group me-5">
-          {Object.keys(cartDetails).map((itemId) => (
-            <ShoppingCartItem item={cartDetails[itemId]} />
-          ))}
+        <div className="c-shopping-cart--list">
+          <div className="">
+            {Object.keys(cartDetails).map((itemId) => (
+              <ShoppingCartItem item={cartDetails[itemId]} />
+            ))}
+          </div>
         </div>
-        <div className="text-center mt-2">
+        <div className="c-shopping-cart--checkout-btn ">
           <button
             disabled={isLoading}
-            className="btn btn-primary btn-lg text-white"
+            className="btn btn-primary text-white"
             onClick={onCheckout}
           >
             CHECKOUT
