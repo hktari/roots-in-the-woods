@@ -8,15 +8,14 @@ import {
   formatCurrencyString,
   useShoppingCart,
 } from "use-shopping-cart";
-import StripeProduct from "../interface/stripe/product";
-import ShoppingCart from "../components/shopping-cart/shopping-cart";
+import StripeProduct from "../../interface/stripe/product";
+import ShoppingCart from "../shopping-cart/shopping-cart";
 
 type Props = {
-  pageContext: { product: StripeProduct };
+  product: StripeProduct;
 };
 
-const StripeProductPage = ({ pageContext }: Props) => {
-  const { product } = pageContext;
+const StripeProductComponent = ({ product }: Props) => {
 
   const { addItem, handleCartHover } = useShoppingCart();
 
@@ -71,9 +70,8 @@ const StripeProductPage = ({ pageContext }: Props) => {
           </div>
         </div>
       </form>
-      <ShoppingCart />
     </>
   );
 };
 
-export default StripeProductPage;
+export default StripeProductComponent;
