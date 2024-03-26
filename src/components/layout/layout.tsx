@@ -24,12 +24,6 @@ const Layout = ({ children }: Props) => {
   const [disableScroll, setDisableScroll] = useState<boolean>(false);
 
   return (
-    <CartProvider
-      cartMode="checkout-session"
-      shouldPersist
-      stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY!}
-      currency="EUR"
-    >
       <LayoutContext.Provider value={{ disableScroll, setDisableScroll }}>
         <main className={`c-page ${disableScroll ? "c-page--no-scroll" : ""}`}>
           <HeaderContextProviderComponent>
@@ -45,7 +39,6 @@ const Layout = ({ children }: Props) => {
           </div>
         </main>
       </LayoutContext.Provider>
-    </CartProvider>
   );
 };
 

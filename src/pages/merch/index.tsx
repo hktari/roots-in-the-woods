@@ -12,24 +12,31 @@ import { mapToProduct } from "../../util/products";
 const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
   return (
     <>
-      <div className="container">
-        <div className="px-0">
-          <h1 className="c-page__title my-md-4">Merchandise</h1>
-        </div>
-        {makeGroupsOf(data.prices.edges, 3).map((edgeGroup, groupIdx) => (
-          <div className="row" key={groupIdx}>
-            {edgeGroup.map((edge) => (
-              <div
-                className="col-12 col-md-4 mt-5 mt-md-4 d-flex align-items-center"
-                key={edge.node.id}
-              >
-                <ProductCard product={mapToProduct(edge.node)} />
-              </div>
-            ))}
+      <CartProvider
+        cartMode="checkout-session"
+        shouldPersist
+        stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY!}
+        currency="EUR"
+      >
+        <div className="container">
+          <div className="px-0">
+            <h1 className="c-page__title my-md-4">Merchandise</h1>
           </div>
-        ))}
-      </div>
-      <ShoppingCart />
+          {makeGroupsOf(data.prices.edges, 3).map((edgeGroup, groupIdx) => (
+            <div className="row" key={groupIdx}>
+              {edgeGroup.map((edge) => (
+                <div
+                  className="col-12 col-md-4 mt-5 mt-md-4 d-flex align-items-center"
+                  key={edge.node.id}
+                >
+                  <ProductCard product={mapToProduct(edge.node)} />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <ShoppingCart />
+      </CartProvider>
     </>
   );
 };
