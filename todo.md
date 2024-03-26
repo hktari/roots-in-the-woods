@@ -9,9 +9,12 @@
 
 ## Store
 
+- hide shopping cart button when empty
+- layout product detail on mobile
 - checkout button
 - generate create-checkout-session/data/products.js
 - send order confirmation email
+- fix production build
 - 
 - disable scroll on mobile !isCollapsed[ok]
 - add total [ok]
