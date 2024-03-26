@@ -1,18 +1,19 @@
 # TODO
 
 ## MISSION
+
 - update text
 
 - put GALLERY, MAP and MISSION under MORE dropdown
 - add FAQ page
 
+## Store
 
-## Store 
-
-- disable scroll on mobile !isCollapsed
 - checkout button
 - generate create-checkout-session/data/products.js
-
+- send order confirmation email
+- 
+- disable scroll on mobile !isCollapsed[ok]
 - add total [ok]
 - add animation[ok]
 - remove margin on desktop header[ok]

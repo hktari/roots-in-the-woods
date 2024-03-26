@@ -37,12 +37,7 @@ const StripeProductPage = ({ pageContext }: Props) => {
   };
 
   return (
-    <CartProvider
-    cartMode="checkout-session"
-    shouldPersist
-    stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY!}
-    currency="EUR"
-  >
+    <>
       <form onSubmit={handleSubmit}>
         <div className="container py-5">
           <div className="row">
@@ -76,9 +71,8 @@ const StripeProductPage = ({ pageContext }: Props) => {
           </div>
         </div>
       </form>
-      <DebugCart />
       <ShoppingCart />
-    </CartProvider>
+    </>
   );
 };
 
