@@ -63,8 +63,8 @@ const StripeProductComponent = ({ product }: Props) => {
               </div>
             </div>
             <div className="col-12 col-md-6">
-              <div className="my-2 my-md-0">
-                <img width={460} src={product?.image} alt={product?.name} />
+              <div className="my-4 my-md-0">
+                <img className="img-fluid" width={460} src={product?.image} alt={product?.name} />
               </div>
             </div>
           </div>
