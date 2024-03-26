@@ -27,7 +27,7 @@ export default StripePricePage;
 
 export const query = graphql`
   query StripePricePage($id: String) {
-    stripePrice(id: { eq: $id }) {
+    stripePrice(product: { id: { eq: $id } }) {
       id
       active
       currency
