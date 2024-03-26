@@ -19,25 +19,35 @@ const ShoppingCart = (props: Props) => {
   const isEmpty = cartCount === 0;
 
   const onCheckout = async () => {
-    const payload = JSON.stringify(cartDetails);
+    try {
+      setIsLoading(true);
+      const payload = JSON.stringify(cartDetails);
+      const response = await fetch(
+        "/.netlify/functions/create-checkout-session",
+        {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: payload,
+        }
+      ).then((res) => res.json());
 
-    setIsLoading(true);
-    const response = await fetch(
-      "/.netlify/functions/create-checkout-session",
-      {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: payload,
+      try {
+        throw new Error("test");
+        await redirectToCheckout(response.sessionId);
+      } catch (error) {
+        console.error(error);
+        alert(
+          "A redirection error occured during communication with Stripe. Please try again at a later time or else report this to the site administrator."
+        );
       }
-    )
-      .then((res) => res.json())
-      .catch((error) => {
-        /* Error handling */
-        console.warn("Error:", error);
-        alert(`Error: ${error}`);
-      })
-      .finally(() => setIsLoading(false));
-    redirectToCheckout(response.sessionId);
+    } catch (error) {
+      console.error(error);
+      alert(
+        "An unknown error occured. Please report this to the site administrator."
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const onToggleShoppingCart = () => {
