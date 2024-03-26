@@ -11,7 +11,12 @@ import { mapToProduct } from "../../util/products";
 
 const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
   return (
-    <>
+    <CartProvider
+      cartMode="checkout-session"
+      shouldPersist
+      stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY!}
+      currency="EUR"
+    >
       <div className="container">
         <div className="px-0">
           <h1 className="c-page__title my-md-4">Merchandise</h1>
@@ -31,7 +36,7 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
       </div>
       {/* <DebugCart /> */}
       <ShoppingCart />
-    </>
+    </CartProvider>
   );
 };
 

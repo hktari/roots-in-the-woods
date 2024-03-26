@@ -5,7 +5,6 @@ import "../../css/main.scss";
 import Footer from "../footer";
 import { useState } from "react";
 import HeaderContextProviderComponent from "../../context/header-context";
-import ShoppingCart from "../shopping-cart/shopping-cart";
 
 type Props = {
   children: React.ReactNode;
@@ -15,7 +14,10 @@ interface LayoutContextValue {
   disableScroll: boolean;
   setDisableScroll: (disableScroll: boolean) => void;
 }
-export const LayoutContext = createContext<LayoutContextValue>({disableScroll: null!, setDisableScroll: null!});
+export const LayoutContext = createContext<LayoutContextValue>({
+  disableScroll: null!,
+  setDisableScroll: null!,
+});
 
 const Layout = ({ children }: Props) => {
   const [disableScroll, setDisableScroll] = useState<boolean>(false);
@@ -25,7 +27,7 @@ const Layout = ({ children }: Props) => {
       <main className={`c-page ${disableScroll ? "c-page--no-scroll" : ""}`}>
         <HeaderContextProviderComponent>
           <div className="c-page__content">
-            <Header/>
+            <Header />
             <div style={{ position: "relative" }}>
               <div className="container-md pb-5">{children}</div>
             </div>

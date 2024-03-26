@@ -3,6 +3,7 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { navigate } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import {
+  CartProvider,
   DebugCart,
   formatCurrencyString,
   useShoppingCart,
@@ -36,7 +37,12 @@ const StripeProductPage = ({ pageContext }: Props) => {
   };
 
   return (
-    <>
+    <CartProvider
+    cartMode="checkout-session"
+    shouldPersist
+    stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY!}
+    currency="EUR"
+  >
       <form onSubmit={handleSubmit}>
         <div className="container py-5">
           <div className="row">
@@ -72,7 +78,7 @@ const StripeProductPage = ({ pageContext }: Props) => {
       </form>
       <DebugCart />
       <ShoppingCart />
-    </>
+    </CartProvider>
   );
 };
 
