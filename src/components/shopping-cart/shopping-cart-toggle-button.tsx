@@ -8,6 +8,7 @@ type Props = {};
 const ShoppingCartToggleButton = ({}: Props) => {
   const { cartCount, shouldDisplayCart, handleCartClick } = useShoppingCart();
 
+  const isEmpty = cartCount === 0;
   const { width } = useViewport();
   const bootstrapMDBreakpoint = 768;
 
@@ -25,6 +26,7 @@ const ShoppingCartToggleButton = ({}: Props) => {
       className={`c-shopping-cart-toggle-button ${
         !shouldDisplayCart ? "c-shopping-cart-toggle-button--collapsed" : ""
       }`}
+      hidden={isEmpty}
     >
       <button className="btn bg-dark rounded-circle" onClick={handleCartClick}>
         <i className="bi bi-cart4 text-white fs-1"></i>
