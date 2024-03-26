@@ -19,7 +19,6 @@ const StripePricePage = ({ data }: PageProps<Queries.StripePricePageQuery>) => {
     >
       <StripeProductComponent product={product} />
       <ShoppingCart />
-      {JSON.stringify(data, null, 4)}
     </CartProvider>
   );
 };
@@ -29,9 +28,14 @@ export default StripePricePage;
 export const query = graphql`
   query StripePricePage($id: String) {
     stripePrice(id: { eq: $id }) {
+      id
+      active
+      currency
+      unit_amount
       product {
-        description
+        id
         name
+        images
       }
     }
   }
