@@ -7,3 +7,4 @@ src/gatsby-types.d.ts
 tmp/
 # Local Netlify folder
 .netlify
+netlify/functions/create-checkout-session/data
