@@ -32,7 +32,6 @@ const ShoppingCart = (props: Props) => {
       ).then((res) => res.json());
 
       try {
-        throw new Error("test");
         await redirectToCheckout(response.sessionId);
       } catch (error) {
         console.error(error);
