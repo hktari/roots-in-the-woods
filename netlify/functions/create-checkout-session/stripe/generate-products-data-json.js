@@ -13,7 +13,7 @@
 
   const productsMapped = products.data.map((price) => mapStripeProduct(price));
 
-  const DefaultPath = "data/";
+  const DefaultPath = "./data/";
 
   const productJsonFilePath = join(
 

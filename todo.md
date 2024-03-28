@@ -9,22 +9,10 @@
 
 ## Store
 
-- hide shopping cart button when empty
-- layout product detail on mobile
-- checkout button
-- generate create-checkout-session/data/products.js
+- generate create-checkout-session/data/products.js[ok]
+  - update queries to use Product API[ok]
 - send order confirmation email
-- fix production build
-- 
-- disable scroll on mobile !isCollapsed[ok]
-- add total [ok]
-- add animation[ok]
-- remove margin on desktop header[ok]
-- position pill[ok]
-- merch item price[ok]
-- max image width mobile[ok]
-- collapse shopping cart into floating button on breakpoint[ok]
-- shopping cart opens full screen modal on mobile[ok]
-- add to cart button on product detail page [OK]
-- edit cart ?[ok]
-- hide cart when empty[ok]
+
+## DEPLOYMENT
+
+- regenerate fb token, page access is about to expire

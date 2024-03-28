@@ -1,5 +1,6 @@
-require("./stripe/generate-products-data-json");
-const inventory = require("./data/products.json");
+// require("./stripe/generate-products-data-json");
+// const inventory = require("./data/products.json");
+const { getProducts } = require("./stripe/get-products");
 
 const stripe = require("./lib/stripe");
 const validateCartItems =
@@ -7,6 +8,7 @@ const validateCartItems =
 
 exports.handler = async (event) => {
   try {
+    const inventory = await getProducts();
     const productJSON = JSON.parse(event.body);
     const line_items = validateCartItems(inventory, productJSON);
     const session = await stripe.checkout.sessions.create({
