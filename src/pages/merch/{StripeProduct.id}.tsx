@@ -3,13 +3,17 @@ import React from "react";
 import { CartProvider } from "use-shopping-cart";
 import ShoppingCart from "../../components/shopping-cart/shopping-cart";
 import StripeProductComponent from "../../components/products/stripeProduct";
-import { mapToProduct } from "../../util/products";
+import { mapStripeProduct } from "../../../stripe/map-product";
 
 type Props = {};
 
-const StripePricePage = ({ data }: PageProps<Queries.StripePricePageQuery>) => {
-  const product = mapToProduct(data.stripePrice);
-
+const StripeProductPage = ({
+  data,
+}: PageProps<Queries.StripeProductPageQuery>) => {
+  const product = mapStripeProduct({
+    ...data.stripeProduct,
+    default_price: data.stripePrice,
+  });
   return (
     <CartProvider
       cartMode="checkout-session"
@@ -23,20 +27,24 @@ const StripePricePage = ({ data }: PageProps<Queries.StripePricePageQuery>) => {
   );
 };
 
-export default StripePricePage;
+export default StripeProductPage;
 
 export const query = graphql`
-  query StripePricePage($id: String) {
-    stripePrice(id: { eq: $id }) {
+  query StripeProductPage($id: String) {
+    stripeProduct(id: { eq: $id }) {
+      name
+      default_price
+      description
       id
-      active
+      images
+    }
+    stripePrice(product: { id: { eq: $id } }) {
+      id
       currency
-      unit_amount
       product {
-        id
         name
-        images
       }
+      unit_amount
     }
   }
 `;
