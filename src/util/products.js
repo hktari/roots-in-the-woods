@@ -1,6 +1,6 @@
 function mapToProduct(priceNode) {
   return {
-    id: priceNode.product.id,
+    id: priceNode.id,
     // Line item name to be shown on the Stripe Checkout page
     name: priceNode.product.name,
     // Optional description to be shown on the Stripe Checkout page
