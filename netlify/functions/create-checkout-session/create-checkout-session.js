@@ -1,4 +1,4 @@
-require("../../../stripe/generate-products-data-json");
+require("stripe/generate-products-data-json");
 const inventory = require("./data/products.json");
 
 const stripe = require("./lib/stripe");
