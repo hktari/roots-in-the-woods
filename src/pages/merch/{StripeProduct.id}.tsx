@@ -21,7 +21,6 @@ const StripeProductPage = ({
       stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY!}
       currency="EUR"
     >
-      {JSON.stringify(data, null, 4)}
       <StripeProductComponent product={product} />
       <ShoppingCart />
     </CartProvider>

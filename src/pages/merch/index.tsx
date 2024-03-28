@@ -32,7 +32,6 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
 
   return (
     <>
-      {JSON.stringify(data, null, 4)}
       <CartProvider
         cartMode="checkout-session"
         shouldPersist
