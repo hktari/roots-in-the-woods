@@ -10,6 +10,10 @@ export const formatDatetimeStr = (datetimeStr: string) => {
   )}`;
 };
 
+export function makeGroupsOfT<TItem>(items: TItem[], groupSize: number) {
+  return makeGroupsOf(items, groupSize) as TItem[][];
+}
+
 export const makeGroupsOf = (items: any[], groupSize: number) => {
   let curGroupIdx = 0;
   const groupedItems = [];
