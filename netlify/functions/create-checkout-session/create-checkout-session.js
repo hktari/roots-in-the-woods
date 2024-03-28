@@ -1,7 +1,7 @@
 const stripe = require("./lib/stripe");
 const validateCartItems =
   require("use-shopping-cart/utilities").validateCartItems;
-const inventory = require("./data/products");
+const inventory = require("./data/products.json");
 
 exports.handler = async (event) => {
   try {

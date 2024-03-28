@@ -4,6 +4,8 @@
   require("dotenv").config({
     path: `../.env.${process.env.NODE_ENV}`,
   });
+
+  const { join } = require("path");
   const { writeFile } = require("fs");
   const { mapStripeProduct } = require("./map-product");
   const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
@@ -15,11 +17,12 @@
 
   const productsMapped = products.data.map((price) => mapStripeProduct(price));
 
-  const DefaultPath =
-    "netlify/functions/create-checkout-session/data/products.json";
+  const DefaultPath = "netlify/functions/create-checkout-session/data/";
 
-  const productJsonFilePath =
-    process.env.STRIPE_PRODUCTS_JSON_PATH || DefaultPath;
+  const productJsonFilePath = join(
+    process.env.STRIPE_PRODUCTS_JSON_PATH || DefaultPath,
+    "products.json"
+  );
 
   console.log("Writing to: " + productJsonFilePath);
 
