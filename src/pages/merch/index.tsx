@@ -9,6 +9,7 @@ import ShoppingCart from "../../components/shopping-cart/shopping-cart";
 import ProductCard from "../../components/products/productCard";
 import { mapStripeProduct } from "../../../stripe/map-product";
 import { productPriceFragment } from "../../components/products/price";
+import StripeProduct from "../../interface/stripe/product";
 
 const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
   const prices = data.prices.edges.map((edge) => edge.node);
@@ -19,15 +20,19 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
     return prices.find((price) => price.id === product.default_price);
   };
 
-  const products = data.products.edges.map((edge) =>
-    mapStripeProduct({
-      ...edge.node,
-      default_price: getPriceForProduct(edge.node),
-    })
-  );
+  const productCardProps = data.products.edges.map((edge) => {
+    return {
+      product: mapStripeProduct({
+        ...edge.node,
+        default_price: getPriceForProduct(edge.node),
+      }) as StripeProduct,
+      url: edge.node.url!,
+    };
+  });
 
   return (
     <>
+      {JSON.stringify(data, null, 4)}
       <CartProvider
         cartMode="checkout-session"
         shouldPersist
@@ -38,14 +43,14 @@ const MerchPage = ({ data }: PageProps<Queries.MerchPageQuery>) => {
           <div className="px-0">
             <h1 className="c-page__title my-md-4">Merchandise</h1>
           </div>
-          {makeGroupsOfT(products, 3).map((productGroup, groupIdx) => (
+          {makeGroupsOfT(productCardProps, 3).map((productGroup, groupIdx) => (
             <div className="row" key={groupIdx}>
-              {productGroup.map((product) => (
+              {productGroup.map((productProps) => (
                 <div
                   className="col-12 col-md-4 mt-5 mt-md-4 d-flex align-items-center"
-                  key={product.id}
+                  key={productProps.product.id}
                 >
-                  <ProductCard product={product} />
+                  <ProductCard {...productProps} />
                 </div>
               ))}
             </div>
@@ -64,11 +69,12 @@ export const query = graphql`
     products: allStripeProduct {
       edges {
         node {
+          id
           default_price
           description
-          id
           name
           images
+          url: gatsbyPath(filePath: "/merch/{StripeProduct.id}")
         }
       }
     }

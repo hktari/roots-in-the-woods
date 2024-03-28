@@ -21,6 +21,7 @@ const StripeProductPage = ({
       stripe={process.env.GATSBY_STRIPE_PUBLISHABLE_KEY!}
       currency="EUR"
     >
+      {JSON.stringify(data, null, 4)}
       <StripeProductComponent product={product} />
       <ShoppingCart />
     </CartProvider>
@@ -32,10 +33,10 @@ export default StripeProductPage;
 export const query = graphql`
   query StripeProductPage($id: String) {
     stripeProduct(id: { eq: $id }) {
+      id
       name
       default_price
       description
-      id
       images
     }
     stripePrice(product: { id: { eq: $id } }) {
