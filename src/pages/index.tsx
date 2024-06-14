@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import NewsItem from "../components/news-item";
-import AboutSection from "../components/index/about-section";
+import IntroductionSection from "../components/index/introduction-section";
 import LocationSection from "../components/index/location-section";
 import ReggaeSeperator from "../components/reggae-seperator";
 import ActivitiesSection from "../components/index/activities-section";
@@ -16,7 +16,7 @@ import SEO from "../components/seo";
 const IndexPage = ({ data }: PageProps<Queries.IndexPageQuery>) => {
   return (
     <>
-      <AboutSection />
+      <IntroductionSection />
 
       <PromoVideoSection url={data.promoVideo.nodes[0].video?.url!} />
 

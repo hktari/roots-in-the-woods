@@ -1,18 +1,14 @@
 import React from "react";
-
-import aboutImgTwo from "../../images/stereo-black-white.jpg";
-import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
 import {
   documentToReactComponents,
   Options,
 } from "@contentful/rich-text-react-renderer";
 
-import { Block, Inline, BLOCKS } from "@contentful/rich-text-types";
+import { BLOCKS } from "@contentful/rich-text-types";
 
-type Props = {};
-
-const AboutSection = () => {
+const IntroductionSection = () => {
   const { contentfulFrontPageIntroductionSection: introSection } =
     useStaticQuery(graphql`
       query {
@@ -37,7 +33,6 @@ const AboutSection = () => {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => {
         node;
-        // TODO: add images to contentful and test this
         const isEven = images.length % 2 === 0;
         const nextImage = images.shift();
         return (
@@ -78,4 +73,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default IntroductionSection;
