@@ -1,52 +1,79 @@
 import React from "react";
 
 import aboutImgTwo from "../../images/stereo-black-white.jpg";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image";
+import { graphql, useStaticQuery } from "gatsby";
+import {
+  documentToReactComponents,
+  Options,
+} from "@contentful/rich-text-react-renderer";
+
+import { Block, Inline, BLOCKS } from "@contentful/rich-text-types";
 
 type Props = {};
 
-const AboutSection = (props: Props) => {
+const AboutSection = () => {
+  const { contentfulFrontPageIntroductionSection: introSection } =
+    useStaticQuery(graphql`
+      query {
+        contentfulFrontPageIntroductionSection {
+          images {
+            gatsbyImageData(width: 776)
+            description
+          }
+          title
+          text {
+            raw
+          }
+        }
+      }
+    `);
+
+  if (!introSection) return null;
+
+  const { title, images, text } = introSection;
+
+  const options: Options = {
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (node, children) => {
+        node;
+        // TODO: add images to contentful and test this
+        const isEven = images.length % 2 === 0;
+        const nextImage = images.shift();
+        return (
+          <div className="row mt-md-4 g-md-5">
+            <div className="col-12 col-md-6 mt-3 ">
+              <div className="c-section__text">{children}</div>
+            </div>
+            {nextImage && (
+              <div
+                className={`col-12 col-md-6 mt-3 px-0 ${
+                  isEven ? "order-first" : ""
+                }`}
+              >
+                <GatsbyImage
+                  image={nextImage.gatsbyImageData}
+                  alt={nextImage.description}
+                />
+              </div>
+            )}
+          </div>
+        );
+      },
+    },
+  };
+
+  const paragraphs: React.ReactNode | null =
+    text?.raw && documentToReactComponents(JSON.parse(text.raw), options);
+
   return (
     <section className="c-section">
       <div className="row">
         <div className="col-12 mt-3 mb-2 text-left text-md-center">
-          <h2 className="c-section__title">Sound system culture festival</h2>
-        </div>
-        <div className="col-12 col-md-6 mt-3 ">
-          <p className="c-section__text">
-            The festival is organized by friends and enthusiasts of festival
-            culture, who come from Slovenia.
-            <br className="d-md-none" />
-            <br className="d-md-none" />
-            The vast majority of the organisers are locals who respect the
-            idyllic natural environment that Pohorje offers.
-            <br />
-            <br />
-            For this reason, we have a great desire to offer a unique experience
-            on the beautiful Pohorje plains.{" "}
-          </p>
-        </div>
-        <div className="col-12 col-md-6 mt-3 px-0">
-          <StaticImage
-            src={"../../data/images/party.jpg"}
-            alt="party"
-            width={776}
-            className="c-section__img-dimmed"
-          />
-        </div>
-
-        <div className="col-12 col-md-6 mt-2">
-          <p className="c-section__text mt-4 mt-md-0 flex-grow-1">
-            In addition to promoting reggae culture and soundsystems, we also
-            encourage opportunities for various artistic pursuits.
-            <br />
-            <br />
-            These are manifested in the many content-rich workshops occuring
-            during the festival: massages, yoga, gong meditation, jewellery
-            workshop, dance class, drum circle, etc.
-          </p>
+          <h2 className="c-section__title">{title}</h2>
         </div>
       </div>
+      {paragraphs}
     </section>
   );
 };
