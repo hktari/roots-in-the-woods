@@ -16,3 +16,4 @@
 ## DEPLOYMENT
 
 - regenerate fb token, page access is about to expire
+- 14-10-2024 [updated]
