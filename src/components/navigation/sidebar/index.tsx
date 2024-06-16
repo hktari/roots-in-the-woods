@@ -43,6 +43,7 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
     return (
       <>
         {navigationItems.map((navItem) => {
+          
           return (
             <li className="c-sidebar__menu-list-item">
               <NavigationLink navigationItem={navItem} />

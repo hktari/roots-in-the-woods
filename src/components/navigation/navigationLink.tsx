@@ -7,16 +7,16 @@ type Props = {
 };
 
 const NavigationLink = ({ navigationItem: navItem }: Props) => {
-  const isRelativeUrl = () => navItem.url.startsWith("http");
+  const isAbsoluteUrl = () => navItem.url.startsWith("http");
 
-  return isRelativeUrl() ? (
-    <Link activeClassName="c-link--active" className="c-link" to={navItem.url}>
-      {navItem.title}
-    </Link>
-  ) : (
+  return isAbsoluteUrl() ? (
     <a className="c-link" href={navItem.url} target="_blank">
       {navItem.title}
     </a>
+  ) : (
+    <Link activeClassName="c-link--active" className="c-link" to={navItem.url}>
+      {navItem.title}
+    </Link>
   );
 };
 

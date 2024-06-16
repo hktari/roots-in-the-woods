@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import navigationItems from "../common";
+import NavigationLink from "../navigationLink";
 
 type NavBarProps = {
   openMenuClicked: () => void;
@@ -75,13 +76,7 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
           } else {
             return (
               <li className="c-navbar__menu-list-item">
-                <Link
-                  activeClassName="c-link--active"
-                  className="c-link"
-                  to={navItem.url}
-                >
-                  {navItem.title}
-                </Link>
+                <NavigationLink navigationItem={navItem} />
               </li>
             );
           }
