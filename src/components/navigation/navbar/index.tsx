@@ -4,7 +4,6 @@ import logo from "../../../images/logo.jpg";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
-import Dropdown from "./dropdown";
 import navigationItems from "../common";
 
 type NavBarProps = {
@@ -44,17 +43,48 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
     return (
       <>
         {navigationItems.map((navItem) => {
-          return (
-            <li className="c-navbar__menu-list-item">
-              <Link
-                activeClassName="c-link--active"
-                className="c-link"
-                to={navItem.url}
-              >
-                {navItem.title}
-              </Link>
-            </li>
-          );
+          if (navItem.navigationItems) {
+            return (
+              <li className="c-navbar__menu-list-item nav-item dropdown">
+                <a
+                  className="c-link nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {navItem.title}
+                </a>
+                <ul className="dropdown-menu dropdown-menu-dark">
+                  {navItem.navigationItems.map((subNavItem) => {
+                    return (
+                      <li className="c-navbar__menu-list-item">
+                        <Link
+                          activeClassName="c-link--active"
+                          className="c-link dropdown-item"
+                          to={subNavItem.url}
+                        >
+                          {subNavItem.title}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            );
+          } else {
+            return (
+              <li className="c-navbar__menu-list-item">
+                <Link
+                  activeClassName="c-link--active"
+                  className="c-link"
+                  to={navItem.url}
+                >
+                  {navItem.title}
+                </Link>
+              </li>
+            );
+          }
         })}
       </>
     );
