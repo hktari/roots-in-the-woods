@@ -21,7 +21,7 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
     }
 
     const links = menuListRef.current.querySelectorAll(
-      ".c-sidebar__menu-list-item > a"
+      ".c-sidebar__menu-list-item a:not([data-bs-toggle='dropdown'])"
     )!;
 
     const linkClickEventHandler = () => closeMenuClicked();
