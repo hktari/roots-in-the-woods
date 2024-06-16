@@ -8,6 +8,28 @@ import {
 
 import { BLOCKS } from "@contentful/rich-text-types";
 
+const IntroSectionRow = ({paragraph, nextImage, isEven }) => {
+  return (
+    <div className="row mt-md-4 g-md-5">
+      <div className={`col-12 mt-3 ${nextImage ? "col-md-6" : ""}`}>
+        <div className="c-section__text">
+          {paragraph}
+        </div>
+      </div>
+      {nextImage && (
+        <div
+          className={`col-12 col-md-6 mt-3 px-0 ${isEven ? "order-first" : ""}`}
+        >
+          <GatsbyImage
+            image={nextImage.gatsbyImageData}
+            alt={nextImage.description}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
 const IntroductionSection = () => {
   const { contentfulFrontPageIntroductionSection: introSection } =
     useStaticQuery(graphql`
@@ -29,37 +51,24 @@ const IntroductionSection = () => {
 
   const { title, images, text } = introSection;
 
-  const options: Options = {
-    renderNode: {
-      [BLOCKS.PARAGRAPH]: (node, children) => {
-        const imagesCopy = [...images];
-        const isEven = imagesCopy.length % 2 === 0;
-        const nextImage = imagesCopy.shift();
-        return (
-          <div className="row mt-md-4 g-md-5">
-            <div className="col-12 col-md-6 mt-3 ">
-              <div className="c-section__text">{children}</div>
-            </div>
-            {nextImage && (
-              <div
-                className={`col-12 col-md-6 mt-3 px-0 ${
-                  isEven ? "order-first" : ""
-                }`}
-              >
-                <GatsbyImage
-                  image={nextImage.gatsbyImageData}
-                  alt={nextImage.description}
-                />
-              </div>
-            )}
-          </div>
-        );
-      },
-    },
-  };
+  const Paragraphs: React.ReactNode | null =
+    text?.raw && documentToReactComponents(JSON.parse(text.raw));
 
-  const paragraphs: React.ReactNode | null =
-    text?.raw && documentToReactComponents(JSON.parse(text.raw), options);
+  const IntroSection =
+    Paragraphs &&
+    React.Children.map(Paragraphs, (node, index) => {
+      const nextImage = images[index];
+      const isEven = index % 2 === 0;
+      if (React.isValidElement(node)) {
+        return <IntroSectionRow
+          nextImage={nextImage}
+          isEven={isEven}
+          paragraph={node}
+        />;
+      } else {
+        return null;
+      }
+    });
 
   return (
     <section className="c-section">
@@ -68,7 +77,7 @@ const IntroductionSection = () => {
           <h2 className="c-section__title">{title}</h2>
         </div>
       </div>
-      {paragraphs}
+      {IntroSection}
     </section>
   );
 };
