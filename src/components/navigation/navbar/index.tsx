@@ -48,7 +48,8 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
           if (navItem.navigationItems) {
             return (
               <NavigationItemDropdown
-                  title={navItem.title}
+                className="c-navbar__menu-list-item"
+                title={navItem.title}
                 navigationItems={navItem.navigationItems}
               />
             );

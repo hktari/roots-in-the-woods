@@ -6,11 +6,13 @@ import NavigationLink from "./navigationLink";
 type Props = {
   title: string;
   navigationItems: NavigationItem[];
+  className?: string;
 };
 
-const NavigationItemDropdown = ({ title, navigationItems }: Props ) => {
+const NavigationItemDropdown = ({ title, navigationItems, className }: Props ) => {
   return (
-    <li className="c-navbar__menu-list-item nav-item dropdown">
+    // TODO: fix CSS, use bootstrap navbar
+    <li className={`nav-item dropdown ${className || ''}`}>
       <a
         className="c-link nav-link dropdown-toggle"
         href="#"

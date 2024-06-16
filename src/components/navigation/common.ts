@@ -27,12 +27,21 @@ const navigationItems = [
     url: "/merch",
   },
   {
-    title: "Map",
-    url: "/map",
-  },
-  {
-    title: "Gallery",
-    url: "/gallery",
+    title: "More",
+    navigationItems: [
+      {
+        title: "Map",
+        url: "/map",
+      },
+      {
+        title: "Gallery",
+        url: "/gallery",
+      },
+      {
+        title: "FAQ",
+        url: "/faq",
+      },
+    ],
   },
 ] as NavigationItem[];
 
