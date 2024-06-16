@@ -4,17 +4,23 @@ import { Link } from "gatsby";
 
 type Props = {
   navigationItem: NavigationItem;
+  additonalClasses?: string;
 };
 
-const NavigationLink = ({ navigationItem: navItem }: Props) => {
+const NavigationLink = ({
+  navigationItem: navItem,
+  additonalClasses,
+}: Props) => {
   const isAbsoluteUrl = () => navItem.url.startsWith("http");
 
+  const className = `c-link ${additonalClasses || ""}`;
+
   return isAbsoluteUrl() ? (
-    <a className="c-link" href={navItem.url} target="_blank">
-      {navItem.title}
+    <a href={navItem.url} className={className} target="_blank">
+      {navItem.title} 
     </a>
   ) : (
-    <Link activeClassName="c-link--active" className="c-link" to={navItem.url}>
+    <Link activeClassName="c-link--active" className={className} to={navItem.url}>
       {navItem.title}
     </Link>
   );

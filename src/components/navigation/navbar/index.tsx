@@ -60,13 +60,10 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
                   {navItem.navigationItems.map((subNavItem) => {
                     return (
                       <li className="c-navbar__menu-list-item">
-                        <Link
-                          activeClassName="c-link--active"
-                          className="c-link dropdown-item"
-                          to={subNavItem.url}
-                        >
-                          {subNavItem.title}
-                        </Link>
+                        <NavigationLink
+                          navigationItem={subNavItem}
+                          additonalClasses="dropdown-item"
+                        />
                       </li>
                     );
                   })}
