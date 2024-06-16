@@ -1,11 +1,5 @@
 # TODO
 
-## MISSION
-- update text
-
-- put GALLERY, MAP and MISSION under MORE dropdown
-- add FAQ page
-
 ## ORDER
 - specify merch field
   - replace text field with selector + digit input field 
