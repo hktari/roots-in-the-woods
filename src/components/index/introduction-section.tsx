@@ -32,9 +32,9 @@ const IntroductionSection = () => {
   const options: Options = {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => {
-        node;
-        const isEven = images.length % 2 === 0;
-        const nextImage = images.shift();
+        const imagesCopy = [...images];
+        const isEven = imagesCopy.length % 2 === 0;
+        const nextImage = imagesCopy.shift();
         return (
           <div className="row mt-md-4 g-md-5">
             <div className="col-12 col-md-6 mt-3 ">
