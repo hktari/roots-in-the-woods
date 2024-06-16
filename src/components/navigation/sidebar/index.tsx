@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import SocialList from "../../social-list";
 import navigationItems from "../common";
 import NavigationLink from "../navigationLink";
+import NavigationItemDropdown from "../navigationItemDropdown";
 
 type SideBarProps = {
   isOpen: boolean;
@@ -43,7 +44,14 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
     return (
       <>
         {navigationItems.map((navItem) => {
-          
+          if (navItem.navigationItems) {
+            return (
+              <NavigationItemDropdown
+                title={navItem.title}
+                navigationItems={navItem.navigationItems}
+              />
+            );
+          }
           return (
             <li className="c-sidebar__menu-list-item">
               <NavigationLink navigationItem={navItem} />

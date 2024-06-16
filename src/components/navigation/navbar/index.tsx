@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import navigationItems from "../common";
 import NavigationLink from "../navigationLink";
+import NavigationItemDropdown from "../navigationItemDropdown";
 
 type NavBarProps = {
   openMenuClicked: () => void;
@@ -46,29 +47,10 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
         {navigationItems.map((navItem) => {
           if (navItem.navigationItems) {
             return (
-              <li className="c-navbar__menu-list-item nav-item dropdown">
-                <a
-                  className="c-link nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  {navItem.title}
-                </a>
-                <ul className="dropdown-menu dropdown-menu-dark">
-                  {navItem.navigationItems.map((subNavItem) => {
-                    return (
-                      <li className="c-navbar__menu-list-item">
-                        <NavigationLink
-                          navigationItem={subNavItem}
-                          additonalClasses="dropdown-item"
-                        />
-                      </li>
-                    );
-                  })}
-                </ul>
-              </li>
+              <NavigationItemDropdown
+                  title={navItem.title}
+                navigationItems={navItem.navigationItems}
+              />
             );
           } else {
             return (

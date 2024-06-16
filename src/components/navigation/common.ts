@@ -2,6 +2,7 @@ import links from "../../data/links";
 export interface NavigationItem {
   title: string;
   url: string;
+  navigationItems?: NavigationItem[];
 }
 
 const navigationItems = [
