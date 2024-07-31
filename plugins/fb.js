@@ -33,7 +33,7 @@ exports.sourceNodes = async ({
   };
 
   // Facebook graphql data fetch
-  const getData = async (from, params = {}) => {
+  const getData = async (from, params = undefined) => {
     return await new Promise((resolve, reject) => {
       graph.setOptions(options).get(from, params, (err, res) => {
         if (err) {
@@ -43,6 +43,8 @@ exports.sourceNodes = async ({
         if (!res) {
           return reject(new Error("Response is empty!"));
         }
+
+        reporter.info(`got ${res?.data?.length} images`);
         resolve(res);
       });
     });
@@ -56,19 +58,31 @@ exports.sourceNodes = async ({
     );
     return { fields: string };
   };
+
   const nodeData = await getData(pageId.toString(), formatParams(params));
 
-  reporter.info(`got ${nodeData.length} images`);
+  const hasNextPage = (data) => data.paging && data.paging.next;
+
+  let paginationId = 1;
+  let images = [];
+  let next = hasNextPage(nodeData);
+  while (next) {
+    paginationId++;
+    reporter.info(`fetching page ${paginationId}`);
+    const nextPageData = await getData(res.paging.next);
+    images = images.concat(nextPageData.data);
+    next = hasNextPage(nextPageData);
+  }
 
   const sourceNodes = {
     id: createNodeId("facebook"),
     parent: null,
     children: [],
-    ...nodeData,
+    ...images,
     internal: {
       type: `facebook`,
-      content: JSON.stringify(nodeData),
-      contentDigest: createContentDigest(nodeData),
+      content: JSON.stringify(images),
+      contentDigest: createContentDigest(images),
     },
   };
 
