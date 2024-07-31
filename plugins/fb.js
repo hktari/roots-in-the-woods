@@ -28,8 +28,6 @@ exports.sourceNodes = async ({
 
   const options = {
     timeout: 10000,
-    pool: { maxSockets: Infinity },
-    headers: { connection: "keep-alive" },
   };
 
   // Facebook graphql data fetch
@@ -61,6 +59,9 @@ exports.sourceNodes = async ({
 
   const nodeData = await getData(pageId.toString(), formatParams(params));
 
+  // TODO: for each album, fetch photos until next page is null
+
+  console.log(JSON.stringify(nodeData, null, 2));
   const hasNextPage = (data) => data.paging && data.paging.next;
 
   let paginationId = 1;
@@ -69,7 +70,7 @@ exports.sourceNodes = async ({
   while (next) {
     paginationId++;
     reporter.info(`fetching page ${paginationId}`);
-    const nextPageData = await getData(res.paging.next);
+    const nextPageData = await getData(next);
     images = images.concat(nextPageData.data);
     next = hasNextPage(nextPageData);
   }
