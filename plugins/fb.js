@@ -1,12 +1,14 @@
-import * as graph from "fbgraph";
-import * as crypto from "crypto";
+const graph = require("fbgraph");
 
 exports.sourceNodes = async ({
   actions,
   createNodeId,
   createContentDigest,
+  reporter,
 }) => {
   const { createNode } = actions;
+
+  reporter.info(`Fetching data from Facebook...`);
 
   const pluginConfig = {
     // Facebook account or page ID
@@ -55,6 +57,8 @@ exports.sourceNodes = async ({
     return { fields: string };
   };
   const nodeData = await getData(pageId.toString(), formatParams(params));
+
+  reporter.info(`got ${nodeData.length} images`);
 
   const sourceNodes = {
     id: createNodeId("facebook"),
