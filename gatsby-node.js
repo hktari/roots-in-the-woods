@@ -1,8 +1,6 @@
+exports.sourceNodes = require("./plugins/fb").sourceNodes;
 
-exports.createPages = async function ({
-  actions,
-  graphql,
-}) {
+exports.createPages = async function ({ actions, graphql }) {
   const { createPage } = actions;
 
   const { data } = await graphql(`
@@ -21,11 +19,11 @@ exports.createPages = async function ({
 
   // todo: type
   data.allContentfulLineup.edges.forEach((edge, idx) => {
-    const {name, id, url} = edge.node
+    const { name, id, url } = edge.node;
     const pageUrl = `/lineup/${url}`;
 
     console.log("creating page at : ", pageUrl);
-    
+
     const page = {
       path: pageUrl,
       component: require.resolve(`./src/templates/LineupPage.tsx`),

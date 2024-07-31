@@ -66,18 +66,18 @@ const config: GatsbyConfig = {
         name: `info-items`,
       },
     },
-    {
-      resolve: `gatsby-source-facebook-graphql`,
-      options: {
-        // Facebook account or page ID
-        pageId: "101836354515324/albums",
-        params: {
-          fields: ["id", "name", "photos{webp_images}"],
-        },
-        // Access Token from facebook
-        accessToken: process.env.GATSBY_FACEBOOK_GRAPH_TOKEN,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-facebook-graphql`,
+    //   options: {
+    //     // Facebook account or page ID
+    //     pageId: "101836354515324/albums",
+    //     params: {
+    //       fields: ["id", "name", "photos{webp_images}"],
+    //     },
+    //     // Access Token from facebook
+    //     accessToken: process.env.GATSBY_FACEBOOK_GRAPH_TOKEN,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-schema-snapshot`,
       options: {
