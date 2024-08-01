@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { AlbumsDatum, PhotosDatum, WebpImage } from "../../interface/albums";
 import PhotoAlbumItem from "./photoAlbumItem";
 import FbAlbumsApiResponse from "../../interface/fbAlbumsApiResponse";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+
 type Props = {
   albumId: string;
   firstPagePhotos: PhotosDatum[];
@@ -37,10 +39,14 @@ const PhotoAlbum = ({
   };
 
   return (
-    <div className="col px-0 c-photo-album">
-      {photos.map((photo: PhotosDatum) => (
-        <PhotoAlbumItem key={photo.id} photo={photo} minPhotoWidth={432} />
-      ))}
+    <div>
+      <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+        <Masonry>
+          {photos.map((photo: PhotosDatum) => (
+            <PhotoAlbumItem key={photo.id} photo={photo} minPhotoWidth={432} />
+          ))}
+        </Masonry>
+      </ResponsiveMasonry>
 
       {hasNextPage && (
         <div className="c-photo-album__load-more">

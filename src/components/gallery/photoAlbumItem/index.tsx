@@ -38,9 +38,13 @@ const PhotoAlbumItem = ({ photo, minPhotoWidth }: Props) => {
   );
 
   return (
-    <div className="c-photo-album__img-container">
+    <div className="m-1 rounded-1 " style={{ overflow: "hidden" }}>
       <a href={largestPhoto.source}>
-        <img src={optimalSizePhoto.source} alt={photo?.id} />
+        <img
+          className="img-fluid"
+          src={optimalSizePhoto.source}
+          alt={photo?.id}
+        />
       </a>
     </div>
   );
