@@ -8,7 +8,7 @@ exports.sourceNodes = async ({
 }) => {
   const { createNode } = actions;
 
-  reporter.info(`Fetching data from Facebook...`);
+  reporter.info(`Fetching albums from Facebook...`);
 
   const pluginConfig = {
     // Facebook account or page ID
@@ -58,33 +58,28 @@ exports.sourceNodes = async ({
   };
 
   const nodeData = await getData(pageId.toString(), formatParams(params));
-
-  // TODO: for each album, fetch photos until next page is null
-
-  console.log(JSON.stringify(nodeData, null, 2));
-  const hasNextPage = (data) => data.paging && data.paging.next;
+  const getNextPageUrl = (data) => data.paging && data.paging.next;
 
   let paginationId = 1;
-  let images = [];
-  // TODO: nodeData is an array of albums, each album has an array of photos, id, name and paging
-  let next = hasNextPage(nodeData);
-  while (next) {
+  let albums = [...nodeData.data];
+  let nextPageUrl = getNextPageUrl(nodeData);
+  while (nextPageUrl) {
     paginationId++;
     reporter.info(`fetching page ${paginationId}`);
-    const nextPageData = await getData(next);
-    images = images.concat(nextPageData.data);
-    next = hasNextPage(nextPageData);
+    const nextPageData = await getData(nextPageUrl);
+    albums = albums.concat(nextPageData.data);
+    nextPageUrl = getNextPageUrl(nextPageData);
   }
 
   const sourceNodes = {
     id: createNodeId("facebook"),
     parent: null,
     children: [],
-    ...images,
+    ...albums,
     internal: {
       type: `facebook`,
-      content: JSON.stringify(images),
-      contentDigest: createContentDigest(images),
+      content: JSON.stringify(albums),
+      contentDigest: createContentDigest(albums),
     },
   };
 
