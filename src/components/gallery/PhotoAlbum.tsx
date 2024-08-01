@@ -2,27 +2,35 @@ import { PageProps } from "gatsby";
 import React, { useState } from "react";
 import { AlbumsDatum, PhotosDatum, WebpImage } from "../../interface/albums";
 import PhotoAlbumItem from "./photoAlbumItem";
-
+import FbAlbumsApiResponse from "../../interface/fbAlbumsApiResponse";
 type Props = {
-  album: AlbumsDatum;
+  albumId: string;
+  firstPagePhotos: PhotosDatum[];
+  secondPageCursorId: string | null;
 };
 
-const PhotoAlbum = ({ album }: Props) => {
-  const curPage = album.photos;
-  const [photos, setPhotos] = useState([...curPage?.data]);
+const PhotoAlbum = ({
+  albumId,
+  firstPagePhotos,
+  secondPageCursorId,
+}: Props) => {
+  const [photos, setPhotos] = useState([...firstPagePhotos]);
 
-  const [nextPageUrl, setNextPageUrl] = useState(curPage?.paging?.next);
+  const [nextPageCursorId, setNextPageCursorId] = useState(secondPageCursorId);
 
-  const hasNextPage = !!nextPageUrl;
+  const hasNextPage = !!nextPageCursorId;
 
   const onLoadMore = async () => {
     if (!hasNextPage) return;
 
+    const URL = `/.netlify/functions/fb-albums-api?cursor=${nextPageCursorId}&albumId=${albumId}`;
     try {
-      const res = await fetch(nextPageUrl);
-      const nextPagePhotos = (await res.json()).data;
+      const res = await fetch(URL);
+      const { nextPageCursorId, photos: nextPagePhotos } =
+        (await res.json()) as FbAlbumsApiResponse;
+
       setPhotos([...photos, ...nextPagePhotos]);
-      setNextPageUrl(nextPagePhotos?.paging?.next);
+      setNextPageCursorId(nextPageCursorId);
     } catch (error) {
       console.error(error);
     }
