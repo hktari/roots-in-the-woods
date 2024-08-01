@@ -6,7 +6,7 @@ import FbAlbumsApiResponse from "../../interface/fbAlbumsApiResponse";
 type Props = {
   albumId: string;
   firstPagePhotos: PhotosDatum[];
-  secondPageCursorId: string | null;
+  secondPageCursorId: string | undefined;
 };
 
 const PhotoAlbum = ({

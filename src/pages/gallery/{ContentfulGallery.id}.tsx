@@ -4,8 +4,21 @@ import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useHeaderContext } from "../../context/header-context";
 import PhotoAlbum from "../../components/gallery/PhotoAlbum";
+import { AlbumsDatum } from "../../interface/albums";
 
 type Props = {};
+
+const getPhotoAlbumProps = (album: AlbumsDatum) => {
+  if (!album.photos?.data) {
+    console.warn("no photos found in album: " + album.id);
+  }
+
+  return {
+    albumId: album.id,
+    firstPagePhotos: album.photos?.data,
+    secondPageCursorId: album.photos?.paging?.cursors?.after,
+  };
+};
 
 const GalleryDetailPage = ({
   data,
@@ -23,7 +36,7 @@ const GalleryDetailPage = ({
 
   const album = data.albums.nodes[0]?.data?.find(
     (album) => album?.id === facebookAlbumId
-  );
+  ) as AlbumsDatum | undefined;
 
   const lineupUrl = data.contentfulGallery?.lineup?.url;
 
@@ -55,7 +68,7 @@ const GalleryDetailPage = ({
       </div>
       <div className="row">
         {album ? (
-          <PhotoAlbum album={album}></PhotoAlbum>
+          <PhotoAlbum {...getPhotoAlbumProps(album)}></PhotoAlbum>
         ) : (
           <div>
             No facebook album found for id {facebookAlbumId}. Please check you
