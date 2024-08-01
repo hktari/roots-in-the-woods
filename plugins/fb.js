@@ -57,7 +57,7 @@ exports.sourceNodes = async ({
     return { fields: string };
   };
 
-  const nodeData = await getData(pageId.toString(), formatParams(params));
+  let nodeData = await getData(pageId.toString(), formatParams(params));
   const getNextPageUrl = (data) => data.paging && data.paging.next;
 
   let paginationId = 1;
@@ -66,16 +66,16 @@ exports.sourceNodes = async ({
   while (nextPageUrl) {
     paginationId++;
     reporter.info(`fetching page ${paginationId}`);
-    const nextPageData = await getData(nextPageUrl);
-    albums = albums.concat(nextPageData.data);
-    nextPageUrl = getNextPageUrl(nextPageData);
+    nodeData = await getData(nextPageUrl);
+    albums = albums.concat(nodeData.data);
+    nextPageUrl = getNextPageUrl(nodeData);
   }
 
   const sourceNodes = {
     id: createNodeId("facebook"),
     parent: null,
     children: [],
-    ...albums,
+    ...nodeData,
     internal: {
       type: `facebook`,
       content: JSON.stringify(albums),
