@@ -42,7 +42,7 @@ exports.sourceNodes = async ({
           return reject(new Error("Response is empty!"));
         }
 
-        reporter.info(`got ${res?.data?.length} images`);
+        reporter.info(`got ${res?.data?.length} albums`);
         resolve(res);
       });
     });
@@ -66,6 +66,7 @@ exports.sourceNodes = async ({
 
   let paginationId = 1;
   let images = [];
+  // TODO: nodeData is an array of albums, each album has an array of photos, id, name and paging
   let next = hasNextPage(nodeData);
   while (next) {
     paginationId++;
