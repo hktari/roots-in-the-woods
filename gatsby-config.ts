@@ -75,7 +75,7 @@ const config: GatsbyConfig = {
     //       fields: ["id", "name", "photos{webp_images}"],
     //     },
     //     // Access Token from facebook
-    //     accessToken: process.env.GATSBY_FACEBOOK_GRAPH_TOKEN,
+    //     accessToken: process.env.FACEBOOK_GRAPH_TOKEN,
     //   },
     // },
     {
