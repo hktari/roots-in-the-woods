@@ -19,6 +19,7 @@
     "@contentful/rich-text-html-renderer": "^16.0.2",
     "@contentful/rich-text-react-renderer": "^15.21.2",
     "@contentful/rich-text-types": "^16.5.2",
+    "@netlify/functions": "^2.8.1",
     "@netlify/plugin-gatsby": "^3.5.0",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
