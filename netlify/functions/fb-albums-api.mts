@@ -17,7 +17,7 @@ export default async (req: Request, context: Context) => {
     return new Response("cursor and albumId are required", { status: 400 });
   }
 
-  const limit = 10;
+  const limit = 30;
   const accessToken = Netlify.env.get("FACEBOOK_GRAPH_TOKEN");
   const url = `https://graph.facebook.com/v15.0/${albumId}/photos?access_token=${accessToken}&fields=webp_images&limit=${limit}&after=${cursor}`;
 
