@@ -3,3 +3,4 @@
 
 [[plugins]]
 package = "@netlify/plugin-gatsby"
+package = "netlify-plugin-cypress"
