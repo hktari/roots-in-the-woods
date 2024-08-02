@@ -1,9 +1,9 @@
-import { PageProps } from "gatsby";
-import React, { useState } from "react";
-import { AlbumsDatum, PhotosDatum, WebpImage } from "../../interface/albums";
+import React, { useCallback, useState } from "react";
+import { PhotosDatum } from "../../interface/albums";
 import PhotoAlbumItem from "./photoAlbumItem";
 import FbAlbumsApiResponse from "../../interface/fbAlbumsApiResponse";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { useInView } from "react-cool-inview";
 
 export type PhotoAlbumProps = {
   albumId: string;
@@ -22,7 +22,7 @@ const PhotoAlbum = ({
 
   const hasNextPage = !!nextPageCursorId;
 
-  const onLoadMore = async () => {
+  const onLoadMore = useCallback(async () => {
     if (!hasNextPage) return;
 
     const URL = `/.netlify/functions/fb-albums-api?cursor=${nextPageCursorId}&albumId=${albumId}`;
@@ -36,12 +36,16 @@ const PhotoAlbum = ({
     } catch (error) {
       console.error(error);
     }
-  };
+  }, [albumId, hasNextPage, nextPageCursorId, photos]);
+
+  const { observe: loadMoreRef } = useInView({
+    onEnter: async () => {
+      await onLoadMore();
+    },
+  });
 
   return (
     <div>
-      
-      
       <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
         <Masonry>
           {photos.map((photo: PhotosDatum) => (
@@ -51,7 +55,7 @@ const PhotoAlbum = ({
       </ResponsiveMasonry>
 
       {hasNextPage && (
-        <div className="c-photo-album__load-more">
+        <div ref={loadMoreRef} className="c-photo-album__load-more">
           <button className="btn btn-primary" onClick={onLoadMore}>
             Load More
           </button>
