@@ -22,9 +22,12 @@ const PhotoAlbum = ({
 
   const hasNextPage = !!nextPageCursorId;
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const onLoadMore = useCallback(async () => {
     if (!hasNextPage) return;
 
+    setIsLoading(true);
     const URL = `/.netlify/functions/fb-albums-api?cursor=${nextPageCursorId}&albumId=${albumId}`;
     try {
       const res = await fetch(URL);
@@ -35,6 +38,8 @@ const PhotoAlbum = ({
       setNextPageCursorId(nextPageCursorId);
     } catch (error) {
       console.error(error);
+    } finally {
+      setIsLoading(false);
     }
   }, [albumId, hasNextPage, nextPageCursorId, photos]);
 
@@ -55,9 +60,19 @@ const PhotoAlbum = ({
       </ResponsiveMasonry>
 
       {hasNextPage && (
-        <div ref={loadMoreRef} className="c-photo-album__load-more">
-          <button className="btn btn-primary" onClick={onLoadMore}>
-            Load More
+        <div ref={loadMoreRef} className="c-photo-album__load-more text-center">
+          <button
+            disabled={isLoading}
+            className="btn btn-primary text-white"
+            onClick={onLoadMore}
+          >
+            {isLoading ? (
+              <div className="spinner-border text-secondary" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            ) : (
+              <>Load More</>
+            )}
           </button>
         </div>
       )}
