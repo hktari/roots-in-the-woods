@@ -3,12 +3,14 @@ import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import { graphql, HeadFC, Link, PageProps } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { useHeaderContext } from "../../context/header-context";
-import PhotoAlbum from "../../components/gallery/PhotoAlbum";
+import PhotoAlbum, {
+  PhotoAlbumProps,
+} from "../../components/gallery/PhotoAlbum";
 import { AlbumsDatum } from "../../interface/albums";
 
 type Props = {};
 
-const getPhotoAlbumProps = (album: AlbumsDatum) => {
+const getPhotoAlbumProps = (album: AlbumsDatum): PhotoAlbumProps => {
   if (!album.photos?.data) {
     console.warn("no photos found in album: " + album.id);
   }
@@ -98,10 +100,18 @@ export const query = graphql`
                 width
               }
             }
+            paging {
+              next
+              cursors {
+                before
+                after
+              }
+            }
           }
         }
       }
     }
+
     contentfulGallery(id: { eq: $id }) {
       bannerDesktop: banner {
         gatsbyImageData(layout: FULL_WIDTH, aspectRatio: 2.6)
