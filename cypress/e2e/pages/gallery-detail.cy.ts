@@ -1,7 +1,7 @@
 describe("gallery detail page", () => {
   beforeEach(() => {
     cy.visit("/gallery/");
-    cy.get(".row > :nth-child(1)").click();
+    cy.get(".row:nth-child(1) > :nth-child(1)").as('firstAlbum').click();
   });
 
   it("onScrollBottom should call load more photos API", () => {
