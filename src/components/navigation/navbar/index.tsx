@@ -48,6 +48,7 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
           if (navItem.navigationItems) {
             return (
               <NavigationItemDropdown
+                key={navItem.title}
                 className="c-navbar__menu-list-item"
                 title={navItem.title}
                 navigationItems={navItem.navigationItems}
@@ -55,7 +56,7 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
             );
           } else {
             return (
-              <li className="c-navbar__menu-list-item">
+              <li className="c-navbar__menu-list-item" key={navItem.title}>
                 <NavigationLink navigationItem={navItem} />
               </li>
             );

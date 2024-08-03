@@ -47,6 +47,7 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
           if (navItem.navigationItems) {
             return (
               <NavigationItemDropdown
+                key={navItem.title}
                 title={navItem.title}
                 className="c-sidebar__menu-list-item"
                 navigationItems={navItem.navigationItems}
@@ -54,7 +55,7 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
             );
           }
           return (
-            <li className="c-sidebar__menu-list-item">
+            <li className="c-sidebar__menu-list-item" key={navItem.title}>
               <NavigationLink navigationItem={navItem} />
             </li>
           );
