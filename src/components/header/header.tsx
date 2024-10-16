@@ -17,26 +17,22 @@ const Header = ({ setDisableScroll }: HeaderProps) => {
 
   const data: Queries.BannerImagesQuery = useStaticQuery(graphql`
     query BannerImages {
-  bannerDesktop: file(relativePath: {eq: "roots-banner-desktop.png"}) {
-    childImageSharp {
-      gatsbyImageData(height: 915, layout: FULL_WIDTH)
+      contentfulBanner {
+        imageMobile {
+          gatsbyImageData(height: 765, width: 765)
+        }
+        imageDesktop {
+          gatsbyImageData(height: 915, layout: FULL_WIDTH)
+        }
+      }
     }
-    name
-  }
-  bannerMobile: file(relativePath: {eq: "roots-banner-mobile.jpg"}) {
-    childImageSharp {
-      gatsbyImageData(height: 915, layout: FULL_WIDTH)
-    }
-    name
-  }
-}
-
   `);
 
   const defaultBannerDesktop =
-    data?.bannerDesktop?.childImageSharp?.gatsbyImageData;
+    data?.contentfulBanner?.imageDesktop?.gatsbyImageData;
   const defaultBannerMobile =
-    data?.bannerMobile?.childImageSharp?.gatsbyImageData;
+    data?.contentfulBanner?.imageMobile?.gatsbyImageData;
+    
   if (!defaultBannerDesktop || !defaultBannerMobile) {
     throw new Error("Failed to find banner image");
   }
@@ -44,7 +40,7 @@ const Header = ({ setDisableScroll }: HeaderProps) => {
   useEffect(() => {
     setDisableScroll(sidebarOpen);
   }, [sidebarOpen]);
-  
+
   const altText = "Roots in the Woods Banner";
   return (
     <>

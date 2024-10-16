@@ -2,6 +2,8 @@ import { useStaticQuery, graphql } from "gatsby";
 import { IGatsbyImageData } from "gatsby-plugin-image";
 import React, { createContext, useContext, useMemo, useState } from "react";
 
+// TODO: remove this. It is not used anywhere. And the page features only a single banner image on all pages
+
 interface IHeaderContext {
   overrideBannerDesktopImage: IGatsbyImageData | null;
   overrideBannerMobileImage: IGatsbyImageData | null;
