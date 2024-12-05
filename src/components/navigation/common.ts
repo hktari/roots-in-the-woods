@@ -1,48 +1,33 @@
-import links from "../../data/links";
+import { useStaticQuery, graphql } from "gatsby";
+
 export interface NavigationItem {
   title: string;
   url?: string;
   navigationItems?: NavigationItem[];
 }
 
-const navigationItems = [
-  {
-    title: "Home",
-    url: "/",
-  },
-  {
-    title: "Lineup",
-    url: "/lineup/2024",
-  },
-  {
-    title: "Mission",
-    url: "/mission",
-  },
-  {
-    title: "Tickets",
-    url: links.tickets,
-  },
-  {
-    title: "Merch",
-    url: "/merch",
-  },
-  {
-    title: "More",
-    navigationItems: [
-      {
-        title: "Map",
-        url: "/map",
-      },
-      {
-        title: "Gallery",
-        url: "/gallery",
-      },
-      {
-        title: "FAQ",
-        url: "/faq",
-      },
-    ],
-  },
-] as NavigationItem[];
+export const useNavigation = () => {
+  const { contentfulNavigation: navigationItems } =
+    useStaticQuery<Queries.NavigationItemsQuery>(graphql`
+      query NavigationItems {
+        contentfulNavigation {
+          items {
+            title
+            url
+            navigationItems {
+              title
+              url
+            }
+          }
+        }
+      }
+    `);
 
-export default navigationItems;
+  if (!navigationItems?.items) {
+    throw new Error(
+      "No navigation items found. Please configure navigation in Contentful"
+    );
+  }
+
+  return navigationItems.items as NavigationItem[];
+};

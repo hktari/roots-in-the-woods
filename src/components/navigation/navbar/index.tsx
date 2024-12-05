@@ -1,34 +1,18 @@
 import React from "react";
-import { graphql, Link, useStaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import logo from "../../../images/logo.jpg";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
-import NavigationLink from "../navigationLink";
-import NavigationItemDropdown from "../navigationItemDropdown";
-import { NavigationItem } from "../common";
+import { useNavigation } from "../common";
+import { NavigationItems } from "../components/NavigationItems";
 
 type NavBarProps = {
   openMenuClicked: () => void;
 };
 
 const NavBar = ({ openMenuClicked }: NavBarProps) => {
-
-  const { contentfulNavigation: navigationItems } = useStaticQuery<Queries.NavigationItemsQuery>(graphql`
-  query NavigationItems {
-    contentfulNavigation {
-      items {
-        title
-        url
-        navigationItems {
-          title
-          url
-        }
-      }
-  }
-  }`);
-
-  const scrollAmountThresholdPx = 75;
+  const navigationItems = useNavigation();
   const navbarHeightPx = 96;
 
   const [stickToTop, setStickToTop] = useState(false);
@@ -50,35 +34,10 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
     // and when the user has scrolled up for at least scrollAmountThresholdPx
     setStickToTop(
       window.scrollY > navbarHeightPx &&
-      scrollAmountTopPx.current > scrollAmountThresholdPx
+      scrollAmountTopPx.current > 75
     );
 
     lastScrollY.current = window.scrollY;
-  };
-
-  const renderNavigationItems = () => {
-    return (
-      <>
-        {navigationItems && navigationItems.items && navigationItems.items.map((navItem) => {
-          if (navItem && navItem.navigationItems) {
-            return (
-              <NavigationItemDropdown
-                key={navItem.title}
-                className="c-navbar__menu-list-item"
-                title={navItem.title!}
-                navigationItems={navItem.navigationItems as NavigationItem[]}
-              />
-            );
-          } else {
-            return (
-              <li className="c-navbar__menu-list-item" key={navItem?.title}>
-                <NavigationLink navigationItem={navItem as NavigationItem} />
-              </li>
-            );
-          }
-        })}
-      </>
-    );
   };
 
   useEffect(() => {
@@ -90,9 +49,6 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
 
   return (
     <div className={`c-navbar ${stickToTop ? "c-navbar--sticky" : ""}`}>
-      {/* <h1 className='c-navbar__title'>
-        Roots in the Woods
-      </h1> */}
       <Link to="/" className="c-logo c-navbar__logo">
         <img
           width="64px"
@@ -101,15 +57,21 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
           alt="roots in the woods logo"
         />
       </Link>
+      <nav className="c-navbar__menu">
+        <ul className="c-navbar__menu-list">
+          <NavigationItems
+            items={navigationItems}
+            className="c-navbar__menu-list-item"
+          />
+        </ul>
+      </nav>
       <button
         className="c-navbar__menu-toggle"
-        onClick={() => openMenuClicked()}
+        type="button"
+        onClick={openMenuClicked}
       >
         <i className="bi bi-list"></i>
       </button>
-      <nav className="c-navbar__menu">
-        <ul className="c-navbar__menu-list">{renderNavigationItems()}</ul>
-      </nav>
     </div>
   );
 };

@@ -3,9 +3,8 @@ import { Link } from "gatsby";
 import { useRef } from "react";
 import { useEffect } from "react";
 import SocialList from "../../social-list";
-import navigationItems from "../common";
-import NavigationLink from "../navigationLink";
-import NavigationItemDropdown from "../navigationItemDropdown";
+import { NavigationItem, useNavigation } from "../common";
+import { NavigationItems } from "../components/NavigationItems";
 
 type SideBarProps = {
   isOpen: boolean;
@@ -14,6 +13,7 @@ type SideBarProps = {
 
 const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
   const menuListRef = useRef<HTMLElement>();
+  const navigationItems = useNavigation();
 
   useEffect(() => {
     if (!menuListRef.current) {
@@ -27,8 +27,6 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
     const linkClickEventHandler = () => closeMenuClicked();
 
     links.forEach((link) => {
-      console.log("link", link.getAttribute("href"));
-
       // close menu when link is clicked
       link.addEventListener("click", linkClickEventHandler);
     });
@@ -39,30 +37,6 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
       });
     };
   }, [menuListRef]);
-
-  const renderNavigationItems = () => {
-    return (
-      <>
-        {navigationItems.map((navItem) => {
-          if (navItem.navigationItems) {
-            return (
-              <NavigationItemDropdown
-                key={navItem.title}
-                title={navItem.title}
-                className="c-sidebar__menu-list-item"
-                navigationItems={navItem.navigationItems}
-              />
-            );
-          }
-          return (
-            <li className="c-sidebar__menu-list-item" key={navItem.title}>
-              <NavigationLink navigationItem={navItem} />
-            </li>
-          );
-        })}
-      </>
-    );
-  };
 
   return (
     <div className={`c-sidebar ${isOpen ? "c-sidebar--show" : ""}`}>
@@ -77,10 +51,12 @@ const SideBar = ({ isOpen, closeMenuClicked }: SideBarProps) => {
 
       <nav className="c-sidebar__menu">
         <ul className="c-sidebar__menu-list" ref={menuListRef}>
-          {renderNavigationItems()}
+          <NavigationItems
+            items={navigationItems || []}
+            className="c-sidebar__menu-list-item"
+          />
         </ul>
       </nav>
-
       <div className="c-sidebar__social">
         <SocialList classModifiers={"c-social-list--black"} />
       </div>
