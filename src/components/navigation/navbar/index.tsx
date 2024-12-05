@@ -1,18 +1,33 @@
 import React from "react";
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 import logo from "../../../images/logo.jpg";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
-import navigationItems from "../common";
 import NavigationLink from "../navigationLink";
 import NavigationItemDropdown from "../navigationItemDropdown";
+import { NavigationItem } from "../common";
 
 type NavBarProps = {
   openMenuClicked: () => void;
 };
 
 const NavBar = ({ openMenuClicked }: NavBarProps) => {
+
+  const { contentfulNavigation: navigationItems } = useStaticQuery<Queries.NavigationItemsQuery>(graphql`
+  query NavigationItems {
+    contentfulNavigation {
+      items {
+        title
+        url
+        navigationItems {
+          title
+          url
+        }
+      }
+  }
+  }`);
+
   const scrollAmountThresholdPx = 75;
   const navbarHeightPx = 96;
 
@@ -35,7 +50,7 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
     // and when the user has scrolled up for at least scrollAmountThresholdPx
     setStickToTop(
       window.scrollY > navbarHeightPx &&
-        scrollAmountTopPx.current > scrollAmountThresholdPx
+      scrollAmountTopPx.current > scrollAmountThresholdPx
     );
 
     lastScrollY.current = window.scrollY;
@@ -44,20 +59,20 @@ const NavBar = ({ openMenuClicked }: NavBarProps) => {
   const renderNavigationItems = () => {
     return (
       <>
-        {navigationItems.map((navItem) => {
-          if (navItem.navigationItems) {
+        {navigationItems && navigationItems.items && navigationItems.items.map((navItem) => {
+          if (navItem && navItem.navigationItems) {
             return (
               <NavigationItemDropdown
                 key={navItem.title}
                 className="c-navbar__menu-list-item"
-                title={navItem.title}
-                navigationItems={navItem.navigationItems}
+                title={navItem.title!}
+                navigationItems={navItem.navigationItems as NavigationItem[]}
               />
             );
           } else {
             return (
-              <li className="c-navbar__menu-list-item" key={navItem.title}>
-                <NavigationLink navigationItem={navItem} />
+              <li className="c-navbar__menu-list-item" key={navItem?.title}>
+                <NavigationLink navigationItem={navItem as NavigationItem} />
               </li>
             );
           }

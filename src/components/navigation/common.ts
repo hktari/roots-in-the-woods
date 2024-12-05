@@ -1,7 +1,7 @@
 import links from "../../data/links";
 export interface NavigationItem {
   title: string;
-  url: string;
+  url?: string;
   navigationItems?: NavigationItem[];
 }
 
