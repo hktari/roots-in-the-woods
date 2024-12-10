@@ -6,7 +6,7 @@ type Props = {};
 
 const WhenSection = (props: Props) => {
 
-  const { dateSection } = useStaticQuery<FrontPageDateSectionQuery>(graphql`
+  const { dateSection } = useStaticQuery<Queries.FrontPageDateSectionQuery>(graphql`
     query FrontPageDateSection {
       dateSection: contentfulFrontPageSectionDate {
         backgroundImage {
