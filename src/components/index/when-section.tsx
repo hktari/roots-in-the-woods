@@ -1,11 +1,40 @@
+import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
-
-import { StaticImage } from "gatsby-plugin-image";
-import reggaeTexture from "../../images/reggae-texture.jpg";
 
 type Props = {};
 
 const WhenSection = (props: Props) => {
+
+  const { dateSection } = useStaticQuery<FrontPageDateSection>(graphql`
+    query FrontPageDateSection {
+      dateSection: contentfulFrontPageSectionDate {
+        backgroundImage {
+          url
+        }
+        startDate
+        endDate
+      }
+    }`);
+
+  if (!dateSection) {
+    console.warn("contentfulFrontPageSectionDate is not defined. Make sure to add it inside Contentful")
+    return null
+  };
+
+  const getEventDateString = () => {
+    const startDate = new Date(dateSection.startDate!);
+    const endDate = new Date(dateSection.endDate!);
+    return startDate.getDate() + " - " + endDate.getDate()
+  }
+
+  const eventMonthString = new Date(dateSection.startDate!).toLocaleString(
+    "en-us",
+    {
+      month: "long",
+    }
+  );
+  const eventYearString = new Date(dateSection.startDate!).getFullYear();
+
   return (
     <section className="c-section">
       <div className="row gy-0">
@@ -13,12 +42,12 @@ const WhenSection = (props: Props) => {
           <div className="c-when-section__wrapper">
             <div
               className="c-when-section__text"
-              style={{ backgroundImage: `url("${reggaeTexture}")` }}
+              style={{ backgroundImage: `url("${dateSection.backgroundImage?.url}")` }}
             >
-              <span className="c-when-section__span">22 - 24</span>
+              <span className="c-when-section__span">{getEventDateString()}</span>
               <br />
-              <span className="c-when-section__span">August </span>
-              <span className="c-when-section__span">2024</span>
+              <span className="c-when-section__span">{eventMonthString}{' '}</span>
+              <span className="c-when-section__span">{eventYearString}</span>
             </div>
           </div>
         </div>
