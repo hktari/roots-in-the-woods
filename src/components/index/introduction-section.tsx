@@ -33,7 +33,7 @@ const IntroSectionRow = ({paragraph, nextImage, isEven }) => {
 const IntroductionSection = () => {
   const { contentfulFrontPageIntroductionSection: introSection } =
     useStaticQuery(graphql`
-      query {
+      query ContentfulFrontPageIntroductionSection {
         contentfulFrontPageIntroductionSection {
           images {
             gatsbyImageData(width: 776)

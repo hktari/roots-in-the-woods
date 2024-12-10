@@ -1,11 +1,12 @@
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
+import { FrontPageDateSectionQuery } from "../../__generated__/types";
 
 type Props = {};
 
 const WhenSection = (props: Props) => {
 
-  const { dateSection } = useStaticQuery<FrontPageDateSection>(graphql`
+  const { dateSection } = useStaticQuery<FrontPageDateSectionQuery>(graphql`
     query FrontPageDateSection {
       dateSection: contentfulFrontPageSectionDate {
         backgroundImage {
