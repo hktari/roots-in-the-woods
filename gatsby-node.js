@@ -1,5 +1,3 @@
-exports.sourceNodes = require("./plugins/fb").sourceNodes;
-
 exports.createPages = async function ({ actions, graphql }) {
   const { createPage } = actions;
 
