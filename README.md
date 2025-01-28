@@ -1,5 +1,7 @@
 # Roots in the Woods website
+
 ### tech stack:
+
 - gatsby
 - netlify
 - bootstrap
@@ -9,12 +11,14 @@
 - facebook graph API
 - plausible
 
-
 ## Get started
+
 ### Developing
-`ǹpm run develop`
+
+1. cp .env.example .env.development
+2. `npm run develop`
+
 ### Deploying
+
 1. push to `main` or `develop`
 2. view https://www.rootsinthewoodsfestival.com or https://develop--rootsinthewoods.netlify.app
-
-
