@@ -3,7 +3,7 @@ node_modules/
 .comments/
 public
 src/gatsby-types.d.ts
-.env.*
+.env*
 !.env.example
 tmp/
 # Local Netlify folder
